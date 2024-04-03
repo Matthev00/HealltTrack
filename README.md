@@ -86,6 +86,18 @@ You can also document commands to lint the code or run tests. These steps help t
 ## Authors and acknowledgment
 Show your appreciation to those who have contributed to the project.
 
+## Tabels
+- User
+- Meals
+- Ingredients
+- Exercises
+- Hisotry of Meals
+- Hisotry of Execrices
+- Drinks
+- Weight Measurements
+- Day - user
+- Passwords
+
 ## License
 For open source projects, say how it is licensed.
 
