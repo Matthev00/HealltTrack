@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="706DF9EB-20D5-FE22-E9A2-AAF9FB639A24" name="Activity">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:57:21 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="activity_id" id="A071E112-34BE-3FFC-C7BF-32AFE2A39E8B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:58:00 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="0CF51C58-3044-F2E6-DE89-AFFF5E0AEF12">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:01:00 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calories_per_hour" id="BBA1BEF3-0D90-30C9-884F-8065980EE050">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:01:12 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F0D30CDE-BB0C-6B03-8A2D-D7C597D1E3D3" name="Activity PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:01:53 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A071E112-34BE-3FFC-C7BF-32AFE2A39E8B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E83E622A-238A-B83D-CF05-15E367941B82" name="Ingredient">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:37:17 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ingredient_id" id="C88DFE4A-E080-9AFF-C9CC-E94FFCAB2D48">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:37:25 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calories_per_100g" id="43790EBE-2233-9445-919D-63D02B6C6375">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:37:56 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="proteins_per_100g" id="33A6CE24-DF8E-A952-0474-1C84F219E65C">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:39:43 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fats_per_100g" id="A48EA980-08A5-8CCB-B9D0-ECB361EFF9A5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:40:24 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="carbohydrates_per_100g" id="AA3FC0BA-6A72-8308-0A9A-EAAEE0D3168A">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:40:45 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AC99F273-3BA5-AA05-67F5-BF9AADC4DC67" name="Ingredient PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:37:51 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>C88DFE4A-E080-9AFF-C9CC-E94FFCAB2D48</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E29031C7-7051-9727-054E-CA87B605DC90" name="Meal_type">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:42:29 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="meal_type_id" id="0826E8D8-E8CB-72A1-9312-E1069632320B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:42:45 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="0AEAECD8-CBED-73E0-A696-8F6DD66232A7">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:42:59 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="CB60F6EB-3971-A351-E256-276680FC60EC" name="Meal_type PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:42:56 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0826E8D8-E8CB-72A1-9312-E1069632320B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

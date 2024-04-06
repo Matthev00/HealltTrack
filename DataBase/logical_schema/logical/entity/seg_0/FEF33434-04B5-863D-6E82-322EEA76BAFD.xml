@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="FEF33434-04B5-863D-6E82-322EEA76BAFD" name="Activity_history">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:04:08 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="activity_history_id" id="D3BC40A2-7091-59B8-BB63-6AC47FC53033">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:04:26 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="duration" id="9BE2FF2D-4A1D-630C-4277-9B7262698722">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:04:45 UTC</createdTime>
+<commentInRDBMS><![CDATA[in minutes]]></commentInRDBMS>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0235B49E-8F5E-61A8-C5E4-43A7487DA58C" name="Activity_history PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:04:43 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D3BC40A2-7091-59B8-BB63-6AC47FC53033</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
