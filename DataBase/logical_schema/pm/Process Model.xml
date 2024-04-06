@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="05AD1EF4-941F-B543-8FA6-0B7B8F48A6F3">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 10:10:07 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>
