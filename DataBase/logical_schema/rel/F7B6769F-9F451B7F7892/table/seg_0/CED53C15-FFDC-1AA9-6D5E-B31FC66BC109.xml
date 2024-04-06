@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CED53C15-FFDC-1AA9-6D5E-B31FC66BC109" name="Activity">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>DB7A1232-8055-119C-BEE5-9AA83AFB7EF7</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="activity_id" id="955C9D9E-AB85-44FC-02D7-6807797A6E08">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>84AD810E-D101-A6DD-B68F-C30683AEC4F7</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="59785AE8-3764-78CC-FB93-2E810A9612C1">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>5D021986-390E-C670-41FB-15A2CC9F244D</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calories_per_hour" id="1853DDEB-7F58-F176-0B8F-6A7D78BCCFB1">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>BA864D11-3ADB-D36B-3A5C-71783AF5DDDE</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99E6DF9D-8BA2-556C-F59E-34F98D23FD78" name="Activity_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>21536CB6-1401-956C-3BDC-23EFA5DCDDD0</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="955C9D9E-AB85-44FC-02D7-6807797A6E08"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
