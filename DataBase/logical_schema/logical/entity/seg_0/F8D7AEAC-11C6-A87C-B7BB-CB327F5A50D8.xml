@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F8D7AEAC-11C6-A87C-B7BB-CB327F5A50D8" name="Meal_history">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:10:14 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="meal_history_id" id="455229FA-9A2D-E41C-FF94-48D638C6DEAA">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:10:28 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="start_date" id="263E635F-1A26-D3F4-C66D-F6CCA5064B12">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:10:41 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8EA0DFC8-B610-9F70-4DC4-7E93E4A35316" name="Meal_history PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:10:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="7CD7CC0F-6046-DCAD-4810-BFFF653229B7" value="true"/>
+<item key="C774DE6F-D14E-34A7-B2F3-A62B255CA9CF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>455229FA-9A2D-E41C-FF94-48D638C6DEAA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

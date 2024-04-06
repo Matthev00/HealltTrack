@@ -5,4 +5,9 @@
 <ownerDesignName>logical_schema</ownerDesignName>
 <capitalNames>false</capitalNames>
 <designId>A225A7C2-D60A-1E52-9694-C621FF622782</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A225A7C2-D60A-1E52-9694-C621FF622782">
+<designStoragePath>E:\BD2\bd2_z26\DataBase\logical_schema</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>
