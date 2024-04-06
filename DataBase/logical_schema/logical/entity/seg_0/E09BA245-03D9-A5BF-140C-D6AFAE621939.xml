@@ -1,0 +1,118 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E09BA245-03D9-A5BF-140C-D6AFAE621939" name="Ingredient">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E83E622A-238A-B83D-CF05-15E367941B82</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ingredient_id" id="FD07C58B-AD84-325B-BE2C-5EA55A4CD153">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C88DFE4A-E080-9AFF-C9CC-E94FFCAB2D48</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calories_per_100g" id="6E012031-BEA1-DFE8-F9F8-54F16D06B5DE">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>43790EBE-2233-9445-919D-63D02B6C6375</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="proteins_per_100g" id="227BAF9F-B780-92FC-6488-C6B6E1EFF4FB">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>33A6CE24-DF8E-A952-0474-1C84F219E65C</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fats_per_100g" id="C46E1B6B-2598-3423-CB61-4164A08E8620">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A48EA980-08A5-8CCB-B9D0-ECB361EFF9A5</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="carbohydrates_per_100g" id="A66C5E2B-4453-E996-1BEC-1132A9D39FAC">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>AA3FC0BA-6A72-8308-0A9A-EAAEE0D3168A</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="702877C2-819F-12BB-195F-5D48CF1A29C7" name="Ingredient PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>AC99F273-3BA5-AA05-67F5-BF9AADC4DC67</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>FD07C58B-AD84-325B-BE2C-5EA55A4CD153</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

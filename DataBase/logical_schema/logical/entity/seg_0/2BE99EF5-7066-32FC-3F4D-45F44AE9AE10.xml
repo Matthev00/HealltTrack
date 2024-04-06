@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2BE99EF5-7066-32FC-3F4D-45F44AE9AE10" name="Goal_type">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>08E7595A-C327-51EC-9F7D-0E2DED455200</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="goal_type_id" id="CB6AAFE6-6A9E-007A-66E8-13BB168C8E77">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>EC85B8D8-B852-6F48-905F-64FFBEECCAD2</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="6E98124A-0CD9-352E-9B50-4A93D131CEB7">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E1CF048D-31FE-C717-2B8B-A596D7F365CE</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BAB37B85-9790-2C6E-8D96-37EBCEE60E76" name="Goal_type PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 11:45:13 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>07216C44-5B1F-0081-CC31-BC4847E30ED8</importedID>
+<engineerTo>
+<item key="F7B6769F-796E-0B73-F6F1-9F451B7F7892" value="true"/>
+<item key="AE80069E-1B5B-E3D1-EFCB-479818A06A24" value="true"/>
+<item key="0E78C9A2-5461-0B71-2D27-7C0E54466055" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CB6AAFE6-6A9E-007A-66E8-13BB168C8E77</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,10 +1,10 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="logical_schema" id="A225A7C2-D60A-1E52-9694-C621FF622782" version="3.5">
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="logical_schema" id="6EEA06BA-FB3E-B320-95E4-1D62ECDBB646" version="3.5">
 <createdBy>mateu</createdBy>
-<createdTime>2024-04-06 10:10:07 UTC</createdTime>
+<createdTime>2024-04-06 11:44:51 UTC</createdTime>
 <ownerDesignName>logical_schema</ownerDesignName>
 <capitalNames>false</capitalNames>
-<designId>A225A7C2-D60A-1E52-9694-C621FF622782</designId>
+<designId>6EEA06BA-FB3E-B320-95E4-1D62ECDBB646</designId>
 <usedDesignStorageDescriptors>
 <designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A225A7C2-D60A-1E52-9694-C621FF622782">
 <designStoragePath>E:\BD2\bd2_z26\DataBase\logical_schema</designStoragePath>

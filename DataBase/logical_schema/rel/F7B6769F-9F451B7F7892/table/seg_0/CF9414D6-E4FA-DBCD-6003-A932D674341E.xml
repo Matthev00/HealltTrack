@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CF9414D6-E4FA-DBCD-6003-A932D674341E" name="Goal">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>54AC834B-6A3B-CD67-56D8-4DAD5C3009BD</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="goal_id" id="BAEB2168-0C70-D203-7567-D847A183DE3F">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>6622EB10-9636-B62E-4BC9-69513FE64231</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="goal_type" id="FDD6C193-07A4-E890-53E1-88F8D5543A81">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>1D0A2B1E-57C5-823A-13F2-2BC1DD77AC20</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="target_weigth" id="3533E5F3-599B-0C8C-18E8-8C6B0D2AAE99">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>8C1CC7B6-0920-4D95-EE8B-E4D9FB055702</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_date" id="8928E284-1695-7E4A-A0FF-E0980420A023">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>A5E6D2E0-BA01-7934-700B-4C08C5560DE0</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="end_date" id="1CB6AF5A-EBE6-3415-9D12-B380D09ADFD7">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>864A908B-1BF8-AF58-019A-A1BB15DB288B</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_user_id" id="044DC3B3-D9FB-E031-3039-F64025B10C4B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>157D19FA-A9E7-FF9D-2B8D-0FBBA4F49DC3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E59EF58B-04B8-FD55-1148-A4F4C857F5C0" referredColumn="C35954B2-AE6A-184E-5041-8E857EC9D59C"/>
+</associations>
+</Column>
+<Column name="Goal_type_goal_type_id" id="1EF99208-2899-FDCF-EFD8-3A099D6F04C6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>21EBB78E-DC8B-015F-8C7A-2D2522D925DE</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="128B360C-EB5B-6D07-823A-6E778EC5A44B" referredColumn="E2E404FE-B71E-80A7-A0A6-01349DE9C5D7"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A15B676B-44B3-1625-4C03-3E3A12273075" name="Goal_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>AC69AE56-303D-B5E6-525F-B5D8C92BFDC5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BAEB2168-0C70-D203-7567-D847A183DE3F"/>
+<colUsage columnID="044DC3B3-D9FB-E031-3039-F64025B10C4B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="055CE40B-6533-DB57-4230-DC9B6B35E2A1" name="Goal_User_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>0E5BFD68-4412-5C0A-3230-502E8857A0D4</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="044DC3B3-D9FB-E031-3039-F64025B10C4B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEA486E6-29F3-DEBB-6BC5-B69848278198" name="Goal_Goal_type_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-06 13:36:27 UTC</createdTime>
+<generatorID>7C8562E3-2137-EC74-89F3-99F3033500A5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1EF99208-2899-FDCF-EFD8-3A099D6F04C6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
