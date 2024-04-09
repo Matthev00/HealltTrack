@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="61EAC076-D7B2-8BC3-9AAF-F93024A21E6B" name="Meal_type">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>143E389B-6658-241C-A884-48C2A233FFB3</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="meal_type_id" id="88B96E80-6063-BC30-B8B8-ADFC83BD6CDC">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>162EDE72-5154-E26F-B3A9-1703FDCB8E78</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="FA20BEAE-CAA6-267F-9078-09941841D8FB">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>7E0858FB-A128-3F6B-FCD3-D14847A8F881</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="17A995D6-C7FD-236C-9FAE-A0D52BBA73D5" name="Meal_type PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>1776B4C8-03A8-9651-05AE-7CEF3B3A0F0F</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>88B96E80-6063-BC30-B8B8-ADFC83BD6CDC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

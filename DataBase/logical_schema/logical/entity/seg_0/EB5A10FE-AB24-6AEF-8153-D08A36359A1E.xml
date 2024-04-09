@@ -1,0 +1,158 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EB5A10FE-AB24-6AEF-8153-D08A36359A1E" name="User">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>40324A01-1EDD-31FF-351B-6A77F1824A52</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="user_id" id="BE50C474-584B-2880-F70F-891A06776A2A">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E8D198F4-846C-4F15-3150-9F1F3CAFEA90</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="37C0DF29-4BFB-908C-4E62-F35942F64EDE">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>6BE501C2-03AE-144D-C67F-4F45A7D1B3E2</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="surname" id="76768610-F9D5-8BA5-F4C4-EE3479F4BCEF">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>23D76E24-60E5-DC46-E441-F47D5FA47D2D</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="20B10348-8619-A12E-023A-6B4ADAB65CD4">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>5A854BC5-2DBD-6A7B-5CE1-BF7E0EFF2F5C</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="F9E6CC92-9712-62A4-D8E9-D8E1D58556A5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>9B368FA3-F775-79B9-27CB-D6EE4310B88F</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_of_birth" id="36AF6C88-FE74-1B16-80F5-1D416D93CCD6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>0B6EEC93-1D4E-5E7F-B217-71B4658AAED3</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gender" id="4BC4B6AA-8B0D-2CB1-1DE8-2849B9552A41">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>7BD9BCB4-0A02-2CC3-BD97-11D018F652DE</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="height" id="708274D4-6820-58C2-8C67-2817FF14E128">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<commentInRDBMS><![CDATA[in cm]]></commentInRDBMS>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A71FAB64-4C6C-66A6-0CD5-E48A2C330594</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3F4E7DBB-BC05-4743-A45F-F89FACCE3485" name="User PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>803F6807-BA58-1FA5-95B9-99DF05CCAD67</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BE50C474-584B-2880-F70F-891A06776A2A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

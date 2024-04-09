@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="logs_activities" directorySegmentName="seg_0" id="52211D81-3855-4659-930A-687DACD3B584">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>2909B335-E944-2894-BBC5-878B6D487BB7</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<sourcePk>3F4E7DBB-BC05-4743-A45F-F89FACCE3485</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EB5A10FE-AB24-6AEF-8153-D08A36359A1E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>33F94F54-CCFF-5D36-00F0-BFD8A04CA673</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

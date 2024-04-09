@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="54FA9129-0BB0-3D9F-C47A-F3FA40F79005" name="Meal_Food">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>B1A953F9-5453-2129-B0A5-39D3355FA3E4</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="quantity" id="FA100261-6E8A-3641-0EDF-A5643EE51D36">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[in grams]]></commentInRDBMS>
+<generatorID>D53D6FCF-6A8A-465E-9AF2-B3E9C62C0FE7</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Meal_meal_id" id="61958438-10C9-1E96-381C-25C37E11A409">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>51679FBB-52D1-CBE8-F222-E44B3DB3F652</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D44829DA-D14D-71D3-5523-AAB0E561BFCE" referredColumn="E05C2680-4890-5ACA-EBC6-C452F3F0BDDD"/>
+</associations>
+</Column>
+<Column name="Food_food_id" id="85FA8EB7-7CF7-935A-7D1B-2E335B3BF4E1">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>11D48232-EC91-DE40-7638-C8CDD760A612</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="427F75DC-FA1C-FFA1-79E7-82D052E530D3" referredColumn="9F695C4C-1768-0284-1A25-C64CA9544087"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="49E781C5-9E8D-712B-8619-A214D85BE6F0" name="Meal_Food_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>307C848E-D5F8-F2FF-7938-79BCC19BC3C3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85FA8EB7-7CF7-935A-7D1B-2E335B3BF4E1"/>
+<colUsage columnID="61958438-10C9-1E96-381C-25C37E11A409"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="93756C0B-32E3-4057-6B43-243538B0AC9E" name="Meal_Food_Meal_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>35FBDFF1-6EF5-959B-AB1F-0B2E01F1E86D</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61958438-10C9-1E96-381C-25C37E11A409"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8AEA88F4-3427-4C17-DFDA-BEE6156051F4" name="Meal_Food_Food_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>3CE67197-938B-9AF9-C5A0-31125568EEEE</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="85FA8EB7-7CF7-935A-7D1B-2E335B3BF4E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
