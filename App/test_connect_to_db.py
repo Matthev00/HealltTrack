@@ -14,8 +14,6 @@ with oracledb.connect(
     wallet_password=wltpsw
 ) as connection:
     with connection.cursor() as cursor:
-        # cursor.execute("SELECT 'Hello, World!' FROM DUAL")
-        # print(cursor.fetchone()[0])
         cursor.execute("SELECT * FROM customers")
         rows = cursor.fetchall()
         for row in rows:
