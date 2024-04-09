@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D9924313-8014-34AF-85C1-042A4883A721" name="Meal_entry">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>D65F5EE3-D20A-983A-3C64-FE558C70ACDB</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="meal_entry_id" id="D4686CE9-25A4-B329-25E1-406286410E66">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>ACCD47D7-BF61-5C5F-1B93-0F9964F149DA</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="user_id" id="A9DBBD76-564D-FAD2-9EC8-5267217E0CFC">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>12451C15-BEFA-7861-B5C7-52A5095107F7</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>3ABD02D3-C968-9B12-739F-34809153973E</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<referedAttribute>BE50C474-584B-2880-F70F-891A06776A2A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="date_time" id="0E27B913-D951-DC24-24E5-D37CCC306373">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A0949BA0-4E30-935D-983A-1BE50F8FF244</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="meal_id" id="BB382693-0374-AA21-93DF-FD24C17D45B9">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>954A8B25-5A25-0423-D0C8-C06184527936</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>2D908AE0-B649-D9D8-6595-637679BF81FE</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<referedAttribute>63A87B62-7588-A96F-0EAD-BC56BD40006C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C053E7B2-0D07-9B3F-10A9-FDE2A8B4526F" name="Meal_history PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>B074403B-4F2C-8492-7A07-82D18E205C5B</importedID>
+<engineerTo>
+<item key="1892C222-3343-E94C-0C1A-36AC40A79203" value="true"/>
+<item key="3FE709CE-23E8-8315-3BC2-D0E52C91076D" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D4686CE9-25A4-B329-25E1-406286410E66</attributeRef>
+<attributeRef>BB382693-0374-AA21-93DF-FD24C17D45B9</attributeRef>
+<attributeRef>A9DBBD76-564D-FAD2-9EC8-5267217E0CFC</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="06A67525-D98B-F978-E3D3-EDF47DA998C6" name="Meal_entry">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>D9924313-8014-34AF-85C1-042A4883A721</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="meal_entry_id" id="A049AF0E-9641-05F6-19CE-F093DD6632BB">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>D4686CE9-25A4-B329-25E1-406286410E66</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_user_id" id="EAF14AE0-C621-2862-1505-2346E08A1014">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>A9DBBD76-564D-FAD2-9EC8-5267217E0CFC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="82D3D842-1C51-B0ED-FA89-2FEC5FC281E0" referredColumn="D3B29391-B87E-D68B-734F-720DD0C97BB8"/>
+</associations>
+</Column>
+<Column name="date_time" id="434172E1-4F51-F537-5775-0D0453DE2AD0">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>0E27B913-D951-DC24-24E5-D37CCC306373</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Meal_meal_id" id="F532C99B-84CC-E0E7-C091-168A06F6261B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>BB382693-0374-AA21-93DF-FD24C17D45B9</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C1796AC-D33A-8378-E52E-1EEEC406AC36" referredColumn="E05C2680-4890-5ACA-EBC6-C452F3F0BDDD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="87264FCD-51C1-ECEA-A3B3-E0A99702FD0E" name="Meal_entry_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>C053E7B2-0D07-9B3F-10A9-FDE2A8B4526F</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A049AF0E-9641-05F6-19CE-F093DD6632BB"/>
+<colUsage columnID="F532C99B-84CC-E0E7-C091-168A06F6261B"/>
+<colUsage columnID="EAF14AE0-C621-2862-1505-2346E08A1014"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D747F3D-A5D5-452F-1C4C-85D5676B52AD" name="Meal_entry_Meal_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>954A8B25-5A25-0423-D0C8-C06184527936</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F532C99B-84CC-E0E7-C091-168A06F6261B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E0A3981E-8BBE-ED9D-3789-B17B39FC8FFE" name="Meal_entry_User_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 16:00:09 UTC</createdTime>
+<generatorID>12451C15-BEFA-7861-B5C7-52A5095107F7</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EAF14AE0-C621-2862-1505-2346E08A1014"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1226EEEA-FF97-8330-08C8-4490D7D2BA0D" name="Meal_type">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>61EAC076-D7B2-8BC3-9AAF-F93024A21E6B</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>3E0B43D0-3C07-D7F0-EBFF-B3C03B91D540</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="meal_type_id" id="A13B1329-C9C1-A3EE-FB1C-A4EDA0403067">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>88B96E80-6063-BC30-B8B8-ADFC83BD6CDC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>58DE8FFE-13A6-036D-6C13-B5E1F7204A8D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="FD1C35F4-2075-3AD8-FCAB-EE793546A85B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>FA20BEAE-CAA6-267F-9078-09941841D8FB</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>EC996B7F-C4F5-01FB-6820-1D036C7EFA3D</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F7950BB-A096-59CF-0801-7C206A1DD75D" name="Meal_type_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>17A995D6-C7FD-236C-9FAE-A0D52BBA73D5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A68EF725-7BD4-E509-1B72-36CB2BD3250A</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A13B1329-C9C1-A3EE-FB1C-A4EDA0403067"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

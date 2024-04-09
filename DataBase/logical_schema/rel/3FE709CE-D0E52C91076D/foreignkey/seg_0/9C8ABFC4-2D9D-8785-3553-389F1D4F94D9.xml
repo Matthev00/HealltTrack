@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9C8ABFC4-2D9D-8785-3553-389F1D4F94D9" containerWithKeyObject="FAC9C80A-4BE8-EF3C-9B7F-33221968E9F4" localFKIndex="C3D50506-98A9-5F52-75FE-85882D491E64" name="Food_Ingredient_Food_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-09 15:48:38 UTC</createdTime>
+<generatorID>4E7504B0-AFF7-AA4D-32F8-E1453FBFA0FB</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>D5F811D7-253B-8A0E-4362-74F7B059963B</importedID>
+<referredTableLongName>Food</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>8E266DF7-A591-8828-5D2F-625B03879B56</referredTableID>
+<keyObject>43AEFD75-8378-0B8C-85DD-950E716FDEFE</keyObject>
+<referredKeyID>43AEFD75-8378-0B8C-85DD-950E716FDEFE</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>food_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
