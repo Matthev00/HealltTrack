@@ -1,0 +1,144 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="78B23144-4127-7347-23B8-37514EF120EA" name="Goal">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>ADF72221-9090-6488-3BDA-E3CEBA2E8BC5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>4AC8D343-ECFA-34CB-AA3A-0AB5FA2E37B4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="goal_id" id="03438E51-0F9B-4647-65DC-C51B507BE03C">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>9F9F8B1D-0B44-B93F-956C-775633C04B7A</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C1491B19-E466-BBE3-C66E-43B573EAF28A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="goal_type" id="13644E9B-FCE3-53F1-C5E3-E62BF6FF7790">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>B0EF4177-25B0-967A-07CB-1EE59E5590D5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>55739744-9E54-37BC-81A4-14C632646703</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="target_weigth" id="5190ACDB-117F-F2B5-BEBA-25C46ECF1759">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>5B95DF7F-2326-B074-0CA0-66DAFF9432D5</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>1D820531-BBDE-BC83-6D42-447746EA1E41</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="start_date" id="22BE1086-A35E-7C01-CC79-046F3BC7CAA0">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>728F7A9F-E1BC-EEC5-0F9A-2C18DD99D831</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>8916718B-FB56-19CB-F3E8-F37FAF7F6AD8</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="end_date" id="57255ED3-1A19-B218-127B-3A72DA0AB897">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>BDBF0936-343C-20AF-D225-296D5D78FAC2</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>F0A66619-71DB-1B5C-1B94-4CE02FBB11BE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_user_id" id="7736B48F-1B0F-CFB6-A4FB-05C0892B7BF7">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>267E1FFA-36C1-58CB-53F2-ACA65757C634</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E5F4454D-4AF8-6432-0638-920DC8CDDAF7</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="14A3B467-01BC-A504-B9FB-07019A3F1EA3" referredColumn="8FAE1DAC-8A73-1CB1-22FC-AAA8633D0CDE"/>
+</associations>
+</Column>
+<Column name="Goal_type_goal_type_id" id="8A2C8DE0-EFB2-86C2-9492-267ACEB256AD">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>08EE88E6-8DB8-1238-265A-3BADAAC4AAD0</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>0B3480BA-D57B-BEB6-2EC4-138C6C935BD1</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CB62169C-90AC-CB8E-CC72-C571E0E5575C" referredColumn="E3618000-B7EF-663A-5462-E6A2D4EC08C2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="86016665-0002-D156-6549-6CD6A7889C89" name="Goal_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>58112279-4857-E591-BCE0-22EDD0E619DF</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C54CEF86-CCA7-8682-C077-AA47C51A7DAC</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03438E51-0F9B-4647-65DC-C51B507BE03C"/>
+<colUsage columnID="7736B48F-1B0F-CFB6-A4FB-05C0892B7BF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D69FCE73-79E1-5C48-F0EA-F4581CF41EB1" name="Goal_Goal_type_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>32E1B367-C431-56A8-6184-C40EA1AE717D</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8A2C8DE0-EFB2-86C2-9492-267ACEB256AD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F94752A0-FEFA-71F2-EAF2-99FE8C55129B" name="Goal_User_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>0E41FE34-F38B-D290-BD85-5E702756A6F6</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7736B48F-1B0F-CFB6-A4FB-05C0892B7BF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

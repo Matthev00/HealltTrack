@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9460FFF4-4BFC-B031-1DFA-37D14FB9BD33" containerWithKeyObject="2853B4DC-34E3-CD11-DF80-198CFBE7C8FC" localFKIndex="8DC05539-6529-F288-915C-677BEA1612F9" name="Goal_Goal_type_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>32E1B367-C431-56A8-6184-C40EA1AE717D</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E17B2C04-8D2C-BC83-57E0-ADB2E6496C1B</importedID>
+<referredTableLongName>Goal_type</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F776380C-8EA4-99B0-B3AA-C15B7BA79B22</referredTableID>
+<keyObject>D6F8CFB2-E9C4-62A9-B73F-4FF7591EE572</keyObject>
+<referredKeyID>D6F8CFB2-E9C4-62A9-B73F-4FF7591EE572</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>goal_type_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

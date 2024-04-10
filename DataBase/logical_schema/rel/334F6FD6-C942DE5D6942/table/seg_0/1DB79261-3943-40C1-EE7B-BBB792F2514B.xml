@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1DB79261-3943-40C1-EE7B-BBB792F2514B" name="Meal_Food">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>8A80F86C-0F91-8856-644A-FC9C6831CDF8</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>54FA9129-0BB0-3D9F-C47A-F3FA40F79005</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="quantity" id="2E199031-11C6-C860-B3D2-E947C4BAC910">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[in grams]]></commentInRDBMS>
+<generatorID>E672BBC2-6AEB-CF8D-E6E2-8DE08A6E2258</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>FA100261-6E8A-3641-0EDF-A5643EE51D36</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Meal_meal_id" id="C4B4AAE2-4F4D-43BD-2E95-917860BB1EC5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>9D506420-6942-4EEA-89B5-58321178B0C1</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>61958438-10C9-1E96-381C-25C37E11A409</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ED972A2B-5737-9CBB-0D4D-C0460589BA3D" referredColumn="32F13E8B-1D8F-0EB2-82E4-F49EEC3B5BC1"/>
+</associations>
+</Column>
+<Column name="Food_food_id" id="E166327F-63BD-F2E3-B29D-2E1594DC7CD0">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>BB1B51BC-CA7F-A1AE-1F82-B5AC6C16443E</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>85FA8EB7-7CF7-935A-7D1B-2E335B3BF4E1</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="ACE9055F-B1B4-5F58-8DE4-24B8A89A46B7" referredColumn="F93EE743-F138-B910-996C-28AF30C4010A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B8911A78-DAA7-2106-E5B6-4ED9011AD9C6" name="Meal_Food_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>3E7520A0-6B0F-218D-14D6-7F2C23A78452</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>49E781C5-9E8D-712B-8619-A214D85BE6F0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E166327F-63BD-F2E3-B29D-2E1594DC7CD0"/>
+<colUsage columnID="C4B4AAE2-4F4D-43BD-2E95-917860BB1EC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D85E434E-B553-2F16-11CE-3C92DB2D505E" name="Meal_Food_Food_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>76ED90E4-768A-E52A-846D-66F1CB02FFA4</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E166327F-63BD-F2E3-B29D-2E1594DC7CD0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E1684190-99C1-BAFC-DDD9-748640ED13C6" name="Meal_Food_Meal_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>C45613D7-B740-5974-7B2A-9172675960DE</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C4B4AAE2-4F4D-43BD-2E95-917860BB1EC5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

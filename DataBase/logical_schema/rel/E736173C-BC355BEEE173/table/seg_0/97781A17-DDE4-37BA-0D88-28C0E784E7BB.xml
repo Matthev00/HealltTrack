@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="97781A17-DDE4-37BA-0D88-28C0E784E7BB" name="Food">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>A3EE15A6-8340-7CC2-8202-12A16B11EE76</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>8E266DF7-A591-8828-5D2F-625B03879B56</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="food_id" id="95C9A82B-E7B8-A725-B08F-84DA3D305E21">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>118EED67-3972-1293-B19B-1D526B7494B3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>D31A3603-B83E-63EC-071E-8CA4A87E9962</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="4FFFE36D-1CA7-0A27-A4AB-CC26424DE52D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>AAFB3934-252F-D64F-58A4-5DC824687F82</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A72711E5-1FF5-0643-256A-263915A7DCBC</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calories_per_100g" id="2FCFC5F4-D6D7-82CE-1B8F-71A8AFF5CC7D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>398188A5-2920-518A-7C91-8FCADDB363AD</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>06986D73-4D13-078B-1B64-0150F9EF7681</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="proteins_per_100g" id="0DD9B987-2F44-80BD-5F0D-95BF24812EB6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>7C37E2C5-D057-7DC2-47FF-A3CFC30B8DBC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>B287F9A2-2621-6A28-B5F2-414224235989</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fats_per_100g" id="9158A97B-BE22-A7E6-B9E4-88F84F0A2261">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>6AD25864-8B2D-C042-222D-325AC68C89B6</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>229F517E-B107-5185-787D-2C12EF49DBE2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="carbohydrates_per_100g" id="CBF94CCD-00EA-EBF7-E5E1-9D85FAEA3636">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>B28C7CA1-CE36-9F15-C7B4-E93C4E606014</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>F7C356F1-3AE1-3BD6-8B0D-2923C8A12305</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="serving" id="CFEF8A7F-1DBA-A5F6-576E-7B2C8D1ECC1E">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[in grams]]></commentInRDBMS>
+<generatorID>DC534CD1-DB86-2255-4548-CE7EC025A3FD</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>CC3E4F81-25C7-C2EA-97E8-6EB1ABB1AFEC</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9681FDF0-5C18-51A7-9A94-C78372F46877" name="Food_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>46558DCE-AA32-7F3B-3B3A-0A841C0AAAB3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>43AEFD75-8378-0B8C-85DD-950E716FDEFE</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95C9A82B-E7B8-A725-B08F-84DA3D305E21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

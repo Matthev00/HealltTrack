@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="063C85A0-7DC9-5E71-AF1A-DE4AB000DB51" name="User">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>F81FC1A8-F77A-5AFA-BD6B-DCEB633C3ED3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id" id="8AA00E5D-3A5A-650C-9FFA-E767ABD0D92B">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>E293B335-2732-7457-54C0-584CEA3573E3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="951D8A75-99B0-4EB6-13D1-53C1BD6BCF2E">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>6DC335CF-3BC6-1573-7083-D0112947C5E1</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="surname" id="5B175DF8-36A8-557B-081A-974E91F0D0A1">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>EB9119FF-8A22-493C-AAD3-CA389BEDA27C</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="B80ACB84-4237-1BBA-0490-004A0E861AE8">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>D9C3FB8F-2CA7-0EF9-9496-F43A519911D9</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="5FE031DA-49D5-CBBB-F0B8-D85025548BF5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>73470EE6-B909-5C14-6DFE-926C879D99B8</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_of_birth" id="BF65B38D-5D1A-511E-9C5E-5C02B9A09F36">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>1E4DD705-7603-AFF5-7B56-B10997F92527</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="E11F6F6F-63E7-5A4A-B738-28B817D6AB9D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>59BECA53-3271-0C36-AABE-3A4BACF9E2FC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="height" id="8540239E-0218-B72F-3E6C-16EEF2EFB0AB">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[in cm]]></commentInRDBMS>
+<generatorID>493E2BA6-0323-DC56-7CA8-CF0E7CB01A22</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="32246B53-7352-E8A5-E37C-4440007E1CC0" name="User_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>52D5147A-60C7-DEA0-2658-C69B9CF2E3C6</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8AA00E5D-3A5A-650C-9FFA-E767ABD0D92B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1A1F121A-9F15-5510-5CBC-BA34EE15AA45" name="User_unique_email">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:43:11 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B80ACB84-4237-1BBA-0490-004A0E861AE8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="gender_constraint" directorySegmentName="seg_0" id="5002214E-56EE-B596-2390-163913DC4AB6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:49:15 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<rule><![CDATA[gender IN ('K', 'M', 'U')]]></rule>
+</tableCheckConstraint>
+<tableCheckConstraint name="positive_height" directorySegmentName="seg_0" id="43D78995-E493-A031-034F-9135A04FF335">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:54:26 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<rule><![CDATA[height > 0]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

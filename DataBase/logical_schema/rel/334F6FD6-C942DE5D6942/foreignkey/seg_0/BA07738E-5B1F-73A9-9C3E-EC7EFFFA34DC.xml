@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BA07738E-5B1F-73A9-9C3E-EC7EFFFA34DC" containerWithKeyObject="14B7C023-FDD5-AC7D-F09F-D2A20DFA6389" localFKIndex="E23156F0-8BC1-082D-7E7C-15C659BB2748" name="Body_measurement_entry_User_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>FAF343F5-49C3-4AC5-318A-0DB1DCD6921A</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>DE301A95-5E4F-4F58-B813-614644F654EA</importedID>
+<referredTableLongName>User</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>D8C829C0-7C1D-B1F0-24A0-25F1E74BB22E</referredTableID>
+<keyObject>F24209DF-D388-A287-35F1-D62FB473CED9</keyObject>
+<referredKeyID>F24209DF-D388-A287-35F1-D62FB473CED9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>user_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A61CBB37-7451-179A-0575-B7E330D63F49" name="Activity">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>2A082A55-3B88-8E48-6F5C-31ED83237FB2</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>9CE3C4AE-6F1A-6666-ED87-A5253963A466</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="activity_id" id="50A2E59D-9947-54FB-2938-45B983A4CE25">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>61F35143-223A-49A5-AEF6-EB24E2497CA0</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>19C6C55A-881D-4FC1-468E-542312D57FE8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="6B28D9BC-7165-129C-941C-B6CDF5561E7F">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>F5C18618-F00F-CEBA-C9AE-4FB4DE5AEF8E</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C9879F97-C3C7-A286-1136-C7ACDEE527B5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calories_per_hour" id="4D946B13-9CEC-9FB0-AF05-B813E2B3C6E7">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>E62CB7F4-5C72-CC1F-7A18-A319B52F98C1</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>020C561B-549E-3DBE-1D2D-08B9C1618463</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="26AEC864-22A5-8CD5-C07F-E5569872878F" name="Activity_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>D479FA32-7412-A557-EE3E-ABFCAC7DF296</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>45F8E71A-3103-7CC7-F814-46C95E27C43F</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="50A2E59D-9947-54FB-2938-45B983A4CE25"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
