@@ -1,0 +1,178 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A3EE15A6-8340-7CC2-8202-12A16B11EE76" name="Food">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>4AE95AB9-4DFC-09F7-6A40-67E41C6CB058</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="food_id" id="118EED67-3972-1293-B19B-1D526B7494B3">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>AF8305ED-CF72-7BA3-EC3E-F9703F0F4154</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="AAFB3934-252F-D64F-58A4-5DC824687F82">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>62E073FF-6E4D-452B-0DBA-14CE17E0E0CE</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="calories_per_100g" id="398188A5-2920-518A-7C91-8FCADDB363AD">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>1B858938-A32A-B632-9E1C-1B17DF0CCA33</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="proteins_per_100g" id="7C37E2C5-D057-7DC2-47FF-A3CFC30B8DBC">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>4CC49D49-CC6C-E900-33F2-3335D9CD44FA</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fats_per_100g" id="6AD25864-8B2D-C042-222D-325AC68C89B6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>F9562167-9A76-4085-551A-CA08CF57EEED</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="carbohydrates_per_100g" id="B28C7CA1-CE36-9F15-C7B4-E93C4E606014">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E278DF52-0DF1-AEBC-BDD9-E43514088419</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="serving" id="DC534CD1-DB86-2255-4548-CE7EC025A3FD">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<commentInRDBMS><![CDATA[in grams]]></commentInRDBMS>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>5E8DC0E0-47E1-ADF6-6649-247B164A07DA</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="is_drink" id="592EE4A2-A8EA-6741-8290-8906E406390E">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 17:07:07 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="46558DCE-AA32-7F3B-3B3A-0A841C0AAAB3" name="food PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:47 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<importedID>C570042D-3E29-7307-72D6-FBBE396D9B73</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="false"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>118EED67-3972-1293-B19B-1D526B7494B3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

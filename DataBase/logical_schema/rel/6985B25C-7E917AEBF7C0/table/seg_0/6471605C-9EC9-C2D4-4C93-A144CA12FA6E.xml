@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6471605C-9EC9-C2D4-4C93-A144CA12FA6E" name="Meal_type">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>275571F3-CCD9-B993-DE53-A417A257D876</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="meal_type_id" id="84C85717-49D2-F9C9-249A-571C9C18959D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>072C2303-0EA9-2CE8-983B-459947C72B69</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="3D7732FA-26AC-1D18-B94F-46BDAFCD1883">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>968A2B7B-9657-991E-C8B3-3BB4F5E2E042</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6760270F-7750-48C8-D935-2F64697EBA13" name="Meal_type_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>48F166D5-2136-1D5B-1D84-977AD7BD642A</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="84C85717-49D2-F9C9-249A-571C9C18959D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6F1FAA3F-ED4B-02B4-ACFD-C53F6D0C3744" name="Meal_type_unique_name">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:46:21 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D7732FA-26AC-1D18-B94F-46BDAFCD1883"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

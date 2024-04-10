@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EFB782DF-064F-F718-8560-603F8EDABB42" name="Ingredient">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>213D00AF-6E76-CEBC-C416-3F08980ED6A4</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>B70B3A92-EE0A-92FB-8ABC-8B271E45243B</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ingredient_id" id="1E39DF5D-2495-3FAF-11B4-686DD6B59796">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>74787202-F270-5190-D11F-E0DA1109F9CA</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>289405E8-E12A-F88A-2F99-2A2D344372D1</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="calories_per_100g" id="F6A126F0-9F89-332A-CF24-6C12514312CE">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>DD13BA74-E716-C582-0154-9514679CA7B9</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>ACC31EA0-064D-0256-331E-C2238E4B906B</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="proteins_per_100g" id="8DA70A8D-5BA4-4324-7D1F-5006FDE16F64">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>556D60E9-45E4-184A-C5C1-F7FD484D404F</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>6D5C34F7-78E1-ACA9-8830-64F06093A6DA</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fats_per_100g" id="8F82ABC2-AAE7-C3BE-66F9-1684AB69DAEE">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>89827C21-3825-BC10-681D-B9CA8D174A14</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C11F2838-D0DD-0611-71E0-7FCCDAFA2C46</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="carbohydrates_per_100g" id="BA0ED5D7-E9CE-9B80-0555-37A7AB1B8D04">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>6ADA0FC4-7A38-159D-DD43-1387C1CBCA5A</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>117442D5-D75F-A1A8-8101-E4DD540E880E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="083AA5DC-736B-16DE-0C0F-AA8B84937A02" name="Ingredient_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>386D529B-06D2-8EC4-2E89-142675C4C4D8</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>0D07634D-7B27-2C46-3B1A-7B9B2C529BD7</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E39DF5D-2495-3FAF-11B4-686DD6B59796"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

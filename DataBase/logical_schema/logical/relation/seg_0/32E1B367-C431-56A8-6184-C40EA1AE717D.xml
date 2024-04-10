@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="is_of_type_of" directorySegmentName="seg_0" id="32E1B367-C431-56A8-6184-C40EA1AE717D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>C14344E4-F78C-1A81-39A8-692BF728340D</importedID>
+<engineerTo>
+<item key="E736173C-F197-51F8-3FF8-BC355BEEE173" value="true"/>
+<item key="6985B25C-81C7-802A-15A6-7E917AEBF7C0" value="true"/>
+<item key="334F6FD6-BE4D-4EEC-5EF9-C942DE5D6942" value="true"/>
+</engineerTo>
+<sourcePk>4A64380F-7274-1A33-55C4-5CA2D32D727F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3DE32452-7F23-1D13-87E4-F772FC88CAA2</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>ADF72221-9090-6488-3BDA-E3CEBA2E8BC5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>SET NULL</deleteRule>
+</Relation>

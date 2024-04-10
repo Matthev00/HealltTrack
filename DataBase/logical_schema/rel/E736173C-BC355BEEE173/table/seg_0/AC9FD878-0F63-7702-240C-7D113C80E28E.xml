@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AC9FD878-0F63-7702-240C-7D113C80E28E" name="User">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>F81FC1A8-F77A-5AFA-BD6B-DCEB633C3ED3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>A3EC6802-8C0B-7B8C-2746-67753D49FFD7</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id" id="6885BA3A-FBF9-EC19-DF4F-DD6420AAC58D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>E293B335-2732-7457-54C0-584CEA3573E3</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>2DBACF85-65AE-4517-ED60-B2FE5B2BB85A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="1C115A5F-AF2C-BF00-8683-2FA1423A59E6">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>6DC335CF-3BC6-1573-7083-D0112947C5E1</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>49CEE5E9-C78B-EBF5-BF8E-CC246A1F6FE8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="surname" id="071B69FB-D2E4-DC50-5CD7-6D85581B37FF">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>EB9119FF-8A22-493C-AAD3-CA389BEDA27C</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>E58AFC47-AC22-2AD5-E02D-BD67E7FCE3E4</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="7790A173-8B3D-3827-78EA-7BDA9494AE4A">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>D9C3FB8F-2CA7-0EF9-9496-F43A519911D9</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>BC2318D0-6137-ED42-4519-B3B8811655FB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="6E7D75DC-BF7D-BFE3-9628-4B99AE2A341E">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>73470EE6-B909-5C14-6DFE-926C879D99B8</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>864ECFD9-7CF9-326B-4E82-04D96DCC2E8F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>60 CHAR</dataTypeSize>
+<ownDataTypeParameters>60 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_of_birth" id="7C3E965A-7C36-9842-0BEC-369CB9167FE5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>1E4DD705-7603-AFF5-7B56-B10997F92527</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>D57CDC1E-3FA8-3D03-29D8-6F697A52B79A</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="F3D898B1-FFDA-ECC3-70ED-4556866F4EA3">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>59BECA53-3271-0C36-AABE-3A4BACF9E2FC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>609FDA71-7C7A-BC32-828B-FC4DED06ED39</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="height" id="9F806F59-2006-C26D-8114-E82CC11A8706">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[in cm]]></commentInRDBMS>
+<generatorID>493E2BA6-0323-DC56-7CA8-CF0E7CB01A22</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>FCC63413-C417-CDAD-0B6D-F796FA0D8C6E</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1F679FDF-F6E9-7BB5-520D-D8D1C840284B" name="User_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:22:48 UTC</createdTime>
+<generatorID>52D5147A-60C7-DEA0-2658-C69B9CF2E3C6</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<importedID>32EDAC8B-A377-397F-F031-D28B73F64A19</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6885BA3A-FBF9-EC19-DF4F-DD6420AAC58D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

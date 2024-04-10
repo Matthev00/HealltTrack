@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="120C0D57-EDF7-BE0E-43F0-B9FD5EDBD19F" name="Body_measurement_entry">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>E6E072E6-C99B-DD2B-93FA-1D057973D550</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="body_measurement_entry_id" id="1E6132BB-618C-6269-5CAF-7EE0FEDE1DB5">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>9D977A83-EE0D-BE85-1EB6-664710F023AC</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>9</dataTypePrecision>
+<ownDataTypeParameters>,9,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="weight" id="8BDEBCD5-074C-6CA1-BA2E-99936986315D">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>067B35E9-2239-713E-FB39-2DA08B5A02F4</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,4,1</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date" id="F075AE26-144E-16EA-44D4-63EC7BEFDDB9">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>6858D171-4319-948C-C48D-DD5CEFD478EA</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="User_user_id" id="B7558F4F-5001-89E8-BF0F-246C7E59BA96">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>54F47475-75CF-04C0-B686-5D084AF95E3C</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="77AC4510-38A4-9204-CCFD-9E2A6E62D6B5" referredColumn="8AA00E5D-3A5A-650C-9FFA-E767ABD0D92B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="75AC6ED3-C7B1-DCBD-38A3-0EF1DB2B8CE7" name="Body_measurement_entry_PK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>8E2A44EA-A155-F6C7-9AA7-329946928D07</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1E6132BB-618C-6269-5CAF-7EE0FEDE1DB5"/>
+<colUsage columnID="B7558F4F-5001-89E8-BF0F-246C7E59BA96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E5995E48-4CFA-11EB-8212-ACBA45DED91D" name="unique_date">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 17:08:34 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F075AE26-144E-16EA-44D4-63EC7BEFDDB9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AD831369-7C06-7087-A267-1EA9883E569A" name="Body_measurement_entry_User_FK">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 16:28:52 UTC</createdTime>
+<generatorID>FAF343F5-49C3-4AC5-318A-0DB1DCD6921A</generatorID>
+<ownerDesignName>logical_schema</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B7558F4F-5001-89E8-BF0F-246C7E59BA96"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="positive_weight" directorySegmentName="seg_0" id="9964204D-3C26-D52E-60B9-CDD846EB8194">
+<createdBy>mateu</createdBy>
+<createdTime>2024-04-10 17:09:15 UTC</createdTime>
+<ownerDesignName>logical_schema</ownerDesignName>
+<rule><![CDATA[weigth > 0]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>
