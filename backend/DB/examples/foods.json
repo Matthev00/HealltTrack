@@ -1,0 +1,42 @@
+[
+    {
+        "food_id": 9001,
+        "name": "Jab\u0142ko",
+        "calories_per_100": 52.0,
+        "proteins_per_100": 0.3,
+        "fats_per_100": 0.2,
+        "carbohydrates_per_100": 14.0,
+        "serving": 100.0,
+        "water_per_100": 0
+    },
+    {
+        "food_id": 9002,
+        "name": "Jajko",
+        "calories_per_100": 52.0,
+        "proteins_per_100": 0.3,
+        "fats_per_100": 0.2,
+        "carbohydrates_per_100": 14.0,
+        "serving": 100.0,
+        "water_per_100": 0
+    },
+    {
+        "food_id": 9003,
+        "name": "gruszka",
+        "calories_per_100": 52.0,
+        "proteins_per_100": 0.3,
+        "fats_per_100": 0.2,
+        "carbohydrates_per_100": 14.0,
+        "serving": 100.0,
+        "water_per_100": 0
+    },
+    {
+        "food_id": 9004,
+        "name": "gruszk",
+        "calories_per_100": 52.0,
+        "proteins_per_100": 0.3,
+        "fats_per_100": 0.2,
+        "carbohydrates_per_100": 14.0,
+        "serving": 100.0,
+        "water_per_100": 0
+    }
+]
