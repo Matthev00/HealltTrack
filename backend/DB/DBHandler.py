@@ -132,11 +132,11 @@ class DBHandler:
         FROM meal_entry me
         INNER JOIN meal m ON me.meal_meal_id = m.meal_id
         INNER JOIN meal_type mt ON m.meal_type_meal_type_id = mt.meal_type_id
-        WHERE TRUNC(me.date_time) = TRUNC(TO_DATE(:date, 'DD-MM-YYYY')) AND me.user_user_id = :user_id;
+        WHERE TRUNC(me.date_time) = TRUNC(TO_DATE(:query_date, 'DD-MM-YYYY')) AND me.user_user_id = :user_id
         """
         meal_info = []
         with self.connection.cursor() as cursor:
-            cursor.execute(query, {"date": date, "user_id": user_id})
+            cursor.execute(query, {"query_date": date, "user_id": user_id})
             meals = cursor.fetchall()
 
             for meal in meals:
@@ -200,16 +200,19 @@ def main():
 
     with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
         f.write(db.get_food_list())
-    db.commit()
-    db.add_meal_food(
-        {
-            "date_time": "19-04-2024",
-            "food_id": 9002,
-            "quantity": 100,
-            "meal_type": 92,
-            "user_id": 9001,
-        }
-    )
+    # db.add_meal_food(
+    #     {
+    #         "date_time": "19-04-2024",
+    #         "food_id": 9002,
+    #         "quantity": 100,
+    #         "meal_type": 92,
+    #         "user_id": 9001,
+    #     }
+    # )
+
+    with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
+        f.write(db.get_day_history({"date": "19-04-2024", "user_id": 9001}))
+
 
 
 if __name__ == "__main__":
