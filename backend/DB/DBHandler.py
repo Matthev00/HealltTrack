@@ -200,13 +200,13 @@ def main():
 
     with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
         f.write(db.get_food_list())
-
+    db.commit()
     db.add_meal_food(
         {
             "date_time": "19-04-2024",
-            "food_id": 9001,
+            "food_id": 9002,
             "quantity": 100,
-            "meal_type": 91,
+            "meal_type": 92,
             "user_id": 9001,
         }
     )
