@@ -1,0 +1,63 @@
+[
+    {
+        "meal_type": "Obiad",
+        "kcal": 209.0,
+        "proteins": 1.2,
+        "fats": 0.8,
+        "carbs": 56.0,
+        "foods": [
+            {
+                "name": "Jajko",
+                "calories_per_100g": 52.0,
+                "proteins_per_100g": 0.3,
+                "fats_per_100g": 0.2,
+                "carbohydrates_per_100g": 14.0,
+                "water_per_100g": 0,
+                "quantity": 100.0
+            },
+            {
+                "name": "Jajko",
+                "calories_per_100g": 52.0,
+                "proteins_per_100g": 0.3,
+                "fats_per_100g": 0.2,
+                "carbohydrates_per_100g": 14.0,
+                "water_per_100g": 0,
+                "quantity": 100.0
+            },
+            {
+                "name": "Jajko",
+                "calories_per_100g": 52.0,
+                "proteins_per_100g": 0.3,
+                "fats_per_100g": 0.2,
+                "carbohydrates_per_100g": 14.0,
+                "water_per_100g": 0,
+                "quantity": 100.0
+            },
+            {
+                "name": "Jajko",
+                "calories_per_100g": 52.0,
+                "proteins_per_100g": 0.3,
+                "fats_per_100g": 0.2,
+                "carbohydrates_per_100g": 14.0,
+                "water_per_100g": 0,
+                "quantity": 100.0
+            }
+        ]
+    },
+    {
+        "meal_type": "Sniadanie",
+        "kcal": 800.0,
+        "proteins": 25.0,
+        "fats": 10.0,
+        "carbs": 100.0,
+        "foods": []
+    },
+    {
+        "meal_type": "Sniadanie",
+        "kcal": 800.0,
+        "proteins": 25.0,
+        "fats": 10.0,
+        "carbs": 100.0,
+        "foods": []
+    }
+]
