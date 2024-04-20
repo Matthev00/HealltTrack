@@ -239,6 +239,74 @@ class DBHandler:
             else:
                 return result[0] + 1
 
+    def add_activity_entry(self, activity_dict: Dict):
+        user_id = activity_dict["user_id"]
+        date = activity_dict["date"]
+        activity_id = activity_dict["activity_id"]
+        duration = activity_dict["duration"]
+        calories_burned = activity_dict["calories_burned"]
+        query = """
+        INSERT INTO activity_entry (activity_entry_id, date_time, duration, calories_burned, user_user_id, activity_activity_id)
+        VALUES (:activity_entry_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24-MI'), :duration, :calories_burned, :user_id, :activity_id)"""
+        activity_entry_id = self._get_activity_entry_id()
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                query,
+                {
+                    "activity_entry_id": activity_entry_id,
+                    "date_time": date,
+                    "duration": duration,
+                    "calories_burned": calories_burned,
+                    "user_id": user_id,
+                    "activity_id": activity_id
+                }
+            )
+        self.commit()
+
+    def _get_activity_entry_id(self) -> int:
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT MAX(activity_entry_id) FROM activity_entry")
+            result = cursor.fetchone()
+            if result[0] is None:
+                return 1
+            else:
+                return result[0] + 1
+
+    def get_activity_history(self, user_id: int) -> str:
+        query = """
+        SELECT TO_CHAR(ae.date_time, 'DD-MM-YYYY-HH24-MI') AS date_time, a.name AS activity_name, ae.duration, ae.calories_burned
+        FROM activity_entry ae
+        JOIN activity a ON ae.activity_activity_id = a.activity_id
+        WHERE ae.user_user_id = :user_id
+        ORDER BY ae.date_time
+        """
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"user_id": user_id})
+            rows = cursor.fetchall()
+            return json.dumps(
+                [
+                    {"date_time": row[0], "activity_name": row[1], "duration": row[2], "calories_burned": row[3]}
+                    for row in rows
+                ],
+                indent=4,
+            )
+
+    def get_activity_list(self) -> str:
+        with self.connection.cursor() as cursor:
+            cursor.execute("""SELECT activity_id, "NAME", calories_per_hour FROM activity""")
+            rows = cursor.fetchall()
+            return json.dumps(
+                [
+                    {
+                        "activity_id": row[0],
+                        "name": row[1],
+                        "calories_burned_per_minute": row[2],
+                    }
+                    for row in rows
+                ],
+                indent=4,
+            )
+
     def close(self):
         self.db_connector.close()
 
@@ -268,8 +336,16 @@ def main():
 
     # db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
 
-    with open("backend/DB/examples/body_measurement_history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_body_measurement_history(1))
+    # with open("backend/DB/examples/body_measurement_history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_body_measurement_history(1))
+
+    db.add_activity_entry({"user_id": 1, "date": "19-04-2024-16-00", "activity_id": 101, "duration": 60, "calories_burned": 200})
+
+    with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
+        f.write(db.get_activity_history(1))
+
+    with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
+        f.write(db.get_activity_list())
 
 
 if __name__ == "__main__":
