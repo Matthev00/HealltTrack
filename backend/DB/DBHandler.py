@@ -122,6 +122,7 @@ class DBHandler:
                 return result[0] + 1
 
     def get_day_history(self, day_dict) -> str:
+        # DO POprawy gdy nie znajdzie#################
         date = day_dict["date"]
         user_id = day_dict["user_id"]
         query = """
@@ -221,10 +222,7 @@ class DBHandler:
             cursor.execute(query, {"user_id": user_id})
             rows = cursor.fetchall()
             return json.dumps(
-                [
-                    {"date_time": row[0], "weight": row[1]}
-                    for row in rows
-                ],
+                [{"date_time": row[0], "weight": row[1]} for row in rows],
                 indent=4,
             )
 
@@ -258,8 +256,8 @@ class DBHandler:
                     "duration": duration,
                     "calories_burned": calories_burned,
                     "user_id": user_id,
-                    "activity_id": activity_id
-                }
+                    "activity_id": activity_id,
+                },
             )
         self.commit()
 
@@ -285,7 +283,12 @@ class DBHandler:
             rows = cursor.fetchall()
             return json.dumps(
                 [
-                    {"date_time": row[0], "activity_name": row[1], "duration": row[2], "calories_burned": row[3]}
+                    {
+                        "date_time": row[0],
+                        "activity_name": row[1],
+                        "duration": row[2],
+                        "calories_burned": row[3],
+                    }
                     for row in rows
                 ],
                 indent=4,
@@ -293,7 +296,9 @@ class DBHandler:
 
     def get_activity_list(self) -> str:
         with self.connection.cursor() as cursor:
-            cursor.execute("""SELECT activity_id, "NAME", calories_per_hour FROM activity""")
+            cursor.execute(
+                """SELECT activity_id, "NAME", calories_per_hour FROM activity"""
+            )
             rows = cursor.fetchall()
             return json.dumps(
                 [
@@ -306,6 +311,86 @@ class DBHandler:
                 ],
                 indent=4,
             )
+
+    def get_goal_types_list(self) -> str:
+        with self.connection.cursor() as cursor:
+            cursor.execute("""SELECT name FROM goal_type""")
+            rows = cursor.fetchall()
+            return json.dumps(
+                [row[0] for row in rows],
+                indent=4,
+            )
+
+    def get_user_goal(self, goal_dict: Dict) -> str:
+        user_id = goal_dict["user_id"]
+        date = goal_dict["date"]
+        query = """
+        SELECT gt.name, target_weight, start_date, end_date
+        FROM goal g
+        JOIN goal_type gt ON g.goal_type_goal_type_id = gt.goal_type_id
+        WHERE user_user_id = :user_id
+            AND start_date <= TO_DATE(:date_time, 'DD-MM-YYYY')
+            AND end_date >= TO_DATE(:date_time, 'DD-MM-YYYY')
+        ORDER BY end_date ASC
+        FETCH FIRST 1 ROW ONLY
+        """
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"user_id": user_id, "date_time": date})
+            result = cursor.fetchone()
+            if result:
+                return json.dumps(
+                    {
+                        "goal_type": result[0],
+                        "target_weight": result[1],
+                        "start_date": result[2].strftime("%Y-%m-%d %H:%M:%S"),
+                        "end_date": result[3].strftime("%Y-%m-%d %H:%M:%S"),
+                    },
+                    indent=4,
+                )
+            return json.dumps(
+                {
+                    "goal_type": "No goal set",
+                    "target_weight": "",
+                    "start_date": "",
+                    "end_date": "",
+                },
+                indent=4,
+            )
+
+    def set_user_goal(self, goal_dict: Dict):
+        user_id = goal_dict["user_id"]
+        goal_type = goal_dict["goal_type"]
+        target_weight = goal_dict["target_weight"]
+        start_date = goal_dict["start_date"]
+        end_date = goal_dict["end_date"]
+
+        query = """
+        INSERT INTO goal (goal_id, target_weight, start_date, end_date, user_user_id, goal_type_goal_type_id)
+        VALUES (:goal_id, :target_weight, TO_DATE(:start_date, 'DD-MM-YYYY'), TO_DATE(:end_date, 'DD-MM-YYYY'), :user_id, :goal_type)
+        """
+        goal_id = self._get_goal_id()
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                query,
+                {
+                    "goal_id": goal_id,
+                    "target_weight": target_weight,
+                    "start_date": start_date,
+                    "end_date": end_date,
+                    "user_id": user_id,
+                    "goal_type": goal_type,
+                },
+            )
+        self.commit()
+
+    def _get_goal_id(self) -> int:
+        with self.connection.cursor() as cursor:
+            cursor.execute("SELECT MAX(goal_id) FROM goal")
+            result = cursor.fetchone()
+            if result[0] is None:
+                return 1
+            else:
+                return result[0] + 1
 
     def close(self):
         self.db_connector.close()
@@ -339,13 +424,37 @@ def main():
     # with open("backend/DB/examples/body_measurement_history.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_body_measurement_history(1))
 
-    db.add_activity_entry({"user_id": 1, "date": "19-04-2024-16-00", "activity_id": 101, "duration": 60, "calories_burned": 200})
+    # db.add_activity_entry(
+    #     {
+    #         "user_id": 1,
+    #         "date": "19-04-2024-16-00",
+    #         "activity_id": 101,
+    #         "duration": 60,
+    #         "calories_burned": 200,
+    #     }
+    # )
 
     with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
         f.write(db.get_activity_history(1))
 
-    with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
-        f.write(db.get_activity_list())
+    # with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_activity_list())
+
+    # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_goal_types_list())
+
+    with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
+        f.write(db.get_user_goal({"user_id": 300, "date": "24-05-2024"}))
+
+    db.set_user_goal(
+        {
+            "user_id": 1,
+            "goal_type": 1,
+            "target_weight": 60,
+            "start_date": "24-04-2024",
+            "end_date": "24-09-2024",
+        }
+    )
 
 
 if __name__ == "__main__":
