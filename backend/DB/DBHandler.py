@@ -108,7 +108,9 @@ class DBHandler:
         INSERT INTO meal_food (meal_meal_id, food_food_id, quantity)
         VALUES (:meal_id, :food_id, :quantity)"""
         with self.connection.cursor() as cursor:
-            cursor.execute(query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity})
+            cursor.execute(
+                query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity}
+            )
 
     def _find_next_meal_entry_id(self) -> int:
         with self.connection.cursor() as cursor:
@@ -186,6 +188,46 @@ class DBHandler:
                 )
         return foods
 
+    def add_body_measurement_entry(self, entry_dict: Dict):
+        user_id = entry_dict["user_id"]
+        date = entry_dict["date"]
+        weight = entry_dict["weight"]
+
+        query = """
+        INSERT INTO body_measurement_entry (body_measurement_entry_id, date_time, weight, user_user_id)
+        VALUES (:bm_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24'), :weight, :user_id)
+        """
+        bm_id = self._get_body_measurement_id()
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                query,
+                {
+                    "bm_id": bm_id,
+                    "date_time": date,
+                    "weight": weight,
+                    "user_id": user_id,
+                },
+            )
+        self.commit()
+
+    def get_body_measurement_history(self, user_id: int) -> str:
+        query = """
+        SELECT TO_CHAR(bme.date_time, 'DD-MM-YYYY-HH24') AS date_time, bme.weight
+        FROM body_measurement_entry bme
+        WHERE bme.user_user_id = :user_id
+        ORDER BY bme.date_time
+        """
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"user_id": user_id})
+            rows = cursor.fetchall()
+            return json.dumps(
+                [
+                    {"date_time": row[0], "weight": row[1]}
+                    for row in rows
+                ],
+                indent=4,
+            )
+
     def close(self):
         self.db_connector.close()
 
@@ -198,21 +240,22 @@ def main():
         wallet_credentials = json.load(f)
     db = DBHandler(wallet_credentials=wallet_credentials)
 
-    with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
-        f.write(db.get_food_list())
-    # db.add_meal_food(
-    #     {
-    #         "date_time": "19-04-2024",
-    #         "food_id": 9002,
-    #         "quantity": 100,
-    #         "meal_type": 92,
-    #         "user_id": 9001,
-    #     }
-    # )
+    # with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_food_list())
+    # # db.add_meal_food(
+    # #     {
+    # #         "date_time": "19-04-2024",
+    # #         "food_id": 9002,
+    # #         "quantity": 100,
+    # #         "meal_type": 92,
+    # #         "user_id": 9001,
+    # #     }
+    # # )
 
-    with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_day_history({"date": "19-04-2024", "user_id": 9001}))
+    # with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 9001}))
 
+    db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
 
 
 if __name__ == "__main__":
