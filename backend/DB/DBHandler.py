@@ -227,7 +227,7 @@ class DBHandler:
                 ],
                 indent=4,
             )
-            
+
     def _get_body_measurement_id(self) -> int:
         with self.connection.cursor() as cursor:
             cursor.execute(
@@ -266,7 +266,10 @@ def main():
     # with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 9001}))
 
-    db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
+    # db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
+
+    with open("backend/DB/examples/body_measurement_history.json", "w", encoding="utf-8") as f:
+        f.write(db.get_body_measurement_history(1))
 
 
 if __name__ == "__main__":
