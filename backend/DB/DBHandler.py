@@ -227,6 +227,17 @@ class DBHandler:
                 ],
                 indent=4,
             )
+            
+    def _get_body_measurement_id(self) -> int:
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT MAX(body_measurement_entry_id) FROM body_measurement_entry"
+            )
+            result = cursor.fetchone()
+            if result[0] is None:
+                return 1
+            else:
+                return result[0] + 1
 
     def close(self):
         self.db_connector.close()
