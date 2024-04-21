@@ -43,7 +43,7 @@ class DBHandler:
         user_id = meal_data["user_id"]
 
         try:
-            meal_id = self._find_meal(date_time, meal_type)
+            meal_id = self._find_meal(date_time, meal_type, user_id)
             if not meal_id:
                 meal_id = self._insert_empty_meal(meal_type)
                 self._insert_empty_meal_entry(meal_id, user_id, date_time)
@@ -54,15 +54,20 @@ class DBHandler:
             print("Error in add_meal_food")
             print(e)
 
-    def _find_meal(self, date_time: str, meal_type: int) -> int:
+    def _find_meal(self, date_time: str, meal_type: int, user_id: int) -> int:
         query = """
         SELECT meal_meal_id
         FROM meal_entry
         JOIN meal ON meal_entry.meal_meal_id = meal.meal_id
-        WHERE TRUNC(meal_entry.date_time) = TRUNC(TO_DATE(:date_time, 'DD-MM-YYYY'))  AND meal.meal_type_meal_type_id = :meal_type
+        WHERE TRUNC(meal_entry.date_time) = TRUNC(TO_DATE(:date_time, 'DD-MM-YYYY'))
+            AND meal.meal_type_meal_type_id = :meal_type
+            AND meal_entry.user_user_id = :user_id
         """
         with self.connection.cursor() as cursor:
-            cursor.execute(query, {"date_time": date_time, "meal_type": meal_type})
+            cursor.execute(
+                query,
+                {"date_time": date_time, "meal_type": meal_type, "user_id": user_id},
+            )
             result = cursor.fetchone()
             if result:
                 return result[0]
@@ -139,9 +144,21 @@ class DBHandler:
 
         default_meal_info = {
             "Breakfast": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
-            "Second breakfast": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Second breakfast": {
+                "kcal": 0,
+                "proteins": 0,
+                "fats": 0,
+                "carbs": 0,
+                "foods": [],
+            },
             "Lunch": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
-            "Afternoon snack": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Afternoon snack": {
+                "kcal": 0,
+                "proteins": 0,
+                "fats": 0,
+                "carbs": 0,
+                "foods": [],
+            },
             "Dinner": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
         }
 
@@ -192,6 +209,37 @@ class DBHandler:
                     }
                 )
         return foods
+
+    def delete_food_from_meal(self, meal_data: Dict):
+        date_time = meal_data["date_time"]
+        food_name = meal_data["food_name"]
+        meal_type = meal_data["meal_type"]
+        user_id = meal_data["user_id"]
+
+        meal_id = self._find_meal(date_time, meal_type, user_id)
+        food_id = self._find_food_id(food_name)
+        if meal_id:
+            query = """
+            DELETE FROM meal_food
+            WHERE meal_meal_id = :meal_id AND food_food_id = :food_id
+            """
+            with self.connection.cursor() as cursor:
+                cursor.execute(query, {"meal_id": meal_id, "food_id": food_id})
+            self.commit()
+
+    def _find_food_id(self, food_name: str) -> int:
+        query = """
+        SELECT food_id
+        FROM food
+        WHERE name = :food_name
+        """
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"food_name": food_name})
+            result = cursor.fetchone()
+            if result:
+                return result[0]
+            else:
+                return None
 
     def add_body_measurement_entry(self, entry_dict: Dict):
         user_id = entry_dict["user_id"]
@@ -408,20 +456,20 @@ def main():
         wallet_credentials = json.load(f)
     db = DBHandler(wallet_credentials=wallet_credentials)
 
-    with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
-        f.write(db.get_food_list())
-    # # db.add_meal_food(
-    # #     {
-    # #         "date_time": "19-04-2024",
-    # #         "food_id": 9002,
-    # #         "quantity": 100,
-    # #         "meal_type": 92,
-    # #         "user_id": 9001,
-    # #     }
-    # # )
+    # with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_food_list())
+    # db.add_meal_food(
+    #     {
+    #         "date_time": "19-04-2024",
+    #         "food_id": 9002,
+    #         "quantity": 100,
+    #         "meal_type": 92,
+    #         "user_id": 9001,
+    #     }
+    # )
 
-    with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
+    # with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
 
     # db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
 
@@ -447,16 +495,25 @@ def main():
     # # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
     # #     f.write(db.get_goal_types_list())
 
-    with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
-        f.write(db.get_user_goal({"user_id": 1, "date": "24-05-2024"}))
+    # with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_user_goal({"user_id": 1, "date": "24-05-2024"}))
 
-    db.set_user_goal(
+    # db.set_user_goal(
+    #     {
+    #         "user_id": 1,
+    #         "goal_type": 1,
+    #         "target_weight": 60,
+    #         "start_date": "24-04-2024",
+    #         "end_date": "24-09-2024",
+    #     }
+    # )
+
+    db.delete_food_from_meal(
         {
+            "date_time": "01-04-2024",
+            "food_name": "Oats",
+            "meal_type": 1,
             "user_id": 1,
-            "goal_type": 1,
-            "target_weight": 60,
-            "start_date": "24-04-2024",
-            "end_date": "24-09-2024",
         }
     )
 
