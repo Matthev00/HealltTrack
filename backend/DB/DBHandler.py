@@ -122,7 +122,6 @@ class DBHandler:
                 return result[0] + 1
 
     def get_day_history(self, day_dict) -> str:
-        # DO POprawy gdy nie znajdzie#################
         date = day_dict["date"]
         user_id = day_dict["user_id"]
         query = """
@@ -137,25 +136,30 @@ class DBHandler:
         INNER JOIN meal_type mt ON m.meal_type_meal_type_id = mt.meal_type_id
         WHERE TRUNC(me.date_time) = TRUNC(TO_DATE(:query_date, 'DD-MM-YYYY')) AND me.user_user_id = :user_id
         """
-        meal_info = []
+
+        default_meal_info = {
+            "Breakfast": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Second breakfast": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Lunch": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Afternoon snack": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+            "Dinner": {"kcal": 0, "proteins": 0, "fats": 0, "carbs": 0, "foods": []},
+        }
+
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"query_date": date, "user_id": user_id})
             meals = cursor.fetchall()
 
             for meal in meals:
                 meal_type_name, calories, proteins, fats, carbs, meal_id = meal
-                meal_info.append(
-                    {
-                        "meal_type": meal_type_name,
-                        "kcal": calories,
-                        "proteins": proteins,
-                        "fats": fats,
-                        "carbs": carbs,
-                        "foods": self._get_foods_for_meal(meal_id),
-                    }
-                )
+                default_meal_info[meal_type_name] = {
+                    "kcal": calories,
+                    "proteins": proteins,
+                    "fats": fats,
+                    "carbs": carbs,
+                    "foods": self._get_foods_for_meal(meal_id),
+                }
 
-        return json.dumps(meal_info, indent=4)
+        return json.dumps(default_meal_info, indent=4)
 
     def _get_foods_for_meal(self, meal_id: int) -> list:
         query = """
@@ -416,8 +420,8 @@ def main():
     # #     }
     # # )
 
-    # with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
-    #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 9001}))
+    with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
+        f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
 
     # db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
 

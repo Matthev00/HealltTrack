@@ -1,63 +1,65 @@
-[
-    {
-        "meal_type": "Obiad",
-        "kcal": 209.0,
-        "proteins": 1.2,
-        "fats": 0.8,
-        "carbs": 56.0,
+{
+    "Breakfast": {
+        "kcal": 454.1,
+        "proteins": 19.7,
+        "fats": 41.1,
+        "carbs": 109.6,
         "foods": [
             {
-                "name": "Jajko",
-                "calories_per_100g": 52.0,
-                "proteins_per_100g": 0.3,
-                "fats_per_100g": 0.2,
-                "carbohydrates_per_100g": 14.0,
-                "water_per_100g": 0,
+                "name": "Oats",
+                "calories_per_100g": 236.5,
+                "proteins_per_100g": 29.8,
+                "fats_per_100g": 23.8,
+                "carbohydrates_per_100g": 63.8,
+                "water_per_100g": 84,
+                "quantity": 50.0
+            },
+            {
+                "name": "Banana",
+                "calories_per_100g": 287.3,
+                "proteins_per_100g": 1.2,
+                "fats_per_100g": 23.3,
+                "carbohydrates_per_100g": 69.8,
+                "water_per_100g": 21,
                 "quantity": 100.0
             },
             {
-                "name": "Jajko",
-                "calories_per_100g": 52.0,
-                "proteins_per_100g": 0.3,
-                "fats_per_100g": 0.2,
-                "carbohydrates_per_100g": 14.0,
-                "water_per_100g": 0,
-                "quantity": 100.0
-            },
-            {
-                "name": "Jajko",
-                "calories_per_100g": 52.0,
-                "proteins_per_100g": 0.3,
-                "fats_per_100g": 0.2,
-                "carbohydrates_per_100g": 14.0,
-                "water_per_100g": 0,
-                "quantity": 100.0
-            },
-            {
-                "name": "Jajko",
-                "calories_per_100g": 52.0,
-                "proteins_per_100g": 0.3,
-                "fats_per_100g": 0.2,
-                "carbohydrates_per_100g": 14.0,
-                "water_per_100g": 0,
-                "quantity": 100.0
+                "name": "Maple Syrup",
+                "calories_per_100g": 316.9,
+                "proteins_per_100g": 23.8,
+                "fats_per_100g": 39.0,
+                "carbohydrates_per_100g": 52.9,
+                "water_per_100g": 33,
+                "quantity": 15.0
             }
         ]
     },
-    {
-        "meal_type": "Sniadanie",
-        "kcal": 800.0,
-        "proteins": 25.0,
-        "fats": 10.0,
-        "carbs": 100.0,
+    "Second breakfast": {
+        "kcal": 0,
+        "proteins": 0,
+        "fats": 0,
+        "carbs": 0,
         "foods": []
     },
-    {
-        "meal_type": "Sniadanie",
-        "kcal": 800.0,
-        "proteins": 25.0,
-        "fats": 10.0,
-        "carbs": 100.0,
+    "Lunch": {
+        "kcal": 0,
+        "proteins": 0,
+        "fats": 0,
+        "carbs": 0,
+        "foods": []
+    },
+    "Afternoon snack": {
+        "kcal": 0,
+        "proteins": 0,
+        "fats": 0,
+        "carbs": 0,
+        "foods": []
+    },
+    "Dinner": {
+        "kcal": 0,
+        "proteins": 0,
+        "fats": 0,
+        "carbs": 0,
         "foods": []
     }
-]
+}
