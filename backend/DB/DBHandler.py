@@ -4,7 +4,7 @@ import datetime
 import oracledb
 import pprint
 
-from DBConnector import DBConnector
+from DB.DBConnector import DBConnector
 
 
 class DBHandler:
@@ -114,7 +114,8 @@ class DBHandler:
         VALUES (:meal_id, :food_id, :quantity)"""
         with self.connection.cursor() as cursor:
             cursor.execute(
-                query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity}
+                query, {"meal_id": meal_id,
+                        "food_id": food_id, "quantity": quantity}
             )
 
     def _find_next_meal_entry_id(self) -> int:
