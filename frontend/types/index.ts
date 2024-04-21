@@ -4,6 +4,7 @@ export type food_popup_in = {
     food_id: number,
     name: string,
     serving: number,
+    calories_per_100: number,
 }
 
 export type food_popup_out = {
