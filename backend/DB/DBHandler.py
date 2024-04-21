@@ -24,11 +24,11 @@ class DBHandler:
                         "food_id": row[0],
                         "name": row[1],
                         "calories_per_100": row[2],
-                        "proteins_per_100": row[3],
-                        "fats_per_100": row[4],
-                        "carbohydrates_per_100": row[5],
+                        # "proteins_per_100": row[3],
+                        # "fats_per_100": row[4],
+                        # "carbohydrates_per_100": row[5],
                         "serving": row[6],
-                        "water_per_100": row[7],
+                        # "water_per_100": row[7],
                     }
                     for row in rows
                 ],
@@ -325,7 +325,7 @@ class DBHandler:
         user_id = goal_dict["user_id"]
         date = goal_dict["date"]
         query = """
-        SELECT gt.name, target_weight, start_date, end_date
+        SELECT gt.name, target_weight, TO_CHAR(start_date, 'DD-MM-YYYY'), TO_CHAR(end_date, 'DD-MM-YYYY')
         FROM goal g
         JOIN goal_type gt ON g.goal_type_goal_type_id = gt.goal_type_id
         WHERE user_user_id = :user_id
@@ -342,8 +342,8 @@ class DBHandler:
                     {
                         "goal_type": result[0],
                         "target_weight": result[1],
-                        "start_date": result[2].strftime("%Y-%m-%d %H:%M:%S"),
-                        "end_date": result[3].strftime("%Y-%m-%d %H:%M:%S"),
+                        "start_date": result[2],
+                        "end_date": result[3],
                     },
                     indent=4,
                 )
@@ -404,8 +404,8 @@ def main():
         wallet_credentials = json.load(f)
     db = DBHandler(wallet_credentials=wallet_credentials)
 
-    # with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
-    #     f.write(db.get_food_list())
+    with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
+        f.write(db.get_food_list())
     # # db.add_meal_food(
     # #     {
     # #         "date_time": "19-04-2024",
@@ -434,17 +434,17 @@ def main():
     #     }
     # )
 
-    with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_activity_history(1))
+    # with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_activity_history(1))
 
-    # with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
-    #     f.write(db.get_activity_list())
+    # # with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
+    # #     f.write(db.get_activity_list())
 
-    # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
-    #     f.write(db.get_goal_types_list())
+    # # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
+    # #     f.write(db.get_goal_types_list())
 
     with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
-        f.write(db.get_user_goal({"user_id": 300, "date": "24-05-2024"}))
+        f.write(db.get_user_goal({"user_id": 1, "date": "24-05-2024"}))
 
     db.set_user_goal(
         {
