@@ -24,11 +24,11 @@ class DBHandler:
                         "food_id": row[0],
                         "name": row[1],
                         "calories_per_100": row[2],
-                        "proteins_per_100": row[3],
-                        "fats_per_100": row[4],
-                        "carbohydrates_per_100": row[5],
+                        # "proteins_per_100": row[3],
+                        # "fats_per_100": row[4],
+                        # "carbohydrates_per_100": row[5],
                         "serving": row[6],
-                        "water_per_100": row[7],
+                        # "water_per_100": row[7],
                     }
                     for row in rows
                 ],
@@ -404,8 +404,8 @@ def main():
         wallet_credentials = json.load(f)
     db = DBHandler(wallet_credentials=wallet_credentials)
 
-    # with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
-    #     f.write(db.get_food_list())
+    with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
+        f.write(db.get_food_list())
     # # db.add_meal_food(
     # #     {
     # #         "date_time": "19-04-2024",

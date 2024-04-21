@@ -1,42 +1,302 @@
 [
     {
-        "food_id": 9001,
-        "name": "Jab\u0142ko",
-        "calories_per_100": 52.0,
-        "proteins_per_100": 0.3,
-        "fats_per_100": 0.2,
-        "carbohydrates_per_100": 14.0,
-        "serving": 100.0,
-        "water_per_100": 0
+        "food_id": 1,
+        "name": "Chicken Breast",
+        "calories_per_100": 389.4,
+        "serving": 270.4
     },
     {
-        "food_id": 9002,
-        "name": "Jajko",
-        "calories_per_100": 52.0,
-        "proteins_per_100": 0.3,
-        "fats_per_100": 0.2,
-        "carbohydrates_per_100": 14.0,
-        "serving": 100.0,
-        "water_per_100": 0
+        "food_id": 2,
+        "name": "Whole Wheat Bread",
+        "calories_per_100": 176.2,
+        "serving": 397.4
     },
     {
-        "food_id": 9003,
-        "name": "gruszka",
-        "calories_per_100": 52.0,
-        "proteins_per_100": 0.3,
-        "fats_per_100": 0.2,
-        "carbohydrates_per_100": 14.0,
-        "serving": 100.0,
-        "water_per_100": 0
+        "food_id": 3,
+        "name": "Egg",
+        "calories_per_100": 314.4,
+        "serving": 308.1
     },
     {
-        "food_id": 9004,
-        "name": "gruszk",
-        "calories_per_100": 52.0,
-        "proteins_per_100": 0.3,
-        "fats_per_100": 0.2,
-        "carbohydrates_per_100": 14.0,
-        "serving": 100.0,
-        "water_per_100": 0
+        "food_id": 4,
+        "name": "Almonds",
+        "calories_per_100": 471.9,
+        "serving": 34.7
+    },
+    {
+        "food_id": 5,
+        "name": "Salmon",
+        "calories_per_100": 203.9,
+        "serving": 304.8
+    },
+    {
+        "food_id": 6,
+        "name": "Beef Steak",
+        "calories_per_100": 359.4,
+        "serving": 214.6
+    },
+    {
+        "food_id": 7,
+        "name": "Broccoli",
+        "calories_per_100": 278.6,
+        "serving": 404.9
+    },
+    {
+        "food_id": 8,
+        "name": "Milk",
+        "calories_per_100": 262.6,
+        "serving": 456.6
+    },
+    {
+        "food_id": 9,
+        "name": "Apple",
+        "calories_per_100": 309.1,
+        "serving": 456.8
+    },
+    {
+        "food_id": 10,
+        "name": "Banana",
+        "calories_per_100": 287.3,
+        "serving": 119.9
+    },
+    {
+        "food_id": 11,
+        "name": "Sweet Potato",
+        "calories_per_100": 304.0,
+        "serving": 41.3
+    },
+    {
+        "food_id": 12,
+        "name": "White Rice",
+        "calories_per_100": 341.4,
+        "serving": 223.9
+    },
+    {
+        "food_id": 13,
+        "name": "Tofu",
+        "calories_per_100": 361.0,
+        "serving": 240.2
+    },
+    {
+        "food_id": 14,
+        "name": "Oats",
+        "calories_per_100": 236.5,
+        "serving": 297.1
+    },
+    {
+        "food_id": 15,
+        "name": "Carrots",
+        "calories_per_100": 402.1,
+        "serving": 221.6
+    },
+    {
+        "food_id": 16,
+        "name": "Spinach",
+        "calories_per_100": 61.1,
+        "serving": 288.6
+    },
+    {
+        "food_id": 17,
+        "name": "Quinoa",
+        "calories_per_100": 67.2,
+        "serving": 149.6
+    },
+    {
+        "food_id": 18,
+        "name": "Greek Yogurt",
+        "calories_per_100": 166.1,
+        "serving": 122.1
+    },
+    {
+        "food_id": 19,
+        "name": "Avocado",
+        "calories_per_100": 379.2,
+        "serving": 238.8
+    },
+    {
+        "food_id": 20,
+        "name": "Pasta",
+        "calories_per_100": 89.8,
+        "serving": 209.8
+    },
+    {
+        "food_id": 21,
+        "name": "Peanuts",
+        "calories_per_100": 84.5,
+        "serving": 290.9
+    },
+    {
+        "food_id": 22,
+        "name": "Tomato Soup",
+        "calories_per_100": 498.3,
+        "serving": 139.7
+    },
+    {
+        "food_id": 23,
+        "name": "Orange Juice",
+        "calories_per_100": 241.0,
+        "serving": 467.0
+    },
+    {
+        "food_id": 24,
+        "name": "Coffee",
+        "calories_per_100": 468.2,
+        "serving": 173.6
+    },
+    {
+        "food_id": 25,
+        "name": "Green Tea",
+        "calories_per_100": 275.5,
+        "serving": 148.9
+    },
+    {
+        "food_id": 26,
+        "name": "Soy Milk",
+        "calories_per_100": 489.5,
+        "serving": 89.0
+    },
+    {
+        "food_id": 27,
+        "name": "Pork Chop",
+        "calories_per_100": 21.0,
+        "serving": 127.6
+    },
+    {
+        "food_id": 28,
+        "name": "Lamb",
+        "calories_per_100": 248.5,
+        "serving": 258.0
+    },
+    {
+        "food_id": 29,
+        "name": "Mango",
+        "calories_per_100": 457.9,
+        "serving": 434.7
+    },
+    {
+        "food_id": 30,
+        "name": "Pineapple",
+        "calories_per_100": 487.8,
+        "serving": 172.6
+    },
+    {
+        "food_id": 31,
+        "name": "Cucumber",
+        "calories_per_100": 256.3,
+        "serving": 103.3
+    },
+    {
+        "food_id": 32,
+        "name": "Kale",
+        "calories_per_100": 48.0,
+        "serving": 457.4
+    },
+    {
+        "food_id": 33,
+        "name": "Mushrooms",
+        "calories_per_100": 366.9,
+        "serving": 181.7
+    },
+    {
+        "food_id": 34,
+        "name": "Lentils",
+        "calories_per_100": 275.8,
+        "serving": 23.9
+    },
+    {
+        "food_id": 35,
+        "name": "Cheddar Cheese",
+        "calories_per_100": 283.6,
+        "serving": 380.5
+    },
+    {
+        "food_id": 36,
+        "name": "Turkey",
+        "calories_per_100": 31.1,
+        "serving": 10.9
+    },
+    {
+        "food_id": 37,
+        "name": "Venison",
+        "calories_per_100": 239.9,
+        "serving": 121.4
+    },
+    {
+        "food_id": 38,
+        "name": "Cod Fish",
+        "calories_per_100": 273.1,
+        "serving": 62.6
+    },
+    {
+        "food_id": 39,
+        "name": "Shrimp",
+        "calories_per_100": 130.8,
+        "serving": 148.5
+    },
+    {
+        "food_id": 40,
+        "name": "Chocolate",
+        "calories_per_100": 444.8,
+        "serving": 198.9
+    },
+    {
+        "food_id": 41,
+        "name": "Coconut Water",
+        "calories_per_100": 327.6,
+        "serving": 101.2
+    },
+    {
+        "food_id": 42,
+        "name": "Coke",
+        "calories_per_100": 198.4,
+        "serving": 463.5
+    },
+    {
+        "food_id": 43,
+        "name": "Red Wine",
+        "calories_per_100": 488.4,
+        "serving": 489.4
+    },
+    {
+        "food_id": 44,
+        "name": "Beer",
+        "calories_per_100": 277.5,
+        "serving": 96.1
+    },
+    {
+        "food_id": 45,
+        "name": "Vodka",
+        "calories_per_100": 132.6,
+        "serving": 53.9
+    },
+    {
+        "food_id": 46,
+        "name": "Brussels Sprouts",
+        "calories_per_100": 441.1,
+        "serving": 246.9
+    },
+    {
+        "food_id": 47,
+        "name": "Garlic Bread",
+        "calories_per_100": 339.1,
+        "serving": 29.4
+    },
+    {
+        "food_id": 48,
+        "name": "Caesar Salad",
+        "calories_per_100": 61.1,
+        "serving": 210.5
+    },
+    {
+        "food_id": 49,
+        "name": "Potato Chips",
+        "calories_per_100": 48.7,
+        "serving": 355.5
+    },
+    {
+        "food_id": 50,
+        "name": "Maple Syrup",
+        "calories_per_100": 316.9,
+        "serving": 265.7
     }
 ]
