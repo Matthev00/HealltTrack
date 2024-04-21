@@ -1,4 +1,4 @@
-import { food_popup_in } from "@/types";
+import { food_popup_in, food_popup_out } from "@/types";
 
 const foodList: food_popup_in[] = [
     {
@@ -37,4 +37,15 @@ export async function fetchFoods() {
     //const responce = await fetch("");
     //const foodList: food_popup_in[] = await responce.json();
     return foodList;
-  }
+}
+
+export async function saveFood(newFood: food_popup_out) {
+    // await fetch("", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(newFood),
+    // });
+    console.log(newFood)
+}

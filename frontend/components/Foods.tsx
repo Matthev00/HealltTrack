@@ -1,10 +1,12 @@
 "use client"
 
-import { food_popup_in } from "@/types";
-import { fetchFoods } from "@/utils";
-import { ChangeEvent, useEffect, useState } from "react";
+import { food_popup_in, food_popup_out } from "@/types";
+import { fetchFoods, saveFood } from "@/utils";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
+import MealPlanContext from "./store/MealPlanContext";
 
-function Foods() {
+function Foods({ onClose, mealType }: { onClose: () => void, mealType: string }) {
+    const mealPlanCtx = useContext(MealPlanContext);
     const [values, setValues] = useState<{ [key: number]: number }>({});
     const [searchText, setSearchText] = useState("");
     const [foodList, setFoodList] = useState<food_popup_in[] | []>([]);
@@ -12,22 +14,35 @@ function Foods() {
     const getData = async () => {
         const newFoodList = await fetchFoods();
         setFoodList(newFoodList)
-      };
-    
-      useEffect(() => {
-        getData()
-      }, []);
-
-    const handleChange = (foodId: number) => (e: ChangeEvent<HTMLInputElement>) => {
-        let newValue = parseInt(e.target.value);
-        if (isNaN(newValue)) {
-            newValue = 1;
-        }
-        setValues(prevState => ({
-            ...prevState,
-            [foodId]: newValue
-        }));
     };
+
+    useEffect(() => {
+        getData()
+    }, []);
+
+    const handleSaveFood = (foodId: number) => {
+        const quantity = values[foodId] || 1;
+        const foodToSave: food_popup_out = {
+            date_time: mealPlanCtx.actualDate,
+            food_id: foodId,
+            quantity: quantity,
+            meal_type: mealType,
+        }
+        saveFood(foodToSave)
+        onClose();
+        
+    }
+    
+    const handleChange = (foodId: number) => (e: ChangeEvent<HTMLInputElement>) => {
+            let newValue = parseInt(e.target.value);
+            if (isNaN(newValue)) {
+                newValue = 1;
+            }
+            setValues(prevState => ({
+                ...prevState,
+                [foodId]: newValue
+            }));
+        };
 
     const filteredFoodList = foodList.filter(food =>
         food.name.toLowerCase().includes(searchText.toLowerCase())
@@ -50,7 +65,7 @@ function Foods() {
                     <div key={food.food_id} className={`pb-4 ${index !== filteredFoodList.length - 1 ? 'mb-8 border-b border-gray-300' : ''}`} >
                         <div className="flex justify-between">
                             <div className="text-black overflow-wrap break-word max-w-[25rem]">{food.name} - {food.calories_per_100 * food.serving / 100} kalorii</div>
-                            <button className="text-green-400">+</button>
+                            <button className="text-green-400" onClick={() => handleSaveFood(food.food_id)}>+</button>
                         </div>
                         <div className="flex items-center">
                             <input
