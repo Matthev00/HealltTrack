@@ -76,14 +76,14 @@ class DBHandler:
         query = """
         INSERT INTO meal (water_consumption, calories, proteins, fats, carbohydrates, meal_type_meal_type_id, meal_id)
         VALUES (0, 0.1, 0, 0, 0, :meal_type, :meal_id)"""
-        meal_id = self._find_next_meal_id()
+        meal_id = self._find_next_id("meal")
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"meal_type": meal_type, "meal_id": meal_id})
         return meal_id
 
-    def _find_next_meal_id(self) -> int:
+    def _find_next_id(self, table_name: str) -> int:
         with self.connection.cursor() as cursor:
-            cursor.execute("SELECT MAX(meal_id) FROM meal")
+            cursor.execute(f"SELECT MAX({table_name}_id) FROM {table_name}")
             result = cursor.fetchone()
             if result[0] is None:
                 return 1
@@ -94,7 +94,7 @@ class DBHandler:
         query = """
         INSERT INTO meal_entry (meal_entry_id, user_user_id, meal_meal_id, date_time)
         VALUES (:meal_entry_id, :user_id, :meal_id, TO_DATE(:date_time, 'DD-MM-YYYY'))"""
-        meal_entry_id = self._find_next_meal_entry_id()
+        meal_entry_id = self._find_next_id("meal_entry")
         with self.connection.cursor() as cursor:
             cursor.execute(
                 query,
@@ -114,15 +114,6 @@ class DBHandler:
             cursor.execute(
                 query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity}
             )
-
-    def _find_next_meal_entry_id(self) -> int:
-        with self.connection.cursor() as cursor:
-            cursor.execute("SELECT MAX(meal_entry_id) FROM meal_entry")
-            result = cursor.fetchone()
-            if result[0] is None:
-                return 1
-            else:
-                return result[0] + 1
 
     def get_day_history(self, day_dict) -> str:
         date = day_dict["date"]
@@ -249,7 +240,7 @@ class DBHandler:
         INSERT INTO body_measurement_entry (body_measurement_entry_id, date_time, weight, user_user_id)
         VALUES (:bm_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24'), :weight, :user_id)
         """
-        bm_id = self._get_body_measurement_id()
+        bm_id = self._find_next_id("body_measurement_entry")
         with self.connection.cursor() as cursor:
             cursor.execute(
                 query,
@@ -277,17 +268,6 @@ class DBHandler:
                 indent=4,
             )
 
-    def _get_body_measurement_id(self) -> int:
-        with self.connection.cursor() as cursor:
-            cursor.execute(
-                "SELECT MAX(body_measurement_entry_id) FROM body_measurement_entry"
-            )
-            result = cursor.fetchone()
-            if result[0] is None:
-                return 1
-            else:
-                return result[0] + 1
-
     def add_activity_entry(self, activity_dict: Dict):
         user_id = activity_dict["user_id"]
         date = activity_dict["date"]
@@ -297,7 +277,7 @@ class DBHandler:
         query = """
         INSERT INTO activity_entry (activity_entry_id, date_time, duration, calories_burned, user_user_id, activity_activity_id)
         VALUES (:activity_entry_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24-MI'), :duration, :calories_burned, :user_id, :activity_id)"""
-        activity_entry_id = self._get_activity_entry_id()
+        activity_entry_id = self._find_next_id("activity_entry")
         with self.connection.cursor() as cursor:
             cursor.execute(
                 query,
@@ -311,15 +291,6 @@ class DBHandler:
                 },
             )
         self.commit()
-
-    def _get_activity_entry_id(self) -> int:
-        with self.connection.cursor() as cursor:
-            cursor.execute("SELECT MAX(activity_entry_id) FROM activity_entry")
-            result = cursor.fetchone()
-            if result[0] is None:
-                return 1
-            else:
-                return result[0] + 1
 
     def get_activity_history(self, user_id: int) -> str:
         query = """
@@ -419,7 +390,7 @@ class DBHandler:
         INSERT INTO goal (goal_id, target_weight, start_date, end_date, user_user_id, goal_type_goal_type_id)
         VALUES (:goal_id, :target_weight, TO_DATE(:start_date, 'DD-MM-YYYY'), TO_DATE(:end_date, 'DD-MM-YYYY'), :user_id, :goal_type)
         """
-        goal_id = self._get_goal_id()
+        goal_id = self._find_next_id("goal")
         with self.connection.cursor() as cursor:
             cursor.execute(
                 query,
@@ -433,15 +404,6 @@ class DBHandler:
                 },
             )
         self.commit()
-
-    def _get_goal_id(self) -> int:
-        with self.connection.cursor() as cursor:
-            cursor.execute("SELECT MAX(goal_id) FROM goal")
-            result = cursor.fetchone()
-            if result[0] is None:
-                return 1
-            else:
-                return result[0] + 1
 
     def close(self):
         self.db_connector.close()
@@ -460,10 +422,10 @@ def main():
     # db.add_meal_food(
     #     {
     #         "date_time": "19-04-2024",
-    #         "food_id": 9002,
+    #         "food_id": 2,
     #         "quantity": 100,
-    #         "meal_type": 92,
-    #         "user_id": 9001,
+    #         "meal_type": 2,
+    #         "user_id": 1,
     #     }
     # )
 
@@ -488,11 +450,11 @@ def main():
     # with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_activity_history(1))
 
-    # # with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
-    # #     f.write(db.get_activity_list())
+    # with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_activity_list())
 
-    # # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
-    # #     f.write(db.get_goal_types_list())
+    # with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_goal_types_list())
 
     # with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_user_goal({"user_id": 1, "date": "24-05-2024"}))
@@ -507,14 +469,14 @@ def main():
     #     }
     # )
 
-    db.delete_food_from_meal(
-        {
-            "date_time": "01-04-2024",
-            "food_name": "Oats",
-            "meal_type": 1,
-            "user_id": 1,
-        }
-    )
+    # db.delete_food_from_meal(
+    #     {
+    #         "date_time": "01-04-2024",
+    #         "food_name": "Oats",
+    #         "meal_type": 1,
+    #         "user_id": 1,
+    #     }
+    # )
 
 
 if __name__ == "__main__":
