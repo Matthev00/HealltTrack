@@ -1,0 +1,8 @@
+{
+    "user_id": 101,
+    "name": "John",
+    "surname": "Doe",
+    "date_of_birth": "01-01-1999",
+    "gender": "M",
+    "height": 180.0
+}

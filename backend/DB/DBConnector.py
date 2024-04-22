@@ -1,6 +1,5 @@
 import oracledb
 from typing import Dict
-import json
 
 
 class DBConnector:
@@ -40,15 +39,3 @@ class DBConnector:
 
     def close(self):
         self.connection.close()
-
-
-def main():
-    with open("backend/DB/wallet_credentials.json") as f:
-        wallet_credentials = json.load(f)
-
-    db_connector = DBConnector(wallet_credentials)
-    connection = db_connector.get_connection()
-
-
-if __name__ == "__main__":
-    main()
