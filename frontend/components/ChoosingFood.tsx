@@ -17,7 +17,7 @@ const ChoosingFood = ({ onClose, mealType }: { onClose: () => void, mealType: st
                     <div>{mealType}</div>
                     <button onClick={() => onClose()} className="absolute top-0 right-0 text-red-500">x</button>
                 </div>
-                <Foods />
+                <Foods onClose={onClose} mealType={mealType}/>
             </div>
         </div>
 

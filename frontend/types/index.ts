@@ -1,4 +1,4 @@
-export type date_time = `${number}${number}-${number}${number}-${number}${number}${number}${number}`;
+
 
 export type food_popup_in = {
     food_id: number,
@@ -8,7 +8,7 @@ export type food_popup_in = {
 }
 
 export type food_popup_out = {
-    date_time: date_time,
+    date_time: string,
     food_id: number,
     quantity: number,
     meal_type: string,
@@ -39,7 +39,7 @@ export type meal = {
 }
 
 export type meal_entry = {
-    date_time: date_time,
+    date_time: string,
     meal: meal[],
 }
 
