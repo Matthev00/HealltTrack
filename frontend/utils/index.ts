@@ -1,42 +1,15 @@
 import { food_popup_in, food_popup_out } from "@/types";
 
-const foodList: food_popup_in[] = [
-    {
-        food_id: 1,
-        name: "Pizza",
-        serving: 1,
-        calories_per_100: 100,
-    },
-    {
-        food_id: 2,
-        name: "Salad",
-        serving: 2,
-        calories_per_100: 100,
-    },
-    {
-        food_id: 3,
-        name: "Pasta",
-        serving: 1.5,
-        calories_per_100: 100,
-    },
-    {
-        food_id: 4,
-        name: "Pasta",
-        serving: 1.5,
-        calories_per_100: 100,
-    },
-    {
-        food_id: 5,
-        name: "Pasta",
-        serving: 1.5,
-        calories_per_100: 100,
-    },
-];
-
 export async function fetchFoods() {
-    //const responce = await fetch("");
-    //const foodList: food_popup_in[] = await responce.json();
-    return foodList;
+    const response = await fetch("http://localhost:5000/popup_food");
+    if (!response.ok) {
+        throw new Error('Failed to fetch food list');
+    }
+    const foodList = await response.json();
+    // Ensure foodList is always an array
+    const foodListArray: food_popup_in[] = JSON.parse(foodList);
+    console.log(foodListArray)
+    return foodListArray
 }
 
 export async function saveFood(newFood: food_popup_out) {
