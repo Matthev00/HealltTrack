@@ -8,17 +8,15 @@ export async function fetchFoods() {
     const foodList = await response.json();
     // Ensure foodList is always an array
     const foodListArray: food_popup_in[] = JSON.parse(foodList);
-    console.log(foodListArray)
     return foodListArray
 }
 
 export async function saveFood(newFood: food_popup_out) {
-    // await fetch("", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(newFood),
-    // });
-    console.log(newFood)
+    await fetch("http://localhost:5000/popup_food_out", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newFood),
+    });
 }
