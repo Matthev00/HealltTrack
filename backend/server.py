@@ -30,9 +30,12 @@ def display_data_in_specific_day(date):
 def add_choosen_food():
     if request.method == 'POST':
         request_data = request.json
-
-        # TODO: Send the data to the database
-
+        with open("backend/DB/wallet_credentials.json") as f:
+            wallet_credentials = json.load(f)
+        db = DBHandler(wallet_credentials=wallet_credentials)
+        request_data['user_id'] = 1
+        request_data['meal_type'] = 1
+        db.add_meal_food(request_data)
         return jsonify({"message": "Data has been sent"}), 200
     else:
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
