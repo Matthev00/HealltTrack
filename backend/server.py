@@ -49,5 +49,12 @@ def get_activity_hisotry(id):
     return jsonify(activity_history)
 
 
+@app.route('/activity_list', methods=['GET'])
+def get_activity_list():
+    db = connect_to_db()
+    activity_list = db.get_activity_list()
+    return jsonify(activity_list)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
