@@ -13,7 +13,14 @@ class DBHandler:
     def get_food_list(self) -> str:
         with self.connection.cursor() as cursor:
             cursor.execute(
-                "SELECT food_id, name, calories_per_100g, proteins_per_100g, fats_per_100g, carbohydrates_per_100g, serving, water FROM food"
+                """SELECT food_id, name,
+                    calories_per_100g,
+                    proteins_per_100g,
+                    fats_per_100g,
+                    carbohydrates_per_100g,
+                    serving,
+                    water
+                FROM food"""
             )
             rows = cursor.fetchall()
             return json.dumps(
@@ -57,8 +64,9 @@ class DBHandler:
         SELECT meal_meal_id
         FROM meal_entry
         JOIN meal ON meal_entry.meal_meal_id = meal.meal_id
+        JOIN meal_type ON meal.meal_type_meal_type_id = meal_type.meal_type_id
         WHERE TRUNC(meal_entry.date_time) = TRUNC(TO_DATE(:date_time, 'DD-MM-YYYY'))
-            AND meal.meal_type_meal_type_id = :meal_type
+            AND meal_type.name = :meal_type
             AND meal_entry.user_user_id = :user_id
         """
         with self.connection.cursor() as cursor:
@@ -74,7 +82,8 @@ class DBHandler:
 
     def _insert_empty_meal(self, meal_type: int) -> int:
         query = """
-        INSERT INTO meal (water_consumption, calories, proteins, fats, carbohydrates, meal_type_meal_type_id, meal_id)
+        INSERT INTO meal (water_consumption, calories, proteins,
+        fats, carbohydrates, meal_type_meal_type_id, meal_id)
         VALUES (0, 0.1, 0, 0, 0, :meal_type, :meal_id)"""
         meal_id = self._find_next_id("meal")
         with self.connection.cursor() as cursor:
@@ -295,7 +304,8 @@ class DBHandler:
 
     def get_activity_history(self, user_id: int) -> str:
         query = """
-        SELECT TO_CHAR(ae.date_time, 'DD-MM-YYYY-HH24-MI') AS date_time, a.name AS activity_name, ae.duration, ae.calories_burned
+        SELECT TO_CHAR(ae.date_time, 'DD-MM-YYYY-HH24-MI')
+            AS date_time, a.name AS activity_name, ae.duration, ae.calories_burned
         FROM activity_entry ae
         JOIN activity a ON ae.activity_activity_id = a.activity_id
         WHERE ae.user_user_id = :user_id
@@ -318,10 +328,9 @@ class DBHandler:
             )
 
     def get_activity_list(self) -> str:
+        query = """SELECT activity_id, "NAME", calories_per_hour FROM activity"""
         with self.connection.cursor() as cursor:
-            cursor.execute(
-                """SELECT activity_id, "NAME", calories_per_hour FROM activity"""
-            )
+            cursor.execute(query)
             rows = cursor.fetchall()
             return json.dumps(
                 [
@@ -424,8 +433,8 @@ def main():
     #     {
     #         "date_time": "19-04-2024",
     #         "food_id": 2,
-    #         "quantity": 100,
-    #         "meal_type": 2,
+    #         "quantity": 137,
+    #         "meal_type": "Breakfast",
     #         "user_id": 1,
     #     }
     # )
