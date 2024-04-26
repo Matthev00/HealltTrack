@@ -1,0 +1,27 @@
+[
+    {
+        "activity_id": 101,
+        "name": "Jogging",
+        "calories_burned_per_minute": 550
+    },
+    {
+        "activity_id": 102,
+        "name": "Swimming",
+        "calories_burned_per_minute": 700
+    },
+    {
+        "activity_id": 103,
+        "name": "Cycling",
+        "calories_burned_per_minute": 600
+    },
+    {
+        "activity_id": 104,
+        "name": "Yoga",
+        "calories_burned_per_minute": 250
+    },
+    {
+        "activity_id": 105,
+        "name": "Weight Training",
+        "calories_burned_per_minute": 450
+    }
+]

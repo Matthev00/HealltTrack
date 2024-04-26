@@ -1,0 +1,50 @@
+[
+    {
+        "date_time": "12-04-2024-00-00",
+        "activity_name": "Swimming",
+        "duration": 1,
+        "calories_burned": 600
+    },
+    {
+        "date_time": "13-04-2024-00-00",
+        "activity_name": "Cycling",
+        "duration": 1,
+        "calories_burned": 400
+    },
+    {
+        "date_time": "14-04-2024-00-00",
+        "activity_name": "Cycling",
+        "duration": 2,
+        "calories_burned": 800
+    },
+    {
+        "date_time": "19-04-2024-14-00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 200
+    },
+    {
+        "date_time": "19-04-2024-14-00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 200
+    },
+    {
+        "date_time": "19-04-2024-16-00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 200
+    },
+    {
+        "date_time": "19-04-2024-16-00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 200
+    },
+    {
+        "date_time": "19-04-2024-16-00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 200
+    }
+]
