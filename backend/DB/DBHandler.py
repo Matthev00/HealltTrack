@@ -2,7 +2,7 @@ from typing import Dict
 import json
 import oracledb
 
-from DBConnector import DBConnector
+from DB.DBConnector import DBConnector
 
 
 class DBHandler:
@@ -121,7 +121,8 @@ class DBHandler:
         VALUES (:meal_id, :food_id, :quantity)"""
         with self.connection.cursor() as cursor:
             cursor.execute(
-                query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity}
+                query, {"meal_id": meal_id,
+                        "food_id": food_id, "quantity": quantity}
             )
 
     def get_day_history(self, day_dict) -> str:
