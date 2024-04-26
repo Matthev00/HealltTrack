@@ -56,5 +56,27 @@ def get_activity_list():
     return jsonify(activity_list)
 
 
+@app.route('/goal_type_list', methods=['GET'])
+def get_goal_type_list():
+    db = connect_to_db()
+    goal_type_list = db.get_goal_types_list()
+    return jsonify(goal_type_list)
+
+
+@app.route('/user_goal/<id>/<date>', methods=['GET'])
+def get_user_goals(id, date):
+    db = connect_to_db()
+    user_goal_data = {'user_id': id, 'date': date}
+    user_goals = db.get_user_goal(user_goal_data)
+    return jsonify(user_goals)
+
+
+@app.route('/body_measurement/<id>', methods=['GET'])
+def get_body_measurement_history(id):
+    db = connect_to_db()
+    user_body_measurement = db.get_body_measurement_history(id)
+    return jsonify(user_body_measurement)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
