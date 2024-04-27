@@ -8,6 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from 'dayjs';
 import MealPlanContext from './store/MealPlanContext';
+import ActivitiesContext from './store/ActivitiesContext';
 
 
 function Sidebar() {
@@ -16,13 +17,21 @@ function Sidebar() {
     const activeColor = "bg-blue-800";
     const today: Dayjs = dayjs();
     const mealPlanCtx = useContext(MealPlanContext);
+    const activitiesCtx = useContext(ActivitiesContext);
     const [selectedDate, setSelectedDate] = useState<Dayjs>(today);
 
-    const handleDateChange = (newDate: Dayjs | null) => {
+    const handleDateChangeMealPlan = (newDate: Dayjs | null) => {
         if (newDate !== null) {
             setSelectedDate(newDate);
             mealPlanCtx.setactualDate(newDate.format("DD-MM-YYYY"));
               
+          }
+    };
+
+    const handleDateChangeActivities = (newDate: Dayjs | null) => {
+        if (newDate !== null) {
+            setSelectedDate(newDate);
+            activitiesCtx.setactualDate(newDate.format("DD-MM-YYYY"));
           }
     };
 
@@ -39,12 +48,25 @@ function Sidebar() {
                 <a href="/meal_plan" target="_self" rel="noreferrer" className="w-5/6 text-center">
                     <button className={`${pathname == "/meal_plan" ? activeColor : inactiveColor}` + " hover:bg-blue-900 w-full relative my-2 text-white font-bold py-2 px-5 rounded-lg"}>Meal plan</button>
                 </a>
+                <a href="/activities" target="_self" rel="noreferrer" className="w-5/6 text-center">
+                    <button className={`${pathname == "/activities" ? activeColor : inactiveColor}` + " hover:bg-blue-900 w-full relative my-2 text-white font-bold py-2 px-5 rounded-lg"}>Activities</button>
+                </a>
 
                 <div className={`${pathname == "/meal_plan" ? 'block' : 'hidden'}`}>
 
                     <Box style={{ backgroundColor: 'white', marginTop: '20px' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChange} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
+                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeMealPlan} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
+                        </LocalizationProvider>
+                    </Box>
+
+                </div>
+
+                <div className={`${pathname == "/activities" ? 'block' : 'hidden'}`}>
+
+                    <Box style={{ backgroundColor: 'white', marginTop: '20px' }}>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeActivities} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
                         </LocalizationProvider>
                     </Box>
 
