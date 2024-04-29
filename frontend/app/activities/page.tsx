@@ -1,18 +1,17 @@
 "use client"
 
-import ChoosingFood from "@/components/ChoosingFood";
+import ChoosingActivity from "@/components/ChoosingActivity";
 import ActivitiesContext from "@/components/store/ActivitiesContext";
 import { useContext, useState } from "react";
 
 export default function Activities() {
   const activitiesCtx = useContext(ActivitiesContext);
-  //const [choosingFood, setChoosingFood] = useState<boolean>(false);
-  //const [mealType, setMealType] = useState<string>("");
+  const [choosingActivity, setChoosingActivity] = useState<boolean>(false);
+  const [activityType, setActivityType] = useState<string>("");
 
-  // const choosingFoodHandler = (mealType: string) => {
-  //   setMealType(mealType)
-  //   setChoosingFood(true)
-  // };
+  const choosingActivityHandler = () => {
+    setChoosingActivity(true)
+  }
 
   return <div className=" w- full h-full">
 
@@ -21,11 +20,13 @@ export default function Activities() {
         <span className="">{activitiesCtx.actualDate}</span>
         <button
           onClick={() => {
-            //choosingFoodHandler("Today");
+            choosingActivityHandler();
           }}
           className="ml-2 text-green-400">+</button>
       </div>
     </div>
+    
 
+    {choosingActivity && <ChoosingActivity onClose={() => setChoosingActivity(false)} activityType={activityType} />}
   </div>
 }
