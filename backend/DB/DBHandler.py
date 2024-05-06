@@ -2,7 +2,7 @@ from typing import Dict
 import json
 import oracledb
 
-from DB.DBConnector import DBConnector
+from DBConnector import DBConnector
 
 
 class DBHandler:
@@ -13,13 +13,10 @@ class DBHandler:
     def get_food_list(self) -> str:
         with self.connection.cursor() as cursor:
             cursor.execute(
-                """SELECT food_id, name,
+                """SELECT food_id,
+                    name,
                     calories_per_100g,
-                    proteins_per_100g,
-                    fats_per_100g,
-                    carbohydrates_per_100g,
-                    serving,
-                    water
+                    serving
                 FROM food"""
             )
             rows = cursor.fetchall()
@@ -29,11 +26,7 @@ class DBHandler:
                         "food_id": row[0],
                         "name": row[1],
                         "calories_per_100": row[2],
-                        # "proteins_per_100": row[3],
-                        # "fats_per_100": row[4],
-                        # "carbohydrates_per_100": row[5],
-                        "serving": row[6],
-                        # "water_per_100": row[7],
+                        "serving": row[3],
                     }
                     for row in rows
                 ],
@@ -121,8 +114,7 @@ class DBHandler:
         VALUES (:meal_id, :food_id, :quantity)"""
         with self.connection.cursor() as cursor:
             cursor.execute(
-                query, {"meal_id": meal_id,
-                        "food_id": food_id, "quantity": quantity}
+                query, {"meal_id": meal_id, "food_id": food_id, "quantity": quantity}
             )
 
     def get_day_history(self, day_dict) -> str:
