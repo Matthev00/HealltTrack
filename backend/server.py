@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from DB.DBHandler import DBHandler
+import sys
 import json
+
+sys.path.append("backend/DB")
+from DBHandler import DBHandler
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
