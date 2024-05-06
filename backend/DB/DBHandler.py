@@ -202,7 +202,7 @@ class DBHandler:
                 )
         return foods
 
-    def delete_food_from_meal(self, meal_data: Dict):
+    def delete_food_from_meal(self, meal_data: Dict) -> bool:
         date_time = meal_data["date_time"]
         food_name = meal_data["food_name"]
         meal_type = meal_data["meal_type"]
@@ -218,6 +218,8 @@ class DBHandler:
             with self.connection.cursor() as cursor:
                 cursor.execute(query, {"meal_id": meal_id, "food_id": food_id})
             self.commit()
+            return True
+        return False
 
     def _find_food_id(self, food_name: str) -> int:
         query = """
@@ -421,15 +423,15 @@ def main():
 
     # with open("backend/DB/examples/foods.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_food_list())
-    # db.add_meal_food(
-    #     {
-    #         "date_time": "19-04-2024",
-    #         "food_id": 2,
-    #         "quantity": 137,
-    #         "meal_type": "Breakfast",
-    #         "user_id": 1,
-    #     }
-    # )
+    db.add_meal_food(
+        {
+            "date_time": "19-04-2024",
+            "food_id": 2,
+            "quantity": 137,
+            "meal_type": "Breakfast",
+            "user_id": 1,
+        }
+    )
 
     # with open("backend/DB/examples/history.json", "w", encoding="utf-8") as f:
     #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
