@@ -1,6 +1,7 @@
 from typing import Dict
 import json
 import oracledb
+import logging
 
 from DBConnector import DBConnector
 
@@ -9,6 +10,7 @@ class DBHandler:
     def __init__(self, wallet_credentials: Dict):
         self.db_connector = DBConnector(wallet_credentials)
         self.connection = self.db_connector.get_connection()
+        self.logger = logging.getLogger(__name__)
 
     def get_food_list(self) -> str:
         with self.connection.cursor() as cursor:
@@ -49,8 +51,7 @@ class DBHandler:
             self._insert_meal_food(meal_id, food_id, quantity)
             self.commit()
         except oracledb.DatabaseError as e:
-            print("Error in add_meal_food")
-            print(e)
+            self.logger.error("Error in add_meal_food: %s", e)
 
     def _find_meal(self, date_time: str, meal_type: int, user_id: int) -> int:
         query = """
