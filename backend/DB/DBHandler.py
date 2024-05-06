@@ -246,17 +246,20 @@ class DBHandler:
         VALUES (:bm_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24'), :weight, :user_id)
         """
         bm_id = self._find_next_id("body_measurement_entry")
-        with self.connection.cursor() as cursor:
-            cursor.execute(
-                query,
-                {
-                    "bm_id": bm_id,
-                    "date_time": date,
-                    "weight": weight,
-                    "user_id": user_id,
-                },
-            )
-        self.commit()
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute(
+                    query,
+                    {
+                        "bm_id": bm_id,
+                        "date_time": date,
+                        "weight": weight,
+                        "user_id": user_id,
+                    },
+                )
+            self.commit()
+        except oracledb.DatabaseError as e:
+            self.logger.error("Error in add_body_measurement_entry: %s", e)
 
     def get_body_measurement_history(self, user_id: int) -> str:
         query = """
@@ -283,19 +286,22 @@ class DBHandler:
         INSERT INTO activity_entry (activity_entry_id, date_time, duration, calories_burned, user_user_id, activity_activity_id)
         VALUES (:activity_entry_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24-MI'), :duration, :calories_burned, :user_id, :activity_id)"""
         activity_entry_id = self._find_next_id("activity_entry")
-        with self.connection.cursor() as cursor:
-            cursor.execute(
-                query,
-                {
-                    "activity_entry_id": activity_entry_id,
-                    "date_time": date,
-                    "duration": duration,
-                    "calories_burned": calories_burned,
-                    "user_id": user_id,
-                    "activity_id": activity_id,
-                },
-            )
-        self.commit()
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute(
+                    query,
+                    {
+                        "activity_entry_id": activity_entry_id,
+                        "date_time": date,
+                        "duration": duration,
+                        "calories_burned": calories_burned,
+                        "user_id": user_id,
+                        "activity_id": activity_id,
+                    },
+                )
+            self.commit()
+        except oracledb.DatabaseError as e:
+            self.logger.error("Error in add_activity_entry: %s", e)
 
     def get_activity_history(self, user_id: int) -> str:
         query = """
@@ -396,19 +402,22 @@ class DBHandler:
         VALUES (:goal_id, :target_weight, TO_DATE(:start_date, 'DD-MM-YYYY'), TO_DATE(:end_date, 'DD-MM-YYYY'), :user_id, :goal_type)
         """
         goal_id = self._find_next_id("goal")
-        with self.connection.cursor() as cursor:
-            cursor.execute(
-                query,
-                {
-                    "goal_id": goal_id,
-                    "target_weight": target_weight,
-                    "start_date": start_date,
-                    "end_date": end_date,
-                    "user_id": user_id,
-                    "goal_type": goal_type,
-                },
-            )
-        self.commit()
+        try:
+            with self.connection.cursor() as cursor:
+                cursor.execute(
+                    query,
+                    {
+                        "goal_id": goal_id,
+                        "target_weight": target_weight,
+                        "start_date": start_date,
+                        "end_date": end_date,
+                        "user_id": user_id,
+                        "goal_type": goal_type,
+                    },
+                )
+            self.commit()
+        except oracledb.DatabaseError as e:
+            self.logger.error("Error in set_user_goal: %s", e)
 
     def close(self):
         self.db_connector.close()
