@@ -211,7 +211,7 @@ class DBHandler:
 
         meal_id = self._find_meal(date_time, meal_type, user_id)
         food_id = self._find_food_id(food_name)
-        if meal_id:
+        if meal_id and food_id:
             query = """
             DELETE FROM meal_food
             WHERE meal_meal_id = :meal_id AND food_food_id = :food_id
