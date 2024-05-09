@@ -23,21 +23,21 @@ def connect_to_db_meal():
 def connect_to_db_activity():
     with open("backend/DB/wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
-    db = MealHandler(wallet_credentials=wallet_credentials)
+    db = ActivityHandler(wallet_credentials=wallet_credentials)
     return db
 
 
 def connect_to_db_goal():
     with open("backend/DB/wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
-    db = MealHandler(wallet_credentials=wallet_credentials)
+    db = GoalHandler(wallet_credentials=wallet_credentials)
     return db
 
 
 def connect_to_db_measurement():
     with open("backend/DB/wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
-    db = MealHandler(wallet_credentials=wallet_credentials)
+    db = MeasurementHandler(wallet_credentials=wallet_credentials)
     return db
 
 
