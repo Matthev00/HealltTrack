@@ -93,9 +93,6 @@ class UserManager(DBHandler):
                 indent=4,
             )
 
-    def commit(self):
-        self.connection.commit()
-
 
 def main():
     folder_name = Path(__file__).parent
