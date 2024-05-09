@@ -3,8 +3,8 @@ from unittest.mock import patch, MagicMock
 import sys
 
 sys.path.append("backend/DB")
-from DBHandler import DBHandler as Handler
-from DBConnector import DBConnector
+from DBHandler import DBHandler as Handler  # noqa5501
+from DBConnector import DBConnector  # noqa5501
 
 
 @pytest.fixture(scope="module")
@@ -31,7 +31,7 @@ def handler(mock_db_connector):
 
 def setup_mock_cursor(mock_db_connector):
     mock_cursor = MagicMock()
-    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (
+    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (  # noqa5501
         mock_cursor
     )
     return mock_cursor
@@ -44,7 +44,9 @@ def test_find_next_id_empty_table(handler, mock_db_connector):
     result = handler._find_next_id("test_table")
 
     assert result == 1
-    mock_cursor.execute.assert_called_once_with("SELECT MAX(test_table_id) FROM test_table")
+    mock_cursor.execute.assert_called_once_with(
+        "SELECT MAX(test_table_id) FROM test_table"
+    )
 
 
 def test_find_next_id_non_empty_table(handler, mock_db_connector):

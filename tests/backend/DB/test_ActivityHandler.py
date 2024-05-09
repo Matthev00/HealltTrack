@@ -5,8 +5,8 @@ import oracledb
 import json
 
 sys.path.append("backend/DB")
-from ActivityHandler import ActivityHandler as Handler
-from DBConnector import DBConnector
+from ActivityHandler import ActivityHandler as Handler  # noqa5501
+from DBConnector import DBConnector  # noqa5501
 
 
 @pytest.fixture(scope="module")
@@ -33,7 +33,7 @@ def handler(mock_db_connector):
 
 def setup_mock_cursor(mock_db_connector):
     mock_cursor = MagicMock()
-    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (
+    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (  # noqa5501
         mock_cursor
     )
     return mock_cursor
@@ -118,13 +118,24 @@ def test_get_activity_history_empty(handler, mock_db_connector):
 
 def test_get_activity_list(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
-    mock_cursor.fetchall.return_value = [(101, "Running", 300), (102, "Swimming", 500)]
+    mock_cursor.fetchall.return_value = [
+        (101, "Running", 300),
+        (102, "Swimming", 500),
+    ]
 
     result = handler.get_activity_list()
     expected_result = json.dumps(
         [
-            {"activity_id": 101, "name": "Running", "calories_burned_per_minute": 300},
-            {"activity_id": 102, "name": "Swimming", "calories_burned_per_minute": 500},
+            {
+                "activity_id": 101,
+                "name": "Running",
+                "calories_burned_per_minute": 300,
+            },
+            {
+                "activity_id": 102,
+                "name": "Swimming",
+                "calories_burned_per_minute": 500,
+            },
         ],
         indent=4,
     )

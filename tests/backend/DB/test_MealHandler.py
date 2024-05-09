@@ -4,8 +4,8 @@ from unittest.mock import patch, MagicMock
 import sys
 
 sys.path.append("backend/DB")
-from MealHandler import MealHandler as Handler
-from DBConnector import DBConnector
+from MealHandler import MealHandler as Handler  # noqa5501
+from DBConnector import DBConnector  # noqa5501
 
 
 @pytest.fixture(scope="module")
@@ -32,7 +32,7 @@ def handler(mock_db_connector):
 
 def setup_mock_cursor(mock_db_connector):
     mock_cursor = MagicMock()
-    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (
+    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (  # noqa5501
         mock_cursor
     )
     return mock_cursor

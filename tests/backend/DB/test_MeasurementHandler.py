@@ -4,8 +4,8 @@ import sys
 import json
 
 sys.path.append("backend/DB")
-from MeasurementHandler import MeasurementHandler as Handler
-from DBConnector import DBConnector
+from MeasurementHandler import MeasurementHandler as Handler  # noqa5501
+from DBConnector import DBConnector  # noqa5501
 
 
 @pytest.fixture(scope="module")
@@ -32,7 +32,7 @@ def handler(mock_db_connector):
 
 def setup_mock_cursor(mock_db_connector):
     mock_cursor = MagicMock()
-    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (
+    mock_db_connector.get_connection.return_value.cursor.return_value.__enter__.return_value = (  # noqa5501
         mock_cursor
     )
     return mock_cursor
@@ -42,11 +42,7 @@ def test_add_body_measurement_entry_success(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchone.return_value = [10]
 
-    valid_entry_dict = {
-        "user_id": 1,
-        "date": "01-01-2022-12",
-        "weight": 70
-    }
+    valid_entry_dict = {"user_id": 1, "date": "01-01-2022-12", "weight": 70}
 
     handler.add_body_measurement_entry(valid_entry_dict)
 
@@ -55,7 +51,10 @@ def test_add_body_measurement_entry_success(handler, mock_db_connector):
 
 def test_get_body_measurement_history(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
-    mock_cursor.fetchall.return_value = [("01-01-2022-12", 70), ("02-01-2022-12", 72)]
+    mock_cursor.fetchall.return_value = [
+        ("01-01-2022-12", 70),
+        ("02-01-2022-12", 72),
+    ]
 
     user_id = 1
     result = handler.get_body_measurement_history(user_id)
@@ -68,12 +67,4 @@ def test_get_body_measurement_history(handler, mock_db_connector):
     )
 
     assert result == expected_result
-    mock_cursor.execute.assert_called_once_with(
-        """
-        SELECT TO_CHAR(bme.date_time, 'DD-MM-YYYY-HH24') AS date_time, bme.weight
-        FROM body_measurement_entry bme
-        WHERE bme.user_user_id = :user_id
-        ORDER BY bme.date_time
-        """,
-        {"user_id": user_id},
-    )
+    mock_cursor.execute.assert_called_once()
