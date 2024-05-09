@@ -1,6 +1,7 @@
 from typing import Dict
 import json
 import oracledb
+from pathlib import Path
 
 from DBHandler import DBHandler
 
@@ -14,10 +15,7 @@ class MeasurementHandler(DBHandler):
         date = entry_dict["date"]
         weight = entry_dict["weight"]
 
-        query = """
-        INSERT INTO body_measurement_entry (body_measurement_entry_id, date_time, weight, user_user_id)
-        VALUES (:bm_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24'), :weight, :user_id)
-        """
+        query = self._get_query("add_body_measurement_entry")
         bm_id = self._find_next_id("body_measurement_entry")
         try:
             with self.connection.cursor() as cursor:
@@ -35,12 +33,7 @@ class MeasurementHandler(DBHandler):
             self.logger.error("Error in add_body_measurement_entry: %s", e)
 
     def get_body_measurement_history(self, user_id: int) -> str:
-        query = """
-        SELECT TO_CHAR(bme.date_time, 'DD-MM-YYYY-HH24') AS date_time, bme.weight
-        FROM body_measurement_entry bme
-        WHERE bme.user_user_id = :user_id
-        ORDER BY bme.date_time
-        """
+        query = self._get_query("get_body_measurement_history")
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"user_id": user_id})
             rows = cursor.fetchall()
@@ -51,13 +44,19 @@ class MeasurementHandler(DBHandler):
 
 
 def main():
-    with open("backend/DB/wallet_credentials.json") as f:
+    folder_name = Path(__file__).parent
+    with open(folder_name / "wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
     db = MeasurementHandler(wallet_credentials=wallet_credentials)
 
-    # db.add_body_measurement_entry({"user_id": 1, "date": "19-04-2024-14", "weight": 70})
+    db.add_body_measurement_entry(
+        {"user_id": 1, "date": "19-04-2024-14", "weight": 70}
+    )  #
 
-    with open("backend/DB/examples/body_measurement_history.json", "w", encoding="utf-8") as f:
+    exemples = folder_name / "examples"
+    with open(
+        exemples / "body_measurement_history.json", "w", encoding="utf-8"
+    ) as f:  #
         f.write(db.get_body_measurement_history(1))
 
 

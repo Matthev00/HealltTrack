@@ -1,6 +1,7 @@
 from typing import Dict
 import json
 import oracledb
+from pathlib import Path
 
 from DBHandler import DBHandler
 
@@ -15,9 +16,7 @@ class ActivityHandler(DBHandler):
         activity_id = activity_dict["activity_id"]
         duration = activity_dict["duration"]
         calories_burned = activity_dict["calories_burned"]
-        query = """
-        INSERT INTO activity_entry (activity_entry_id, date_time, duration, calories_burned, user_user_id, activity_activity_id)
-        VALUES (:activity_entry_id, TO_DATE(:date_time, 'DD-MM-YYYY-HH24-MI'), :duration, :calories_burned, :user_id, :activity_id)"""
+        query = self._get_query("add_activity_entry")
         activity_entry_id = self._find_next_id("activity_entry")
         try:
             with self.connection.cursor() as cursor:
@@ -37,14 +36,7 @@ class ActivityHandler(DBHandler):
             self.logger.error("Error in add_activity_entry: %s", e)
 
     def get_activity_history(self, user_id: int) -> str:
-        query = """
-        SELECT TO_CHAR(ae.date_time, 'DD-MM-YYYY-HH24-MI')
-            AS date_time, a.name AS activity_name, ae.duration, ae.calories_burned
-        FROM activity_entry ae
-        JOIN activity a ON ae.activity_activity_id = a.activity_id
-        WHERE ae.user_user_id = :user_id
-        ORDER BY ae.date_time
-        """
+        query = self._get_query("get_activity_history")
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"user_id": user_id})
             rows = cursor.fetchall()
@@ -62,7 +54,7 @@ class ActivityHandler(DBHandler):
             )
 
     def get_activity_list(self) -> str:
-        query = """SELECT activity_id, "NAME", calories_per_hour FROM activity"""
+        query = self._get_query("get_activity_list")
         with self.connection.cursor() as cursor:
             cursor.execute(query)
             rows = cursor.fetchall()
@@ -80,7 +72,8 @@ class ActivityHandler(DBHandler):
 
 
 def main():
-    with open("backend/DB/wallet_credentials.json") as f:
+    folder_name = Path(__file__).parent
+    with open(folder_name / "wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
     db = ActivityHandler(wallet_credentials=wallet_credentials)
 
@@ -94,10 +87,11 @@ def main():
     #     }
     # )
 
-    with open("backend/DB/examples/activity_history.json", "w", encoding="utf-8") as f:
+    examples = folder_name / "examples"
+    with open(examples / "activity_history.json", "w", encoding="utf-8") as f:
         f.write(db.get_activity_history(1))
 
-    with open("backend/DB/examples/activity_list.json", "w", encoding="utf-8") as f:
+    with open(examples / "activity_list.json", "w", encoding="utf-8") as f:
         f.write(db.get_activity_list())
 
 

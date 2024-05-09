@@ -1,0 +1,1 @@
+SELECT activity_id, "NAME", calories_per_hour FROM activity

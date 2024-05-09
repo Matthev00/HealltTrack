@@ -1,6 +1,7 @@
 from typing import Dict
 import json
 import oracledb
+from pathlib import Path
 
 from DBHandler import DBHandler
 
@@ -10,8 +11,9 @@ class GoalHandler(DBHandler):
         super().__init__(wallet_credentials)
 
     def get_goal_types_list(self) -> str:
+        query = self._get_query("get_goal_types_list")
         with self.connection.cursor() as cursor:
-            cursor.execute("""SELECT name FROM goal_type""")
+            cursor.execute(query)
             rows = cursor.fetchall()
             return json.dumps(
                 [row[0] for row in rows],
@@ -21,16 +23,7 @@ class GoalHandler(DBHandler):
     def get_user_goal(self, goal_dict: Dict) -> str:
         user_id = goal_dict["user_id"]
         date = goal_dict["date"]
-        query = """
-        SELECT gt.name, target_weight, TO_CHAR(start_date, 'DD-MM-YYYY'), TO_CHAR(end_date, 'DD-MM-YYYY')
-        FROM goal g
-        JOIN goal_type gt ON g.goal_type_goal_type_id = gt.goal_type_id
-        WHERE user_user_id = :user_id
-            AND start_date <= TO_DATE(:date_time, 'DD-MM-YYYY')
-            AND end_date >= TO_DATE(:date_time, 'DD-MM-YYYY')
-        ORDER BY end_date ASC
-        FETCH FIRST 1 ROW ONLY
-        """
+        query = self._get_query("get_user_goal")
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"user_id": user_id, "date_time": date})
             result = cursor.fetchone()
@@ -61,10 +54,7 @@ class GoalHandler(DBHandler):
         start_date = goal_dict["start_date"]
         end_date = goal_dict["end_date"]
 
-        query = """
-        INSERT INTO goal (goal_id, target_weight, start_date, end_date, user_user_id, goal_type_goal_type_id)
-        VALUES (:goal_id, :target_weight, TO_DATE(:start_date, 'DD-MM-YYYY'), TO_DATE(:end_date, 'DD-MM-YYYY'), :user_id, :goal_type)
-        """
+        query = self._get_query("set_user_goal")
         goal_id = self._find_next_id("goal")
         try:
             with self.connection.cursor() as cursor:
@@ -85,14 +75,16 @@ class GoalHandler(DBHandler):
 
 
 def main():
-    with open("backend/DB/wallet_credentials.json") as f:
+    folder_name = Path(__file__).parent
+    with open(folder_name / "wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
     db = GoalHandler(wallet_credentials=wallet_credentials)
 
-    with open("backend/DB/examples/goal_type_list.json", "w", encoding="utf-8") as f:
+    examples = folder_name / "examples"
+    with open(examples / "goal_type_list.json", "w", encoding="utf-8") as f:
         f.write(db.get_goal_types_list())
 
-    with open("backend/DB/examples/goal.json", "w", encoding="utf-8") as f:
+    with open(examples / "goal.json", "w", encoding="utf-8") as f:
         f.write(db.get_user_goal({"user_id": 1, "date": "24-05-2024"}))
 
     db.set_user_goal(

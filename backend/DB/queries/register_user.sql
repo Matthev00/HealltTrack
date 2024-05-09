@@ -1,0 +1,2 @@
+INSERT INTO "User" (user_id, name, surname, email, password, date_of_birth, gender, height)
+VALUES (:user_id, :name, :surname, :email, :password, TO_DATE(:date_of_birth, 'DD-MM-YYYY'), :gender, :height)
