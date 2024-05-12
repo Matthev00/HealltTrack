@@ -68,6 +68,21 @@ def test_get_food_list(data, expected, mock_db_connector, handler):
     mock_db_connector.get_connection.assert_called_once()
 
 
+def test_get_foods_for_meal_with_multiple_foods(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchall.return_value = [
+        ("Apple", 52, 0.3, 0.2, 14, 85, 100),
+        ("Banana", 89, 1.1, 0.3, 23, 75, 150),
+        ("Chicken Breast", 165, 31, 3.6, 0, 65, 200),
+    ]
+    foods = handler._get_foods_for_meal(1)
+
+    assert len(foods) == 3
+    assert foods[0]["name"] == "Apple" and foods[0]["calories_per_100g"] == 52
+    assert foods[1]["name"] == "Banana" and foods[1]["calories_per_100g"] == 89
+    assert foods[2]["name"] == "Chicken Breast" and foods[2]["calories_per_100g"] == 165
+
+
 def test_get_food_list_db_error(mock_db_connector, handler):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchall.side_effect = Exception("DB error")
@@ -94,6 +109,14 @@ def test_find_meal_not_found(handler, mock_db_connector):
     assert result is None
 
 
+def test_find_next_id_existing(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchone.return_value = [10]
+
+    result = handler._find_next_id("meal")
+    assert result == 11
+
+
 def test_insert_empty_meal(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     handler._find_next_id = MagicMock(return_value=1)
@@ -101,14 +124,6 @@ def test_insert_empty_meal(handler, mock_db_connector):
     result = handler._insert_empty_meal(2)
     assert result == 1
     mock_cursor.execute.assert_called_once()
-
-
-def test_find_next_id_existing(handler, mock_db_connector):
-    mock_cursor = setup_mock_cursor(mock_db_connector)
-    mock_cursor.fetchone.return_value = [10]
-
-    result = handler._find_next_id("meal")
-    assert result == 11
 
 
 def test_find_next_id_none(handler, mock_db_connector):
@@ -151,19 +166,15 @@ def test_get_foods_for_meal_no_data(handler, mock_db_connector):
     assert foods == []
 
 
-def test_get_foods_for_meal_with_multiple_foods(handler, mock_db_connector):
-    mock_cursor = setup_mock_cursor(mock_db_connector)
-    mock_cursor.fetchall.return_value = [
-        ("Apple", 52, 0.3, 0.2, 14, 85, 100),
-        ("Banana", 89, 1.1, 0.3, 23, 75, 150),
-        ("Chicken Breast", 165, 31, 3.6, 0, 65, 200),
-    ]
-    foods = handler._get_foods_for_meal(1)
+def test_get_day_history_no_data(handler, mock_db_connector):
+    handler._get_foods_for_meal = MagicMock(return_value=[])
 
-    assert len(foods) == 3
-    assert foods[0]["name"] == "Apple" and foods[0]["calories_per_100g"] == 52
-    assert foods[1]["name"] == "Banana" and foods[1]["calories_per_100g"] == 89
-    assert foods[2]["name"] == "Chicken Breast" and foods[2]["calories_per_100g"] == 165
+    day_dict = {"date": "01-01-2022", "user_id": 1}
+    result = handler.get_day_history(day_dict)
+    result_data = json.loads(result)
+
+    assert all(meal_info["kcal"] == 0 for meal_info in result_data.values())
+    assert all(meal_info["foods"] == [] for meal_info in result_data.values())
 
 
 def test_get_day_history_with_data(handler, mock_db_connector):
@@ -181,17 +192,6 @@ def test_get_day_history_with_data(handler, mock_db_connector):
     assert result_data["Breakfast"]["kcal"] == 200
     assert result_data["Lunch"]["kcal"] == 500
     assert result_data["Breakfast"]["foods"] == [{"name": "Apple"}]
-
-
-def test_get_day_history_no_data(handler, mock_db_connector):
-    handler._get_foods_for_meal = MagicMock(return_value=[])
-
-    day_dict = {"date": "01-01-2022", "user_id": 1}
-    result = handler.get_day_history(day_dict)
-    result_data = json.loads(result)
-
-    assert all(meal_info["kcal"] == 0 for meal_info in result_data.values())
-    assert all(meal_info["foods"] == [] for meal_info in result_data.values())
 
 
 def test_get_day_history_full_day(handler, mock_db_connector):
