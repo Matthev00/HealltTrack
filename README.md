@@ -17,7 +17,11 @@ Web application in technology X, aiming to serve as a comprehensive tool to trac
 
 
 ## Installation
+    npm run install:frontend
+    npm run install:backend
 
+## Run
+    npm run start
 
 ## Tabels
 - User

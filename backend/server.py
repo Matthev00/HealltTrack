@@ -4,10 +4,10 @@ import sys
 import json
 
 sys.path.append("backend/DB")
-from MealHandler import MealHandler
-from ActivityHandler import ActivityHandler
-from GoalHandler import GoalHandler
-from MeasurementHandler import MeasurementHandler
+from MealHandler import MealHandler  # noqa 5501
+from ActivityHandler import ActivityHandler  # noqa 5501
+from GoalHandler import GoalHandler  # noqa 5501
+from MeasurementHandler import MeasurementHandler  # noqa 5501
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
