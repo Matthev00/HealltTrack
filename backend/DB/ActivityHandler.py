@@ -63,7 +63,7 @@ class ActivityHandler(DBHandler):
                     {
                         "activity_id": row[0],
                         "name": row[1],
-                        "calories_burned_per_minute": row[2],
+                        "calories_burned_per_hour": row[2],
                     }
                     for row in rows
                 ],

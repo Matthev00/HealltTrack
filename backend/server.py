@@ -78,7 +78,7 @@ def get_activity_hisotry(id):
 
 @app.route('/activity_list', methods=['GET'])
 def get_activity_list():
-    db = connect_to_db_meal()
+    db = connect_to_db_activity()
     activity_list = db.get_activity_list()
     return jsonify(activity_list)
 

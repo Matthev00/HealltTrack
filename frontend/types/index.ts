@@ -35,12 +35,17 @@ export type meal = {
     fats: number,
     carbohydrates: number,
     food: food[]
-
 }
 
 export type meal_entry = {
     date_time: string,
     meal: meal[],
+}
+
+export type activity_popup_in = {
+    activity_id: number
+    name: string,
+    calories_burned_per_hour: number,
 }
 
 export interface MealPlanContextProps {
