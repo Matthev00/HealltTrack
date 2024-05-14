@@ -2,14 +2,14 @@ import oracledb
 import json
 import bcrypt
 from typing import Dict
+from pathlib import Path
 
-from DBConnector import DBConnector
+from DBHandler import DBHandler
 
 
-class UserManager:
-    def __init__(self, db_connector: DBConnector):
-        self.db_connector = db_connector
-        self.connection = self.db_connector.get_connection()
+class UserManager(DBHandler):
+    def __init__(self, wallet_credentials: Dict):
+        super().__init__(wallet_credentials)
 
     def hash_password(self, password: str) -> bytes:
         salt = bcrypt.gensalt()
@@ -25,11 +25,12 @@ class UserManager:
         height = user_dict["height"]
         password_hash = self.hash_password(password)
         user_id = self._find_user_next_id()
+
+        query = self._get_query("register_user")
         with self.connection.cursor() as cursor:
             try:
                 cursor.execute(
-                    """INSERT INTO "User" (user_id, name, surname, email, password, date_of_birth, gender, height)
-                    VALUES (:user_id, :name, :surname, :email, :password, TO_DATE(:date_of_birth, 'DD-MM-YYYY'), :gender, :height)""",
+                    query,
                     {
                         "user_id": user_id,
                         "name": name,
@@ -53,15 +54,16 @@ class UserManager:
             max_id = cursor.fetchone()
             return max_id[0] + 1 if max_id[0] else 1
 
-    def check_password(self, stored_password: str, provided_password: str) -> bool:
-        return bcrypt.checkpw(provided_password.encode(), stored_password)
+    def check_password(self, stored_pass: str, provided_pass: str) -> bool:
+        return bcrypt.checkpw(provided_pass.encode(), stored_pass)
 
     def login_user(self, login_dict: Dict) -> Dict:
         email = login_dict["email"]
         password = login_dict["password"]
+        query = self._get_query("login_user")
         with self.connection.cursor() as cursor:
             cursor.execute(
-                """SELECT password FROM "User" WHERE email = :email""",
+                query,
                 {"email": email},
             )
             stored_password = cursor.fetchone()
@@ -74,8 +76,7 @@ class UserManager:
             return False
 
     def get_user_data(self, user_email: str) -> Dict:
-        query = """SELECT user_id, name, surname, TO_CHAR(date_of_birth, 'DD-MM-YYYY'), gender , height
-        FROM "User" WHERE email = :email"""
+        query = self._get_query("get_user_data")
 
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"email": user_email})
@@ -92,22 +93,19 @@ class UserManager:
                 indent=4,
             )
 
-    def commit(self):
-        self.connection.commit()
-
 
 def main():
-    with open("backend/DB/wallet_credentials.json") as f:
+    folder_name = Path(__file__).parent
+    with open(folder_name / "wallet_credentials.json") as f:
         wallet_credentials = json.load(f)
 
-    db_connector = DBConnector(wallet_credentials)
-    user_manager = UserManager(db_connector)
+    user_manager = UserManager(wallet_credentials)
 
     if user_manager.register_user(
         {
             "name": "John",
             "surname": "Doe",
-            "email": "xyz@gmail.com",
+            "email": "xyz2@gmail.com",
             "password": "secret",
             "date_of_birth": "01-01-1999",
             "gender": "M",
@@ -118,10 +116,13 @@ def main():
     else:
         print("Failed to register user.")
 
-    login = user_manager.login_user({"email": "xyz@gmail.com", "password": "secret"})
+    login = user_manager.login_user(
+        {"email": "xyz2@gmail.com", "password": "secret"}
+    )  # f8
 
+    examples = folder_name / "examples"
     if login:
-        with open("backend/DB/examples/login_data.json", "w", encoding="utf-8") as f:
+        with open(examples / "login_data.json", "w", encoding="utf-8") as f:
             f.write(login)
     else:
         print("Failed to log in.")
