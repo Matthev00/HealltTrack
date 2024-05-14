@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { MealPlanContextProvider } from "@/components/store/MealPlanContext";
+import { ActivitiesContextProvider } from "@/components/store/ActivitiesContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MealPlanContextProvider>
-          <Sidebar />
-          <main className="w-full h-full bg-[#222f3d] border-2 border-[#BFA181] rounded-lg p-4 overflow-y-hidden">
-            {children}
-          </main>
+          <ActivitiesContextProvider>
+            <Sidebar />
+            <main className="w-full h-full bg-[#222f3d] border-2 border-[#BFA181] rounded-lg p-4 overflow-y-hidden">
+              {children}
+            </main>
+          </ActivitiesContextProvider>
         </MealPlanContextProvider>
       </body>
     </html>

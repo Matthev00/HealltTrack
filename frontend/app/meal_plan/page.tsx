@@ -21,10 +21,10 @@ export default function MealPlan() {
 
     <div className="flex w-full h-[95%]  justify-center pt-6">
       <div className="flex-1 border-r text-center">
-        <span className="">Śniadanie</span>
+        <span className="">Breakfast</span>
         <button
           onClick={() => {
-            choosingFoodHandler("Śniadanie");
+            choosingFoodHandler("Breakfast");
           }}
           className="ml-2 text-green-400">+</button>
       </div>
@@ -37,26 +37,26 @@ export default function MealPlan() {
           className="ml-2 text-green-400">+</button>
       </div>
       <div className="flex-1 border-r text-center">
-        <span className="">Obiad</span>
+        <span className="">Dinner</span>
         <button
           onClick={() => {
-            choosingFoodHandler("Obiad");
+            choosingFoodHandler("Dinner");
           }}
           className="ml-2 text-green-400">+</button>
       </div>
       <div className="flex-1 border-r text-center">
-        <span className="">Przekąska</span>
+        <span className="">Snack</span>
         <button
           onClick={() => {
-            choosingFoodHandler("Przekąska");
+            choosingFoodHandler("Snack");
           }}
           className="ml-2 text-green-400">+</button>
       </div>
       <div className="flex-1 text-center">
-        <span className="">Kolacja</span>
+        <span className="">Supper</span>
         <button
           onClick={() => {
-            choosingFoodHandler("Kolacja");
+            choosingFoodHandler("Supper");
           }}
           className="ml-2 text-green-400">+</button>
       </div>
