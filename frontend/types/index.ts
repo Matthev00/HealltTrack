@@ -42,10 +42,25 @@ export type meal_entry = {
     meal: meal[],
 }
 
-export type activity_popup_in = {
-    activity_id: number
+export type activity_in = {
+    id: number
     name: string,
     calories_burned_per_hour: number,
+}
+
+export type activity_out = {
+    user_id: number
+    date: string,
+    activity_id: number,
+    duration: number,
+    calories_burned: number,
+}
+
+export type activity_entry = {
+    user_id: number
+    date: string,
+    duration: number,
+    activity_id: number,
 }
 
 export interface MealPlanContextProps {
@@ -64,21 +79,21 @@ export interface MealPlanReducerAction {
     type: MEALPLAN_REDUCER_ACTION_TYPE;
     newDate: string,
 }
-
+  
 export interface ActivitiesContextProps {
     actualDate: string;
-    setactualDate: (newDate: string) => void;
+    setActualDate: (newDate: string) => void;
 }
-
+  
 export interface ActivitiesReducerState {
     actualDate: string;
 }
 
 export const enum ACTIVITIES_REDUCER_ACTION_TYPE {
     SET_ACTUAL_DATE,
-}
-
-export interface ActivitiesReducerAction {
+  }
+  
+  export interface ActivitiesReducerAction {
     type: ACTIVITIES_REDUCER_ACTION_TYPE;
-    newDate: string,
-}
+    newDate?: string;
+  }

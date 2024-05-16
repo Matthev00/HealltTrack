@@ -15,44 +15,49 @@ const today_formatted = today.format("DD-MM-YYYY");
 
 const ActivitiesContext = createContext<ActivitiesContextProps>({
     actualDate: today_formatted,
-    setactualDate: () => { },
+    setActualDate: () => { },
 });
 
-function ActivitiesReducer(state: ActivitiesReducerState, action: ActivitiesReducerAction) {
-    if (action.type === ACTIVITIES_REDUCER_ACTION_TYPE.SET_ACTUAL_DATE) {
-        return {
+function ActivitiesReducer(state: ActivitiesReducerState, action: ActivitiesReducerAction): ActivitiesReducerState {
+    switch (action.type) {
+      case ACTIVITIES_REDUCER_ACTION_TYPE.SET_ACTUAL_DATE:
+        if (action.newDate) {
+          return {
             ...state,
             actualDate: action.newDate,
+          };
         }
+        break;
+      default:
+        return state; // return the current state if no action types match
     }
-
-    return state;
+    return state; // return the current state if newDate or newActivity is undefined
 }
-
-export function ActivitiesContextProvider({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    const [activities, dispatchActivitiesAction] = useReducer(ActivitiesReducer, {
-        actualDate: today_formatted,
+  
+  
+export function ActivitiesContextProvider({ children }: { children: React.ReactNode }) {
+    const [state, dispatch] = useReducer<React.Reducer<ActivitiesReducerState, ActivitiesReducerAction>>(ActivitiesReducer, {
+      actualDate: today_formatted,
     });
-
-    function setactualDate(newDate: string) {
-        dispatchActivitiesAction({ type: ACTIVITIES_REDUCER_ACTION_TYPE.SET_ACTUAL_DATE, newDate: newDate });
+  
+    function setActualDate(newDate: string) {
+      if (newDate) {
+        dispatch({ type: ACTIVITIES_REDUCER_ACTION_TYPE.SET_ACTUAL_DATE, newDate });
+      }
     }
-
-
-    const activitiesContext = {
-        actualDate: activities.actualDate,
-        setactualDate,
+  
+  
+    const context = {
+      actualDate: state.actualDate,
+      setActualDate,
     };
-
+  
     return (
-        <ActivitiesContext.Provider value={activitiesContext}>
-            {children}
-        </ActivitiesContext.Provider>
+      <ActivitiesContext.Provider value={context}>
+        {children}
+      </ActivitiesContext.Provider>
     );
 }
+  
 
 export default ActivitiesContext;

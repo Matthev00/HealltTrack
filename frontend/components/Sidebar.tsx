@@ -31,7 +31,7 @@ function Sidebar() {
     const handleDateChangeActivities = (newDate: Dayjs | null) => {
         if (newDate !== null) {
             setSelectedDate(newDate);
-            activitiesCtx.setactualDate(newDate.format("DD-MM-YYYY"));
+            activitiesCtx.setActualDate(newDate.format("DD-MM-YYYY"));
           }
     };
 

@@ -69,6 +69,17 @@ def add_choosen_food():
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
+@app.route('/activity_out', methods=['POST'])
+def add_performed_activity():
+    if request.method == 'POST':
+        request_data = request.json
+        db = connect_to_db_activity()
+        db.add_activity_entry(request_data)
+        return jsonify({"message": "Data has been sent"}), 200
+    else:
+        return jsonify({"error": "Unfortunately something gone wrong"}), 405
+
+
 @app.route('/activity/<id>', methods=['GET'])
 def get_activity_hisotry(id):
     db = connect_to_db_activity()

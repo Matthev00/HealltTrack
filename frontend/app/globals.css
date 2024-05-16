@@ -11,3 +11,21 @@ body {
     padding: 2.5rem;
     gap: 2.5rem;
   }
+
+  .activity-entry {
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .activity-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .activity-date,
+  .activity-duration {
+    font-size: 0.9em;
+  }
