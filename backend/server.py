@@ -70,9 +70,16 @@ def add_choosen_food():
 
 
 @app.route('/activity/<id>', methods=['GET'])
-def get_activity_hisotry(id):
+def get_activity_history(id):
     db = connect_to_db_activity()
     activity_history = db.get_activity_history(id)
+    return jsonify(activity_history)
+
+
+@app.route('/activity/<id>/<date>', methods=['GET'])
+def get_activity_day_history(id, date):
+    db = connect_to_db_activity()
+    activity_history = db.get_activity_history(id, date)
     return jsonify(activity_history)
 
 

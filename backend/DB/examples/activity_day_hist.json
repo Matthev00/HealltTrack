@@ -1,0 +1,20 @@
+[
+    {
+        "time": "00.00",
+        "activity_name": "Swimming",
+        "duration": 5400,
+        "calories_burned": 900
+    },
+    {
+        "time": "16.00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 7
+    },
+    {
+        "time": "16.00",
+        "activity_name": "Jogging",
+        "duration": 60,
+        "calories_burned": 7
+    }
+]
