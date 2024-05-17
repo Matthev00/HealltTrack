@@ -178,6 +178,32 @@ class MealHandler(DBHandler):
                 )
         return foods
 
+    def get_day_macros(self, day_dict) -> str:
+        date = day_dict["date"]
+        user_id = day_dict["user_id"]
+        query = self._get_query("get_day_macros")
+
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"query_date": date, "user_id": user_id})
+            result = cursor.fetchone()
+            if result:
+                macros = {
+                    "kcal": result[0],
+                    "proteins": result[1],
+                    "fats": result[2],
+                    "carbs": result[3],
+                    "water": result[4],
+                }
+            else:
+                macros = {
+                    "kcal": 0,
+                    "proteins": 0,
+                    "fats": 0,
+                    "carbs": 0,
+                    "water": 0,
+                }
+        return json.dumps(macros, indent=4)
+
     def delete_food_from_meal(self, meal_data: Dict) -> bool:
         date_time = meal_data["date_time"]
         food_name = meal_data["food_name"]
@@ -212,29 +238,32 @@ def main():
     db = MealHandler(wallet_credentials=wallet_credentials)
 
     examples = folder_name / "examples"
-    with open(examples / "foods.json", "w", encoding="utf-8") as f:
-        f.write(db.get_food_list())
-    db.add_meal_food(
-        {
-            "date_time": "19-04-2024",
-            "food_id": 2,
-            "quantity": 137,
-            "meal_type": "Breakfast",
-            "user_id": 1,
-        }
-    )
+    # with open(examples / "foods.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_food_list())
+    # db.add_meal_food(
+    #     {
+    #         "date_time": "19-04-2024",
+    #         "food_id": 2,
+    #         "quantity": 137,
+    #         "meal_type": "Breakfast",
+    #         "user_id": 1,
+    #     }
+    # )
 
-    with open(examples / "history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
+    # with open(examples / "history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_day_history({"date": "19-04-2024", "user_id": 1}))
 
-    db.delete_food_from_meal(
-        {
-            "date_time": "01-04-2024",
-            "food_name": "Oats",
-            "meal_type": "Breakfast",
-            "user_id": 1,
-        }
-    )
+    # db.delete_food_from_meal(
+    #     {
+    #         "date_time": "01-04-2024",
+    #         "food_name": "Oats",
+    #         "meal_type": "Breakfast",
+    #         "user_id": 1,
+    #     }
+    # )
+
+    with open(examples / "day_macros.json", "w", encoding="utf-8") as f:
+        f.write(db.get_day_macros({"date": "30-04-2024", "user_id": 1}))
 
 
 if __name__ == "__main__":

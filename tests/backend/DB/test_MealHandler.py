@@ -194,6 +194,34 @@ def test_get_day_history_with_data(handler, mock_db_connector):
     assert result_data["Breakfast"]["foods"] == [{"name": "Apple"}]
 
 
+def test_get_day_macros_no_data(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchone.return_value = []
+    day_dict = {"date": "01-01-2022", "user_id": 1}
+    result = handler.get_day_macros(day_dict)
+    result_data = json.loads(result)
+
+    assert result_data["kcal"] == 0
+    assert result_data["proteins"] == 0
+    assert result_data["fats"] == 0
+    assert result_data["carbs"] == 0
+    assert result_data["water"] == 0
+
+
+def test_get_day_macros_with_data(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchone.return_value = [3050, 123, 235, 111, 1500]
+    day_dict = {"date": "01-01-2022", "user_id": 1}
+    result = handler.get_day_macros(day_dict)
+    result_data = json.loads(result)
+
+    assert result_data["kcal"] == 3050
+    assert result_data["proteins"] == 123
+    assert result_data["fats"] == 235
+    assert result_data["carbs"] == 111
+    assert result_data["water"] == 1500
+
+
 def test_get_day_history_full_day(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchall.return_value = [
