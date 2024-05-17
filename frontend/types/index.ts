@@ -59,3 +59,21 @@ export interface MealPlanReducerAction {
     type: MEALPLAN_REDUCER_ACTION_TYPE;
     newDate: string,
 }
+
+export interface ActivitiesContextProps {
+    actualDate: string;
+    setactualDate: (newDate: string) => void;
+}
+
+export interface ActivitiesReducerState {
+    actualDate: string;
+}
+
+export const enum ACTIVITIES_REDUCER_ACTION_TYPE {
+    SET_ACTUAL_DATE,
+}
+
+export interface ActivitiesReducerAction {
+    type: ACTIVITIES_REDUCER_ACTION_TYPE;
+    newDate: string,
+}
