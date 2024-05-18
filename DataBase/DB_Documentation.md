@@ -83,8 +83,8 @@ Featured system is an application, aiming to serve as a comprehensive tool to tr
 #### CALCULATE_CALORIES
 - **Description**
 - This trigger is activated when we insert or update data in our **Activity Entry** table. It fetches data about activity calories from the **Activity** entity and then calculates *calories_burned* based on the duration of activity(given in seconds).
-- **Warning**
-If the user wants to manually insert how many calories he/she burned, this trigger is not activated.
+- **Note**
+If the user wants to manually insert how many calories he/she burned, this trigger doesn't change anything.
 
 #### TRG_UPDATE_MEAL_MACROS
 - **Description**
@@ -93,3 +93,16 @@ If the user wants to manually insert how many calories he/she burned, this trigg
 #### TRG_UPDATE_MEAL_MACROS_ON_DELETE
 - **Description**
 - As the name suggests - this trigger is activated when we want to remove food from our meal by deleting row from the **Meal_Food** table. All macronutrients for the meal are subtracted, which were previously retrieved from the food table for the given dish.
+
+## 6. Indexes
+![Indexes](indexes.png)
+
+- **Description**
+Indexes are added to our database to enhance the performance of queries and improve data retrieval speed."Below is a brief description of the types of indexes in our database and an explanation of why we chose to use them.
+
+1. **Ensuring Uniqueness:** Some indexes, like primary keys (e.g., `ACTIVITY_ENTRY_PK`, `FOOD_PK`, `USER_PK`), enforce the uniqueness of data in a column, preventing duplicate entries.
+
+2. **Speeding Up Searches and Query Performance:** Indexes like `ACTIVITY_UNIQUE_NAME`, `FOOD_UNIQUE_NAME`, `GOAL_TYPE_UNIQUE_NAME` etc. help speed up searches and retrieval of data based on specific columns. Moreover by creating those indexes on frequently queried columns the database can quickly locate and access the data, enhancing overall query performance.
+
+3. **Maintaining Data Integrity:** Primary key indexes ensure that each record can be uniquely identified, which is essential for maintaining data integrity and establishing relationships between tables.
+
