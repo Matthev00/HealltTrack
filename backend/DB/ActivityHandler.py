@@ -24,7 +24,7 @@ class ActivityHandler(DBHandler):
                     {
                         "activity_entry_id": activity_entry_id,
                         "date_time": date,
-                        "duration": duration,
+                        "duration": duration*60,
                         "user_id": user_id,
                         "activity_id": activity_id,
                     },
@@ -43,7 +43,7 @@ class ActivityHandler(DBHandler):
                     {
                         "date_time": row[0],
                         "activity_name": row[1],
-                        "duration": row[2],
+                        "duration": row[2]//60,
                         "calories_burned": row[3],
                     }
                     for row in rows
@@ -62,7 +62,7 @@ class ActivityHandler(DBHandler):
                     {
                         "time": row[0],
                         "activity_name": row[1],
-                        "duration": row[2],
+                        "duration": row[2]//60,
                         "calories_burned": row[3],
                     }
                     for row in rows
