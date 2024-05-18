@@ -173,12 +173,12 @@ def test_get_activity_list(handler, mock_db_connector):
             {
                 "activity_id": 101,
                 "name": "Running",
-                "calories_burned_per_minute": 300,
+                "calories_burned_per_hour": 300,
             },
             {
                 "activity_id": 102,
                 "name": "Swimming",
-                "calories_burned_per_minute": 500,
+                "calories_burned_per_hour": 500,
             },
         ],
         indent=4,
