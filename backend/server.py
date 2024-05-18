@@ -56,6 +56,14 @@ def display_data_in_specific_day(date):
     return jsonify(day_history)
 
 
+@app.route('/macros/<user_id>/<date>', methods=['GET'])
+def get_day_macros(user_id, date):
+    db = connect_to_db_meal()
+    date_data = {'date': date, 'user_id': user_id}
+    day_macros = db.get_day_macros(date_data)
+    return jsonify(day_macros)
+
+
 @app.route('/popup_food_out', methods=['POST'])
 def add_choosen_food():
     if request.method == 'POST':
@@ -81,9 +89,16 @@ def add_performed_activity():
 
 
 @app.route('/activity/<id>', methods=['GET'])
-def get_activity_hisotry(id):
+def get_activity_history(id):
     db = connect_to_db_activity()
     activity_history = db.get_activity_history(id)
+    return jsonify(activity_history)
+
+
+@app.route('/activity/<id>/<date>', methods=['GET'])
+def get_activity_day_history(id, date):
+    db = connect_to_db_activity()
+    activity_history = db.get_activity_history(id, date)
     return jsonify(activity_history)
 
 

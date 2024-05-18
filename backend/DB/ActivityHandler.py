@@ -53,6 +53,25 @@ class ActivityHandler(DBHandler):
                 indent=4,
             )
 
+    def get_activity_day_history(self, user_id: int, date: str) -> str:
+        query = self._get_query("get_activity_day_history")
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"user_id": user_id,
+                                   "given_date": date})
+            rows = cursor.fetchall()
+            return json.dumps(
+                [
+                    {
+                        "time": row[0],
+                        "activity_name": row[1],
+                        "duration": row[2],
+                        "calories_burned": row[3],
+                    }
+                    for row in rows
+                ],
+                indent=4,
+            )
+
     def get_activity_list(self) -> str:
         query = self._get_query("get_activity_list")
         with self.connection.cursor() as cursor:
@@ -88,11 +107,14 @@ def main():
     # )
 
     examples = folder_name / "examples"
-    with open(examples / "activity_history.json", "w", encoding="utf-8") as f:
-        f.write(db.get_activity_history(1))
+    # with open(examples / "activity_history.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_activity_history(1))
 
-    with open(examples / "activity_list.json", "w", encoding="utf-8") as f:
-        f.write(db.get_activity_list())
+    # with open(examples / "activity_list.json", "w", encoding="utf-8") as f:
+    #     f.write(db.get_activity_list())
+
+    with open(examples / "activity_day_hist.json", "w", encoding="utf-8") as f:
+        f.write(db.get_activity_day_history(1, "19-04-2024"))
 
 
 if __name__ == "__main__":

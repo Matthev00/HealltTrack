@@ -116,6 +116,50 @@ def test_get_activity_history_empty(handler, mock_db_connector):
     mock_cursor.execute.assert_called_once()
 
 
+def test_get_activity_day_history(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchall.return_value = [
+        ("15.30", "Running", 1800, 300),
+        ("16.30", "Swimming", 3600, 600),
+    ]
+
+    result = handler.get_activity_day_history(1, "01-01-2022")
+    expected_result = json.dumps(
+        [
+            {
+                "time": "15.30",
+                "activity_name": "Running",
+                "duration": 1800,
+                "calories_burned": 300,
+            },
+            {
+                "time": "16.30",
+                "activity_name": "Swimming",
+                "duration": 3600,
+                "calories_burned": 600,
+            },
+        ],
+        indent=4,
+    )
+
+    assert result == expected_result
+    mock_cursor.execute.assert_called_once()
+
+
+def test_get_activity_day_history_empty(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchall.return_value = []
+
+    result = handler.get_activity_day_history(1, "01-01-2022")
+    expected_result = json.dumps(
+        [],
+        indent=4,
+    )
+
+    assert result == expected_result
+    mock_cursor.execute.assert_called_once()
+
+
 def test_get_activity_list(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchall.return_value = [
