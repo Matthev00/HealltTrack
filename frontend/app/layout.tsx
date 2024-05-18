@@ -4,6 +4,7 @@ import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { MealPlanContextProvider } from "@/components/store/MealPlanContext";
 import { ActivitiesContextProvider } from "@/components/store/ActivitiesContext";
+import { MainPageContextProvider } from "@/components/store/MainPageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,14 +21,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MealPlanContextProvider>
-          <ActivitiesContextProvider>
-            <Sidebar />
-            <main className="w-full h-full bg-[#222f3d] border-2 border-[#BFA181] rounded-lg p-4 overflow-y-hidden">
-              {children}
-            </main>
-          </ActivitiesContextProvider>
-        </MealPlanContextProvider>
+        <MainPageContextProvider>
+          <MealPlanContextProvider>
+            <ActivitiesContextProvider>
+            
+              <Sidebar />
+              <main className="w-full h-full bg-[#222f3d] border-2 border-[#BFA181] rounded-lg p-4 overflow-y-hidden">
+                {children}
+              </main>
+            
+            </ActivitiesContextProvider>
+          </MealPlanContextProvider>
+        </MainPageContextProvider>
       </body>
     </html>
   );

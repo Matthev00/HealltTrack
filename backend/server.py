@@ -77,6 +77,17 @@ def add_choosen_food():
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
+@app.route('/activity_out', methods=['POST'])
+def add_performed_activity():
+    if request.method == 'POST':
+        request_data = request.json
+        db = connect_to_db_activity()
+        db.add_activity_entry(request_data)
+        return jsonify({"message": "Data has been sent"}), 200
+    else:
+        return jsonify({"error": "Unfortunately something gone wrong"}), 405
+
+
 @app.route('/activity/<id>', methods=['GET'])
 def get_activity_history(id):
     db = connect_to_db_activity()
@@ -87,13 +98,15 @@ def get_activity_history(id):
 @app.route('/activity/<id>/<date>', methods=['GET'])
 def get_activity_day_history(id, date):
     db = connect_to_db_activity()
-    activity_history = db.get_activity_history(id, date)
+    print(id)
+    print(date)
+    activity_history = db.get_activity_day_history(id, date)
     return jsonify(activity_history)
 
 
 @app.route('/activity_list', methods=['GET'])
 def get_activity_list():
-    db = connect_to_db_meal()
+    db = connect_to_db_activity()
     activity_list = db.get_activity_list()
     return jsonify(activity_list)
 
