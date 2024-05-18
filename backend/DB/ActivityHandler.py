@@ -15,7 +15,6 @@ class ActivityHandler(DBHandler):
         date = activity_dict["date"]
         activity_id = activity_dict["activity_id"]
         duration = activity_dict["duration"]
-        calories_burned = activity_dict["calories_burned"]
         query = self._get_query("add_activity_entry")
         activity_entry_id = self._find_next_id("activity_entry")
         try:
@@ -26,7 +25,6 @@ class ActivityHandler(DBHandler):
                         "activity_entry_id": activity_entry_id,
                         "date_time": date,
                         "duration": duration,
-                        "calories_burned": calories_burned,
                         "user_id": user_id,
                         "activity_id": activity_id,
                     },
