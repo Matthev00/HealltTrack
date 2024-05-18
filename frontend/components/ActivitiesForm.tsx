@@ -7,18 +7,18 @@ import { fetchActivities, saveActivity } from "@/utils";
 
 function ActivitiesForm({ onClose }: { onClose: () => void }) {
     const activitiesCtx = useContext(ActivitiesContext);
-    const [time, setTime] = useState<{ [key: number]: number }>({});
+    const [duration, setDuration] = useState<{ [key: number]: number }>({});
     const [startHour, setStartHour] = useState<{ [key: number]: string }>({});
     const [searchText, setSearchText] = useState("");
     const [activitiesList, setActivitiesList] = useState<activity_in[] | []>([]);
 
     const getData = async () => {
         const newActivitiesList = await fetchActivities();
-        const initialTime: { [key: number]: number } = {};
+        const initialDuration: { [key: number]: number } = {};
         for (const activity of newActivitiesList) {
-            initialTime[activity.id] = 60;
+            initialDuration[activity.id] = 60;
         }
-        setTime(initialTime)
+        setDuration(initialDuration)
         setActivitiesList(newActivitiesList)
     };
 
@@ -27,13 +27,13 @@ function ActivitiesForm({ onClose }: { onClose: () => void }) {
     }, []);
 
     const handleSaveActivities = (activityId: number) => {
-        const Time = time[activityId];
-        const Hour = startHour[activityId] || "17:00"; // use the start hour from state or default to 17:00
+        const Duration = duration[activityId];
+        const StartHour = startHour[activityId]; // use the start hour from state or default to 17:00
         const activityPerformed: activity_out = {
             user_id: 1,
-            date: "test",
-            activity_id: 1,
-            duration: 0,
+            date: activitiesCtx.actualDate + StartHour,
+            activity_id: activityId,
+            duration: Duration,
             calories_burned: 0,
         }
         saveActivity(activityPerformed); // Save the activity on your server
@@ -45,7 +45,7 @@ function ActivitiesForm({ onClose }: { onClose: () => void }) {
         if (isNaN(newValue)) {
             newValue = 1;
         }
-        setTime(prevState => ({
+        setDuration(prevState => ({
             ...prevState,
             [activityId]: newValue
         }));
@@ -81,7 +81,7 @@ function ActivitiesForm({ onClose }: { onClose: () => void }) {
                     <div key={activity.id} className={`pb-4 ${index !== filteredActivitiesList.length - 1 ? 'mb-8 border-b border-gray5-300' : ''}`} >
                         <div className="flex justify-between">
                             <div className="text-black overflow-wrap break-word max-w-[25rem]">
-                                {activity.name} - { Math.round(activity.calories_burned_per_hour * time[activity.id] / 60)} calories burnt
+                                {activity.name} - { Math.round(activity.calories_burned_per_hour * duration[activity.id] / 60)} calories burnt
                             </div>
 
                             <button className="text-green-400" onClick={() => handleSaveActivities(activity.id)}>+</button>
@@ -90,7 +90,7 @@ function ActivitiesForm({ onClose }: { onClose: () => void }) {
                             <input
                                 type="number"
                                 className="w-16 mr-2 text-center bg-gray-200"
-                                value={ time[activity.id] }
+                                value={ duration[activity.id] }
                                 min="1"
                                 step="1"
                                 onChange={handleTimeChange(activity.id)}

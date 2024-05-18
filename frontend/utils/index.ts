@@ -38,12 +38,12 @@ const mockData = [
   ];
 
 export async function fetchActivitiesFromDay() {
-    // const response = await fetch("http://localhost:5000/activity_list");
-    // if (!response.ok) {
-    //     throw new Error('Failed to fetch day activities list');
-    // }
-    // const activitiesList = await response.json();
-    // const activitiesListArray: activity_entry[] = JSON.parse(activitiesList);
+    const response = await fetch("http://localhost:5000/activity_list");
+    if (!response.ok) {
+        throw new Error('Failed to fetch day activities list');
+    }
+    const activitiesList = await response.json();
+    const activitiesListArray: activity_entry[] = JSON.parse(activitiesList);
     return mockData
 }
 

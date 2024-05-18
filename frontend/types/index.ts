@@ -91,9 +91,27 @@ export interface ActivitiesReducerState {
 
 export const enum ACTIVITIES_REDUCER_ACTION_TYPE {
     SET_ACTUAL_DATE,
-  }
+}
   
-  export interface ActivitiesReducerAction {
+export interface ActivitiesReducerAction {
     type: ACTIVITIES_REDUCER_ACTION_TYPE;
     newDate?: string;
-  }
+}
+
+export interface MainPageContextProps {
+    actualDate: string;
+    setActualDate: (newDate: string) => void;
+}
+  
+export interface MainPageReducerState {
+    actualDate: string;
+}
+
+export const enum MAINPAGE_REDUCER_ACTION_TYPE {
+    SET_ACTUAL_DATE,
+}
+  
+export interface MainPageReducerAction {
+    type: MAINPAGE_REDUCER_ACTION_TYPE;
+    newDate?: string;
+}
