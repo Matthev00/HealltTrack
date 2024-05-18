@@ -15,9 +15,14 @@ export default function Activities() {
     setChoosingActivity(true);
   }
 
+  const onActivityAdded = () => {
+    setChoosingActivity(false);
+    fetchActivitiesFromDay(1, activitiesCtx.actualDate).then(setPerformedActivities);
+  }
+
   useEffect(() => {
-    fetchActivitiesFromDay().then(setPerformedActivities);
-  }, []);
+    fetchActivitiesFromDay(1, activitiesCtx.actualDate).then(setPerformedActivities);
+  }, [activitiesCtx.actualDate, choosingActivity]);
 
   return (
     <div className="w-full h-full">
@@ -32,10 +37,11 @@ export default function Activities() {
 
       <div>
         {performedActivities.map((activity : activity_entry) => (
-          <div key={activity.activity_id} className="activity-entry">
-            <h3 className="activity-name">{/* Replace this with the actual activity name */}Activity Name</h3>
-            <p className="activity-date">Date: {activity.date}</p>
+          <div key={activity.activity_name} className="activity-entry">
+            <h3 className="activity-name">{activity.activity_name}</h3>
+            <p className="activity-date">Started on: {activity.time}</p>
             <p className="activity-duration">Duration: {activity.duration} minutes</p>
+            <p className="calories-burned">Calories burned: {activity.calories_burned} kcal</p>
           </div>
         ))}
       </div>
@@ -43,8 +49,10 @@ export default function Activities() {
       {choosingActivity && (
         <ChoosingActivity
           onClose={() => setChoosingActivity(false)}
+          onActivityAdded={onActivityAdded}
         />
       )}
     </div>
   );
 }
+

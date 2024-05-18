@@ -98,7 +98,9 @@ def get_activity_history(id):
 @app.route('/activity/<id>/<date>', methods=['GET'])
 def get_activity_day_history(id, date):
     db = connect_to_db_activity()
-    activity_history = db.get_activity_history(id, date)
+    print(id)
+    print(date)
+    activity_history = db.get_activity_day_history(id, date)
     return jsonify(activity_history)
 
 

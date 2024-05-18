@@ -2,7 +2,7 @@
 
 import ActivitiesForm from "./ActivitiesForm";
 
-const ChoosingActivity = ({ onClose }: { onClose: () => void }) => {
+const ChoosingActivity = ({ onClose, onActivityAdded }: { onClose: () => void, onActivityAdded: () => void }) => {
 
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex justify-center items-center"
@@ -16,7 +16,7 @@ const ChoosingActivity = ({ onClose }: { onClose: () => void }) => {
                 <div className="flex justify-center pb-4 relative">
                     <button onClick={() => onClose()} className="absolute top-0 right-0 text-red-500">x</button>
                 </div>
-                <ActivitiesForm onClose={onClose}/>
+                <ActivitiesForm onClose={onClose} onActivityAdded={onActivityAdded}/>
             </div>
         </div>
 

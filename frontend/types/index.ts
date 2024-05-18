@@ -57,10 +57,10 @@ export type activity_out = {
 }
 
 export type activity_entry = {
-    user_id: number
-    date: string,
+    time: string,
+    activity_name: string,
     duration: number,
-    activity_id: number,
+    calories_burned: number,
 }
 
 export interface MealPlanContextProps {
