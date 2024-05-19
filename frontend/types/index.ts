@@ -63,6 +63,15 @@ export type activity_entry = {
     calories_burned: number,
 }
 
+
+export type macros = {
+    kcal: number,
+    proteins: number,
+    fats: number,
+    carbs: number,
+    water: number,
+}
+
 export interface MealPlanContextProps {
     actualDate: string;
     setactualDate: (newDate: string) => void;
