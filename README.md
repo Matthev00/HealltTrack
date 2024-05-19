@@ -20,6 +20,9 @@ Web application in technology X, aiming to serve as a comprehensive tool to trac
     npm run install:frontend
     npm run install:backend
 
+## Build
+    npm run build:frontend
+
 ## Run
     npm run start
 
