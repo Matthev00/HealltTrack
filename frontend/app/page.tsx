@@ -22,11 +22,11 @@ export default function MainPage() {
   }, [mainPageCtx.actualDate]);
 
   // Prepare data for the chart
-  const chartData = ['proteins', 'fats', 'carbs'].map((key, i) => ({
+  const chartData = (['proteins', 'fats', 'carbs'] as (keyof macros)[]).map((key, i) => ({
     title: key,
     value: dayMacros[key],
     color: `hsl(${i * (360 / 3)}, 70%, 50%)`,
-  }));
+  }));  
 
 
   return (
