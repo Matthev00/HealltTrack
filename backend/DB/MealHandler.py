@@ -121,22 +121,8 @@ class MealHandler(DBHandler):
                 "fats": 0,
                 "carbs": 0,
                 "foods": [],
-            },  #
-            "Second breakfast": {
-                "kcal": 0,
-                "proteins": 0,
-                "fats": 0,
-                "carbs": 0,
-                "foods": [],
             },
             "Lunch": {
-                "kcal": 0,
-                "proteins": 0,
-                "fats": 0,
-                "carbs": 0,
-                "foods": [],
-            },  #
-            "Afternoon snack": {
                 "kcal": 0,
                 "proteins": 0,
                 "fats": 0,
@@ -149,7 +135,21 @@ class MealHandler(DBHandler):
                 "fats": 0,
                 "carbs": 0,
                 "foods": [],
-            },  #
+            },
+            "Snack": {
+                "kcal": 0,
+                "proteins": 0,
+                "fats": 0,
+                "carbs": 0,
+                "foods": [],
+            },
+            "Supper": {
+                "kcal": 0,
+                "proteins": 0,
+                "fats": 0,
+                "carbs": 0,
+                "foods": [],
+            },
         }
 
         with self.connection.cursor() as cursor:
