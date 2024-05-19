@@ -34,17 +34,28 @@ class MealHandler(DBHandler):
         quantity = meal_data["quantity"]
         meal_type = meal_data["meal_type"]
         user_id = meal_data["user_id"]
+        meal_type_id = self._get_meal_type_id(meal_type)
 
         try:
             meal_id = self._find_meal(date_time, meal_type, user_id)
             if not meal_id:
-                meal_id = self._insert_empty_meal(meal_type)
+                meal_id = self._insert_empty_meal(meal_type_id)
                 self._insert_empty_meal_entry(meal_id, user_id, date_time)
 
             self._insert_meal_food(meal_id, food_id, quantity)
             self.commit()
         except oracledb.DatabaseError as e:
             self.logger.error("Error in add_meal_food: %s", e)
+
+    def _get_meal_type_id(self, meal_type: str) -> int:
+        query = self._get_query("get_meal_type_id")
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"meal_type_name": meal_type})
+            result = cursor.fetchone()
+            if result:
+                return result[0]
+            else:
+                return None
 
     def _find_meal(self, date_time: str, meal_type: int, user_id: int) -> int:
         query = self._get_query("find_meal")

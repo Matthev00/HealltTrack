@@ -70,7 +70,7 @@ def add_choosen_food():
         request_data = request.json
         db = connect_to_db_meal()
         request_data['user_id'] = 1
-        request_data['meal_type'] = "Breakfast"
+
         db.add_meal_food(request_data)
         return jsonify({"message": "Data has been sent"}), 200
     else:
