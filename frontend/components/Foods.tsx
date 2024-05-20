@@ -37,6 +37,7 @@ function Foods({ onClose, mealType }: { onClose: () => void, mealType: string })
             quantity: quantity,
             meal_type: mealType,
         }
+        
         saveFood(foodToSave)
         onClose();
 

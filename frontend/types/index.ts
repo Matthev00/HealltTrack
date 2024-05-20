@@ -7,6 +7,22 @@ export type food_popup_in = {
     calories_per_100: number,
 }
 
+interface Meal {
+    kcal: number;
+    proteins: number;
+    fats: number;
+    carbs: number;
+    foods: string[];
+}
+
+export type all_foods = {
+    Breakfast: Meal;
+    "Second breakfast": Meal;
+    Lunch: Meal;
+    "Afternoon snack": Meal;
+    Dinner: Meal;
+}
+
 export type food_popup_out = {
     date_time: string,
     food_id: number,

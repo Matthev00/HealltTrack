@@ -1,4 +1,4 @@
-import {activity_entry, activity_in, activity_out, food_popup_in, food_popup_out } from "@/types";
+import {activity_entry, activity_in, activity_out, all_foods, food_popup_in, food_popup_out } from "@/types";
 
 export async function fetchFoods() {
     const response = await fetch("http://localhost:5000/popup_food");
@@ -6,8 +6,18 @@ export async function fetchFoods() {
         throw new Error('Failed to fetch food list');
     }
     const foodList = await response.json();
-    // Ensure foodList is always an array
     const foodListArray: food_popup_in[] = JSON.parse(foodList);
+    return foodListArray
+}
+
+export async function fetchAllFoods(date: string) {
+    const response = await fetch("http://localhost:5000/popup_food/" + date);
+    if (!response.ok) {
+        throw new Error('Failed to fetch food list');
+    }
+    const foodList = await response.json();
+    // Ensure foodList is always an array
+    const foodListArray: all_foods = JSON.parse(foodList);
     return foodListArray
 }
 
