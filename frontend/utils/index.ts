@@ -1,5 +1,6 @@
 import {activity_entry, activity_in, activity_out, all_foods, food_popup_in, food_popup_out } from "@/types";
 
+
 export async function fetchFoods() {
     const response = await fetch("http://localhost:5000/popup_food");
     if (!response.ok) {
@@ -55,6 +56,16 @@ export async function fetchActivitiesFromDay(user_id: number, date: string) {
     const activitiesList = await response.json();
     const activitiesListArray: activity_entry[] = JSON.parse(activitiesList);
     return activitiesListArray
+}
+
+export async function fetchMacrosFromDay(user_id: number, date: string) {
+    const response = await fetch("http://localhost:5000/macros/" + user_id + "/" + date);
+    if (!response.ok) {
+        throw new Error('Failed to fetch day activities list');
+    }
+    const macrosFromDay = await response.json();
+    const macrosFromDayParsed: macros = JSON.parse(macrosFromDay);
+    return macrosFromDayParsed
 }
 
 export async function saveActivity(activityPerformed: activity_out) {

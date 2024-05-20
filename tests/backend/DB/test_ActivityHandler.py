@@ -75,8 +75,8 @@ def test_add_activity_entry_db_error(handler, mock_db_connector):
 def test_get_activity_history(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchall.return_value = [
-        ("01-01-2022-15-30", "Running", 30, 300),
-        ("01-01-2022-16-30", "Swimming", 60, 600),
+        ("01-01-2022-15-30", "Running", 1800, 300),
+        ("01-01-2022-16-30", "Swimming", 3600, 600),
     ]
 
     result = handler.get_activity_history(1)
@@ -129,13 +129,13 @@ def test_get_activity_day_history(handler, mock_db_connector):
             {
                 "time": "15.30",
                 "activity_name": "Running",
-                "duration": 1800,
+                "duration": 30,
                 "calories_burned": 300,
             },
             {
                 "time": "16.30",
                 "activity_name": "Swimming",
-                "duration": 3600,
+                "duration": 60,
                 "calories_burned": 600,
             },
         ],
