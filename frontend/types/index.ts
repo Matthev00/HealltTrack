@@ -12,14 +12,14 @@ interface Meal {
     proteins: number;
     fats: number;
     carbs: number;
-    foods: string[];
+    foods: Food[];
 }
 
 export type all_foods = {
     Breakfast: Meal;
-    "Second breakfast": Meal;
+    Snack: Meal;
     Lunch: Meal;
-    "Afternoon snack": Meal;
+    Supper: Meal;
     Dinner: Meal;
 }
 
@@ -140,3 +140,14 @@ export interface MainPageReducerAction {
     type: MAINPAGE_REDUCER_ACTION_TYPE;
     newDate?: string;
 }
+
+export interface Food {
+    name: string;
+    calories_per_100g: number;
+    proteins_per_100g: number;
+    fats_per_100g: number;
+    carbohydrates_per_100g: number;
+    water_per_100g: number;
+    quantity: number;
+  }
+  

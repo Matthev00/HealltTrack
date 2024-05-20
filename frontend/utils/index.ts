@@ -1,4 +1,4 @@
-import {activity_entry, activity_in, activity_out, all_foods, food_popup_in, food_popup_out } from "@/types";
+import {activity_entry, activity_in, activity_out, all_foods, food_popup_in, food_popup_out, macros} from "@/types";
 
 
 export async function fetchFoods() {
