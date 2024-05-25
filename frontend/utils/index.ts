@@ -1,4 +1,4 @@
-import {activity_entry, activity_in, activity_out, all_foods, food_popup_in, food_popup_out, macros} from "@/types";
+import {activity_entry, activity_in, activity_out, all_foods, delete_food, food_popup_in, food_popup_out, macros} from "@/types";
 
 
 export async function fetchFoods() {
@@ -9,6 +9,16 @@ export async function fetchFoods() {
     const foodList = await response.json();
     const foodListArray: food_popup_in[] = JSON.parse(foodList);
     return foodListArray
+}
+
+export async function deleteFood(food: delete_food) {
+    await fetch("http://localhost:5000/delete_food", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(food),
+    });
 }
 
 export async function fetchAllFoods(date: string) {

@@ -2,14 +2,15 @@
 
 import ChoosingFood from "@/components/ChoosingFood";
 import MealPlanContext from "@/components/store/MealPlanContext";
-import { all_foods, Food } from "@/types";
-import { fetchAllFoods } from "@/utils";
+import { all_foods, delete_food, Food } from "@/types";
+import { deleteFood, fetchAllFoods } from "@/utils";
 import { useContext, useEffect, useState } from "react";
 
 export default function MealPlan() {
   const mealPlanCtx = useContext(MealPlanContext);
   const [choosingFood, setChoosingFood] = useState<boolean>(false);
   const [mealType, setMealType] = useState<string>("");
+  const [deletingFood, setdeletingFood] = useState(false);
   const [allFoods, setAllFoods] = useState<all_foods>({
     "Breakfast": {
       "kcal": 0,
@@ -63,6 +64,16 @@ export default function MealPlan() {
     }
   }
 
+  async function deleteFoodItem(meal_type: string, food_name: string) {
+    const food: delete_food = {
+      date_time: mealPlanCtx.actualDate,
+      meal_type: meal_type,
+      food_name: food_name,
+    }
+    await deleteFood(food);
+    setdeletingFood(true)
+  };
+
   useEffect(() => {
     getAllMeals();
   }, [mealPlanCtx.actualDate]);
@@ -73,13 +84,20 @@ export default function MealPlan() {
     getAllMeals();
   }, [choosingFood]);
 
+  useEffect(() => {
+    getAllMeals();
+    getAllMeals();
+    getAllMeals();
+    setdeletingFood(false);
+  }, [deletingFood]);
+
   return (
     <div className="w-full h-full">
       <div>
         {mealPlanCtx.actualDate}
       </div>
       <div className="flex w-full h-[95%] justify-center pt-6 ">
-        
+
         <div className="flex-1 border-r text-center">
           <span>Breakfast</span>
           <button
@@ -100,7 +118,7 @@ export default function MealPlan() {
               <div key={index} className="mb-4 p-4 border border-gray-200 rounded shadow-sm">
                 <div className="flex items-center" >
                   <h3 className="text-xl font-bold">{food.name}</h3>
-                  <button className="text-red-500">x</button>
+                  <button className="text-red-500" onClick={() => deleteFoodItem("Breakfast", food.name)}>x</button>
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
@@ -134,7 +152,7 @@ export default function MealPlan() {
               <div key={index} className="mb-4 p-4 border border-gray-200 rounded shadow-sm">
                 <div className="flex items-center" >
                   <h3 className="text-xl font-bold">{food.name}</h3>
-                  <button className="text-red-500">x</button>
+                  <button className="text-red-500" onClick={() => deleteFoodItem("Lunch", food.name)} >x</button>
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
@@ -168,7 +186,7 @@ export default function MealPlan() {
               <div key={index} className="mb-4 p-4 border border-gray-200 rounded shadow-sm">
                 <div className="flex items-center" >
                   <h3 className="text-xl font-bold">{food.name}</h3>
-                  <button className="text-red-500">x</button>
+                  <button className="text-red-500" onClick={() => deleteFoodItem("Dinner", food.name)}>x</button>
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
@@ -203,7 +221,7 @@ export default function MealPlan() {
               <div key={index} className="mb-4 p-4 border border-gray-200 rounded shadow-sm">
                 <div className="flex items-center" >
                   <h3 className="text-xl font-bold">{food.name}</h3>
-                  <button className="text-red-500">x</button>
+                  <button className="text-red-500" onClick={() => deleteFoodItem("Snack", food.name)}>x</button>
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
@@ -238,7 +256,7 @@ export default function MealPlan() {
               <div key={index} className="mb-4 p-4 border border-gray-200 rounded shadow-sm">
                 <div className="flex items-center" >
                   <h3 className="text-xl font-bold">{food.name}</h3>
-                  <button className="text-red-500">x</button>
+                  <button className="text-red-500" onClick={() => deleteFoodItem("Supper", food.name)}>x</button>
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">

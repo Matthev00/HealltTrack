@@ -150,4 +150,10 @@ export interface Food {
     water_per_100g: number;
     quantity: number;
   }
+
+  export interface delete_food {
+    date_time: string,
+    food_name: string,
+    meal_type: string,
+  }
   
