@@ -77,13 +77,13 @@ def add_choosen_food():
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
-@app.route('/delete_food/<date>/<food_name>/<meal_type>', methods=['POST'])
-def delete_meal_food(date, food_name, meal_type):
+@app.route('/delete_food', methods=['POST'])
+def delete_meal_food():
     if request.method == 'POST':
-        request_data = {'date_time': date, 'food_name': food_name,
-                        'meal_type': meal_type, 'user_id': 1}
+        request_data = request.json
+        request_data['user_id'] = 1
         db = connect_to_db_meal()
-        db.delete_meal_food(request_data)
+        db.delete_food_from_meal(request_data)
         return jsonify({"message": "Data has been sent"}), 200
     else:
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
