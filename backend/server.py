@@ -77,6 +77,18 @@ def add_choosen_food():
         return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
+@app.route('/delete_food/<date>/<food_name>/<meal_type>', methods=['POST'])
+def delete_meal_food(date, food_name, meal_type):
+    if request.method == 'POST':
+        request_data = {'date_time': date, 'food_name': food_name,
+                        'meal_type': meal_type, 'user_id': 1}
+        db = connect_to_db_meal()
+        db.delete_meal_food(request_data)
+        return jsonify({"message": "Data has been sent"}), 200
+    else:
+        return jsonify({"error": "Unfortunately something gone wrong"}), 405
+
+
 @app.route('/activity_out', methods=['POST'])
 def add_performed_activity():
     if request.method == 'POST':
