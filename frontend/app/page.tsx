@@ -28,7 +28,9 @@ export default function MainPage() {
     color: `hsl(${i * (360 / 3)}, 70%, 50%)`,
   }));
 
-
+  function changeWeight(value: string) {
+    console.log("New weight:", value);
+  }
   return (
     <div className="w-full h-full flex-col">
       <div className="flex w-full justify-center pt-6">
@@ -53,9 +55,44 @@ export default function MainPage() {
         </div>
 
         <div className="flex flex-col w-[40%] pt-20">
-          <div className=" items-center ">Actual weight: </div>
-          <div className=" items-center pt-20 ">You only need to : </div>
+          <div className="items-center">Actual weight: </div>
+          <div className="flex items-center ">
+            <input
+              type="text"
+              className="pt-2 w-[20%] mr-2"
+              onChange={(event) => {
+                let value = event.target.value;
+                value = value.replace(/[^0-9,]/g, '');
+                if (value.length > 1 && value.charAt(0) === '0') {
+                  value = value.substring(1);
+                }
+                if (value.charAt(0) === ',' || value.charAt(0) === '0') {
+                  value = value.substring(1);
+                }
+                const parts = value.split(',');
+                if (parts[0].length > 3) {
+                  parts[0] = parts[0].substring(0, 3);
+                  value = parts.join(',');
+                }
+                if ((value.match(/,/g) || []).length > 1) {
+                  value = value.replace(/,/g, (match, offset) => offset ? "" : match);
+                }
+                if (parts.length > 1 && parts[1].length > 2) {
+                  parts[1] = parts[1].substring(0, 2);
+                  value = parts.join(',');
+                }
+                event.target.value = value;
+                if (value.trim() !== '') {
+                  changeWeight(value);
+                }
+              }}
+            />
+
+            <div>kg</div>
+          </div>
+          <div className="items-center pt-20">You only need to : </div>
         </div>
+
       </div>
     </div>
 
