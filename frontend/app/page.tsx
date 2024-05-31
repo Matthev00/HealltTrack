@@ -2,8 +2,8 @@
 
 import MainPageContext from "@/components/store/MainPageContext";
 import { macros } from "@/types";
-import { fetchMacrosFromDay } from "@/utils";
-import { useContext, useEffect, useState } from "react";
+import { addActualWeight, fetchActualWeight, fetchMacrosFromDay } from "@/utils";
+import { act, useContext, useEffect, useState } from "react";
 import { PieChart } from 'react-minimal-pie-chart';
 // ... other imports
 
@@ -16,9 +16,12 @@ export default function MainPage() {
     carbs: 0,
     water: 0,
   });
+  const [actualWeight, setActualWeight] = useState<string>("");
 
   useEffect(() => {
     fetchMacrosFromDay(1, mainPageCtx.actualDate).then(setDayMacros);
+    fetchActualWeight(mainPageCtx.actualDate).then(setActualWeight)
+    
   }, [mainPageCtx.actualDate]);
 
   // Prepare data for the chart
@@ -28,9 +31,10 @@ export default function MainPage() {
     color: `hsl(${i * (360 / 3)}, 70%, 50%)`,
   }));
 
-  function changeWeight(value: string) {
-    console.log("New weight:", value);
+  function changeWeight(actualWeight: string) {
+    addActualWeight(actualWeight, mainPageCtx.actualDate);
   }
+
   return (
     <div className="w-full h-full flex-col">
       <div className="flex w-full justify-center pt-6">
@@ -60,6 +64,7 @@ export default function MainPage() {
             <input
               type="text"
               className="pt-2 w-[20%] mr-2"
+              defaultValue={actualWeight}
               onChange={(event) => {
                 let value = event.target.value;
                 value = value.replace(/[^0-9,]/g, '');

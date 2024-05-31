@@ -1,4 +1,5 @@
-import {activity_entry, activity_in, activity_out, all_foods, delete_food, food_popup_in, food_popup_out, macros} from "@/types";
+import { activity_entry, activity_in, activity_out, all_foods, delete_food, food_popup_in, food_popup_out, macros } from "@/types";
+import { act } from "react";
 
 
 export async function fetchFoods() {
@@ -19,6 +20,31 @@ export async function deleteFood(food: delete_food) {
         },
         body: JSON.stringify(food),
     });
+}
+
+export async function addActualWeight(weight: string, date: string) {
+    await fetch("http://localhost:5000/body_measurement/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ weight: weight, date: date }),
+    });
+}
+
+export async function fetchActualWeight(date: string): Promise<string> {
+    try {
+        const response = await fetch("http://localhost:5000/body_measurement/get/" + date);
+        if (!response.ok) {
+            return "";
+        }
+        const actualWeight = await response.json();
+        const actualWeightString: string = JSON.parse(actualWeight);
+        return actualWeightString;
+    } catch (error) {
+        // Zwracamy pusty string bez logowania błędu
+        return "";
+    }
 }
 
 export async function fetchAllFoods(date: string) {
@@ -44,19 +70,19 @@ export async function fetchActivities() {
 
 const mockData = [
     {
-      user_id: 1,
-      date: "2024-05-16",
-      duration: 60,
-      activity_id: 1,
+        user_id: 1,
+        date: "2024-05-16",
+        duration: 60,
+        activity_id: 1,
     },
     {
-      user_id: 1,
-      date: "2024-05-16",
-      duration: 30,
-      activity_id: 2,
+        user_id: 1,
+        date: "2024-05-16",
+        duration: 30,
+        activity_id: 2,
     },
     // Add more mock activities as needed
-  ];
+];
 
 export async function fetchActivitiesFromDay(user_id: number, date: string) {
     const response = await fetch("http://localhost:5000/activity/" + user_id + "/" + date);
