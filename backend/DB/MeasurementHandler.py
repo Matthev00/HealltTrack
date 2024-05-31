@@ -42,6 +42,19 @@ class MeasurementHandler(DBHandler):
                 indent=4,
             )
 
+    def get_body_measurement_day(self, entry_dict: Dict) -> str:
+        user_id = entry_dict["user_id"]
+        date = entry_dict["date"]
+
+        query = self._get_query("get_body_measurement_day")
+        with self.connection.cursor() as cursor:
+            cursor.execute(query, {"user_id": user_id, "date_time": date})
+            rows = cursor.fetchall()
+            return json.dumps(
+                [{"date_time": row[0], "weight": row[1]} for row in rows],
+                indent=4,
+            )
+
 
 def main():
     folder_name = Path(__file__).parent
