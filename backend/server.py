@@ -159,7 +159,7 @@ def add_user_goal():
     return jsonify(user_goal)
 
 
-@app.route('/body_measurement/<id>', methods=['GET'])
+@app.route('/body_measurement/history/<id>', methods=['GET'])
 def get_body_measurement_history(id):
     db = connect_to_db_measurement()
     user_body_measurement = db.get_body_measurement_history(id)
@@ -168,13 +168,15 @@ def get_body_measurement_history(id):
 
 @app.route('/body_measurement/add', methods=['POST'])
 def add_body_measurement_specific_day():
-    db = connect_to_db_measurement()
-    date = request.json['date']
-    weight = request.json['weight']
-    body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
-    user_body_measurement = db.add_body_measurement_entry(
-        body_measurement_data)
-    return jsonify(user_body_measurement)
+    if request.method == 'POST':
+        db = connect_to_db_measurement()
+        date = request.json['date']
+        weight = request.json['weight']
+        body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
+        db.add_body_measurement_entry(body_measurement_data)
+        return jsonify({"message": "Data has been sent"}), 200
+    else:
+        return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
 @app.route('/body_measurement/get/<date>', methods=['GET'])
