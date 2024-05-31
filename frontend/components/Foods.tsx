@@ -99,7 +99,7 @@ function Foods({ onClose, mealType }: { onClose: () => void, mealType: string })
                     <div key={food.food_id} className={`pb-4 ${index !== filteredFoodList.length - 1 ? 'mb-8 border-b border-gray5-300' : ''}`} >
                         <div className="flex justify-between">
                             <div className="text-black overflow-wrap break-word max-w-[25rem]">
-                                {food.name} - {Math.round(food.calories_per_100 * parseFloat((grams[food.food_id] * amount[food.food_id]).toFixed(1)) / 100)} kalorii
+                                {food.name} - {Math.round(food.calories_per_100 * parseFloat((grams[food.food_id] * amount[food.food_id]).toFixed(1)) / 100)} calories
                             </div>
 
                             <button className="text-green-400" onClick={() => handleSaveFood(food.food_id)}>+</button>
@@ -120,7 +120,7 @@ function Foods({ onClose, mealType }: { onClose: () => void, mealType: string })
                             />
                             <span className="text-gray-500">x</span>
                             <select className="ml-2" onChange={(event) => handleSelectChange(event.target.value, food.food_id)}>
-                                <option value="serving">porcja ({food.serving}g)</option>
+                                <option value="serving">portion ({food.serving}g)</option>
                                 <option value="grams">g</option>
                             </select>
                         </div>

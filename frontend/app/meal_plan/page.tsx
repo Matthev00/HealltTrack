@@ -82,6 +82,8 @@ export default function MealPlan() {
     getAllMeals();
     getAllMeals();
     getAllMeals();
+    getAllMeals()
+    getAllMeals()
   }, [choosingFood]);
 
   useEffect(() => {
@@ -108,7 +110,9 @@ export default function MealPlan() {
           >
             +
           </button>
-          <div>{allFoods.Breakfast.kcal} kcal</div>
+          <div>
+            {allFoods.Breakfast.kcal < 0.2 ? 0 : allFoods.Breakfast.kcal.toFixed(1)} kcal
+          </div>
           <div>proteins: {allFoods.Breakfast.proteins} g</div>
           <div>fats: {allFoods.Breakfast.fats} g</div>
           <div>carbs: {allFoods.Breakfast.carbs} g</div>
@@ -122,7 +126,10 @@ export default function MealPlan() {
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
-                  <p>{(food.calories_per_100g * food.quantity / 100).toFixed(1)} kcal</p>
+                  <p>
+                    {(food.calories_per_100g * food.quantity / 100 < 0.2 ? 0 : (food.calories_per_100g * food.quantity / 100).toFixed(1))} kcal
+                  </p>
+
                   <p className="ml-4">p: {(food.proteins_per_100g * food.quantity / 100).toFixed(1)} </p>
                   <p className="ml-4">f: {(food.fats_per_100g * food.quantity / 100).toFixed(1)}</p>
                   <p className="ml-4">c: {(food.carbohydrates_per_100g * food.quantity / 100).toFixed(1)}</p>
@@ -142,7 +149,9 @@ export default function MealPlan() {
           >
             +
           </button>
-          <div>{allFoods.Lunch.kcal} kcal</div>
+          <div>
+            {allFoods.Lunch.kcal < 0.2 ? 0 : allFoods.Lunch.kcal.toFixed(1)} kcal
+          </div>
           <div>proteins: {allFoods.Lunch.proteins} g</div>
           <div>fats: {allFoods.Lunch.fats} g</div>
           <div>carbs: {allFoods.Lunch.carbs} g</div>
@@ -156,7 +165,10 @@ export default function MealPlan() {
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
-                  <p>{(food.calories_per_100g * food.quantity / 100).toFixed(1)} kcal</p>
+                  <p>
+                    {(food.calories_per_100g * food.quantity / 100 < 0.2 ? 0 : (food.calories_per_100g * food.quantity / 100).toFixed(1))} kcal
+                  </p>
+
                   <p className="ml-4">p: {(food.proteins_per_100g * food.quantity / 100).toFixed(1)} </p>
                   <p className="ml-4">f: {(food.fats_per_100g * food.quantity / 100).toFixed(1)}</p>
                   <p className="ml-4">c: {(food.carbohydrates_per_100g * food.quantity / 100).toFixed(1)}</p>
@@ -176,7 +188,9 @@ export default function MealPlan() {
           >
             +
           </button>
-          <div>{allFoods.Dinner.kcal} kcal</div>
+          <div>
+            {allFoods.Dinner.kcal < 0.2 ? 0 : allFoods.Dinner.kcal.toFixed(1)} kcal
+          </div>
           <div>proteins: {allFoods.Dinner.proteins} g</div>
           <div>fats: {allFoods.Dinner.fats} g</div>
           <div>carbs: {allFoods.Dinner.carbs} g</div>
@@ -190,7 +204,10 @@ export default function MealPlan() {
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
-                  <p>{(food.calories_per_100g * food.quantity / 100).toFixed(1)} kcal</p>
+                  <p>
+                    {(food.calories_per_100g * food.quantity / 100 < 0.2 ? 0 : (food.calories_per_100g * food.quantity / 100).toFixed(1))} kcal
+                  </p>
+
                   <p className="ml-4">p: {(food.proteins_per_100g * food.quantity / 100).toFixed(1)} </p>
                   <p className="ml-4">f: {(food.fats_per_100g * food.quantity / 100).toFixed(1)}</p>
                   <p className="ml-4">c: {(food.carbohydrates_per_100g * food.quantity / 100).toFixed(1)}</p>
@@ -211,7 +228,9 @@ export default function MealPlan() {
           >
             +
           </button>
-          <div>{allFoods.Snack.kcal} kcal</div>
+          <div>
+            {allFoods.Snack.kcal < 0.2 ? 0 : allFoods.Snack.kcal.toFixed(1)} kcal
+          </div>
           <div>proteins: {allFoods.Snack.proteins} g</div>
           <div>fats: {allFoods.Snack.fats} g</div>
           <div>carbs: {allFoods.Snack.carbs} g</div>
@@ -225,7 +244,10 @@ export default function MealPlan() {
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
-                  <p>{(food.calories_per_100g * food.quantity / 100).toFixed(1)} kcal</p>
+                  <p>
+                    {(food.calories_per_100g * food.quantity / 100 < 0.2 ? 0 : (food.calories_per_100g * food.quantity / 100).toFixed(1))} kcal
+                  </p>
+
                   <p className="ml-4">p: {(food.proteins_per_100g * food.quantity / 100).toFixed(1)} </p>
                   <p className="ml-4">f: {(food.fats_per_100g * food.quantity / 100).toFixed(1)}</p>
                   <p className="ml-4">c: {(food.carbohydrates_per_100g * food.quantity / 100).toFixed(1)}</p>
@@ -246,7 +268,9 @@ export default function MealPlan() {
           >
             +
           </button>
-          <div>{allFoods.Supper.kcal} kcal</div>
+          <div>
+            {allFoods.Supper.kcal < 0.2 ? 0 : allFoods.Supper.kcal.toFixed(1)} kcal
+          </div>
           <div>proteins: {allFoods.Supper.proteins} g</div>
           <div>fats: {allFoods.Supper.fats} g</div>
           <div>carbs: {allFoods.Supper.carbs} g</div>
@@ -260,7 +284,10 @@ export default function MealPlan() {
                 </div>
                 <p>{food.quantity} g</p>
                 <div className="flex">
-                  <p>{(food.calories_per_100g * food.quantity / 100).toFixed(1)} kcal</p>
+                  <p>
+                    {(food.calories_per_100g * food.quantity / 100 < 0.5 ? 0 : (food.calories_per_100g * food.quantity / 100).toFixed(1))} kcal
+                  </p>
+
                   <p className="ml-4">p: {(food.proteins_per_100g * food.quantity / 100).toFixed(1)} </p>
                   <p className="ml-4">f: {(food.fats_per_100g * food.quantity / 100).toFixed(1)}</p>
                   <p className="ml-4">c: {(food.carbohydrates_per_100g * food.quantity / 100).toFixed(1)}</p>
