@@ -166,9 +166,11 @@ def get_body_measurement_history(id):
     return jsonify(user_body_measurement)
 
 
-@app.route('/body_measurement/add/<date>/<weight>', methods=['POST'])
-def add_body_measurement_specific_day(date, weight):
+@app.route('/body_measurement/add', methods=['POST'])
+def add_body_measurement_specific_day():
     db = connect_to_db_measurement()
+    date = request.json['date']
+    weight = request.json['weight']
     body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
     user_body_measurement = db.add_body_measurement_entry(
         body_measurement_data)
