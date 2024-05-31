@@ -48,10 +48,10 @@ class MeasurementHandler(DBHandler):
 
         query = self._get_query("get_body_measurement_day")
         with self.connection.cursor() as cursor:
-            cursor.execute(query, {"user_id": user_id, "date_time": date})
-            rows = cursor.fetchall()
+            cursor.execute(query, {"user_id": user_id, "query_date": date})
+            result = cursor.fetchone()
             return json.dumps(
-                [{"date_time": row[0], "weight": row[1]} for row in rows],
+                {"date_time": result[0], "weight": result[1]},
                 indent=4,
             )
 
@@ -63,7 +63,7 @@ def main():
     db = MeasurementHandler(wallet_credentials=wallet_credentials)
 
     db.add_body_measurement_entry(
-        {"user_id": 1, "date": "19-04-2024-14", "weight": 70}
+        {"user_id": 1, "date": "31-05-2024-12", "weight": 70}
     )  #
 
     exemples = folder_name / "examples"
@@ -71,6 +71,9 @@ def main():
         exemples / "body_measurement_history.json", "w", encoding="utf-8"
     ) as f:  #
         f.write(db.get_body_measurement_history(1))
+
+    with open(exemples / "body_measurement_day.json", "w", encoding="utf-8") as f:
+        f.write(db.get_body_measurement_day({"user_id": 1, "date": "31-05-2024"}))
 
 
 if __name__ == "__main__":
