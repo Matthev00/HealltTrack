@@ -138,10 +138,49 @@ def get_user_goals(id, date):
     return jsonify(user_goals)
 
 
+@app.route('/user_goal/get', methods=['GET'])
+def get_user_goal():
+    db = connect_to_db_goal()
+    date = request.json['date']
+    user_goal_data = {'user_id': 1, 'date': date}
+    user_goals = db.get_user_goal(user_goal_data)
+    return jsonify(user_goals)
+
+
+@app.route('/user_goal/add', methods=['POST'])
+def add_user_goal():
+    db = connect_to_db_goal()
+    user_goal_data = {'user_id': 1,
+                      'goal_type': 'lose_weight',
+                      'target_weight': request.json['target_weight'],
+                      'start_date': request.json['start_date'],
+                      'end_date': request.json['end_date']}
+    user_goal = db.set_user_goal(user_goal_data)
+    return jsonify(user_goal)
+
+
 @app.route('/body_measurement/<id>', methods=['GET'])
 def get_body_measurement_history(id):
     db = connect_to_db_measurement()
     user_body_measurement = db.get_body_measurement_history(id)
+    return jsonify(user_body_measurement)
+
+
+@app.route('/body_measurement/add/<date>/<weight>', methods=['POST'])
+def add_body_measurement_specific_day(date, weight):
+    db = connect_to_db_measurement()
+    body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
+    user_body_measurement = db.add_body_measurement_entry(
+        body_measurement_data)
+    return jsonify(user_body_measurement)
+
+
+@app.route('/body_measurement/get/<date>', methods=['GET'])
+def get_body_measurement_specific_day(date):
+    db = connect_to_db_measurement()
+    body_measurement_data = {'user_id': 1, 'date': date}
+    user_body_measurement = db.get_body_measurement_day(
+        body_measurement_data)
     return jsonify(user_body_measurement)
 
 

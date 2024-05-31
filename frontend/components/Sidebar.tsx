@@ -60,12 +60,13 @@ function Sidebar() {
                 <a href="/activities" target="_self" rel="noreferrer" className="w-5/6 text-center">
                     <button className={`${pathname == "/activities" ? activeColor : inactiveColor}` + " hover:bg-blue-900 w-full relative my-2 text-white font-bold py-2 px-5 rounded-lg"}>Activities</button>
                 </a>
+                
 
                 <div className={`${pathname == "/" ? 'block' : 'hidden'}`}>
 
                     <Box style={{ backgroundColor: 'white', marginTop: '20px' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeMainPage} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
+                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeMainPage} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}></span>} />
                         </LocalizationProvider>
                     </Box>
 
@@ -75,7 +76,7 @@ function Sidebar() {
 
                     <Box style={{ backgroundColor: 'white', marginTop: '20px' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeMealPlan} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
+                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeMealPlan} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}></span>} />
                         </LocalizationProvider>
                     </Box>
 
@@ -85,7 +86,7 @@ function Sidebar() {
 
                     <Box style={{ backgroundColor: 'white', marginTop: '20px' }}>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeActivities} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}>Select Date</span>} />
+                            <DatePicker format="DD-MM-YYYY" views={["year", "month", "day"]} value={selectedDate} onChange={handleDateChangeActivities} label={<span style={{ color: 'blue', fontWeight: 'bold', fontSize: '20px' }}></span>} />
                         </LocalizationProvider>
                     </Box>
 
