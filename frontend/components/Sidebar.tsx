@@ -60,6 +60,9 @@ function Sidebar() {
                 <a href="/activities" target="_self" rel="noreferrer" className="w-5/6 text-center">
                     <button className={`${pathname == "/activities" ? activeColor : inactiveColor}` + " hover:bg-blue-900 w-full relative my-2 text-white font-bold py-2 px-5 rounded-lg"}>Activities</button>
                 </a>
+                <a href="/goals" target="_self" rel="noreferrer" className="w-5/6 text-center">
+                    <button className={`${pathname == "/goals" ? activeColor : inactiveColor}` + " hover:bg-blue-900 w-full relative my-2 text-white font-bold py-2 px-5 rounded-lg"}>Goals</button>
+                </a>
 
                 <div className={`${pathname == "/" ? 'block' : 'hidden'}`}>
 
