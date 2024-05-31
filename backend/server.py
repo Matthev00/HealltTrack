@@ -145,5 +145,23 @@ def get_body_measurement_history(id):
     return jsonify(user_body_measurement)
 
 
+@app.route('/body_measurement/add/<date>/<weight>', methods=['POST'])
+def add_body_measurement_specific_day(date, weight):
+    db = connect_to_db_measurement()
+    body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
+    user_body_measurement = db.add_body_measurement_entry(
+        body_measurement_data)
+    return jsonify(user_body_measurement)
+
+
+@app.route('/body_measurement/get/<date>', methods=['GET'])
+def get_body_measurement_specific_day(date):
+    db = connect_to_db_measurement()
+    body_measurement_data = {'user_id': 1, 'date': date}
+    user_body_measurement = db.get_body_measurement_day(
+        body_measurement_data)
+    return jsonify(user_body_measurement)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
