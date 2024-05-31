@@ -50,10 +50,15 @@ class MeasurementHandler(DBHandler):
         with self.connection.cursor() as cursor:
             cursor.execute(query, {"user_id": user_id, "query_date": date})
             result = cursor.fetchone()
-            return json.dumps(
-                {"date_time": result[0], "weight": result[1]},
-                indent=4,
-            )
+            if result:
+                return json.dumps(
+                    {"date_time": result[0], "weight": result[1]},
+                    indent=4,
+                )
+        return json.dumps(
+            {"date_time": date, "weight": "No data"},
+            indent=4,
+        )
 
 
 def main():

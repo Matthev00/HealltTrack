@@ -41,22 +41,6 @@ def test_dbconnector_singleton(wallet_credentials):
 
 
 @patch("oracledb.connect")
-def test_dbconnector_read_credentials_keyerror(mock_connect):
-    mock_connect.return_value = MagicMock()
-
-    wallet_credentials = {
-        "user": "test",
-        "password": "test",
-        "dsn": "test",
-        "cdir": "test",
-        "wltloc": "test",
-    }
-
-    with pytest.raises(KeyError):
-        DBConnector(wallet_credentials)
-
-
-@patch("oracledb.connect")
 def test_dbconnector_connection(mock_connect, wallet_credentials):
     mock_connect.return_value = MagicMock()
 

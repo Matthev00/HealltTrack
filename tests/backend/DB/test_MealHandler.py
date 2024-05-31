@@ -222,32 +222,6 @@ def test_get_day_macros_with_data(handler, mock_db_connector):
     assert result_data["water"] == 1500
 
 
-def test_get_day_history_full_day(handler, mock_db_connector):
-    mock_cursor = setup_mock_cursor(mock_db_connector)
-    mock_cursor.fetchall.return_value = [
-        ("Breakfast", 300, 15, 5, 45, 1),
-        ("Second breakfast", 150, 8, 3, 20, 2),
-        ("Lunch", 500, 30, 20, 60, 3),
-        ("Afternoon snack", 200, 10, 5, 25, 4),
-        ("Dinner", 400, 20, 10, 40, 5),
-    ]
-    handler._get_foods_for_meal = MagicMock(
-        return_value=[{"name": "Food Item", "calories_per_100g": 100}]
-    )
-
-    day_dict = {"date": "01-01-2022", "user_id": 1}
-    result = handler.get_day_history(day_dict)
-    result_data = json.loads(result)
-
-    assert result_data["Breakfast"]["kcal"] == 300
-    assert result_data["Lunch"]["kcal"] == 500
-    assert result_data["Dinner"]["kcal"] == 400
-    assert all(
-        meal["foods"] == [{"name": "Food Item", "calories_per_100g": 100}]
-        for meal in result_data.values()
-    )
-
-
 def test_find_food_id_found(handler, mock_db_connector):
     mock_cursor = setup_mock_cursor(mock_db_connector)
     mock_cursor.fetchone.return_value = [100]

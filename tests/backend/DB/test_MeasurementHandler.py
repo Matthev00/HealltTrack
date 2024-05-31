@@ -68,3 +68,31 @@ def test_get_body_measurement_history(handler, mock_db_connector):
 
     assert result == expected_result
     mock_cursor.execute.assert_called_once()
+
+
+def test_get_body_measurement_day(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchone.return_value = ("02-01-2022", 72)
+
+    user_dict = {"user_id": 1, "date": "02-01-2022"}
+    result = handler.get_body_measurement_day(user_dict)
+    expected_result = json.dumps(
+        {"date_time": "02-01-2022", "weight": 72},
+        indent=4,
+    )
+
+    assert result == expected_result
+
+
+def test_get_body_measurement_day_no_data(handler, mock_db_connector):
+    mock_cursor = setup_mock_cursor(mock_db_connector)
+    mock_cursor.fetchone.return_value = ()
+
+    user_dict = {"user_id": 1, "date": "02-01-2022"}
+    result = handler.get_body_measurement_day(user_dict)
+    expected_result = json.dumps(
+        {"date_time": "02-01-2022", "weight": "No data"},
+        indent=4,
+    )
+
+    assert result == expected_result
