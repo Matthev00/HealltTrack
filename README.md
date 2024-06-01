@@ -51,8 +51,10 @@ The Health Tracker application leverages a range of modern technologies for both
 - oracledb: Is used to connect the backend application to the Oracle DB.
 - bcrypt: Used for password hashing and encryption.
 ### Frontend
-- Node.js
+- Node.ts
 - React
+- CSS
+- tailwind
 
 
 ## How to run
