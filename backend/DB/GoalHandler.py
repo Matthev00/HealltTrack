@@ -30,19 +30,19 @@ class GoalHandler(DBHandler):
             if result:
                 return json.dumps(
                     {
-                        "goal_type": result[0],
+                        # "goal_type": result[0],
                         "target_weight": result[1],
-                        "start_date": result[2],
-                        "end_date": result[3],
+                        # "start_date": result[2],
+                        # "end_date": result[3],
                     },
                     indent=4,
                 )
             return json.dumps(
                 {
-                    "goal_type": "No goal set",
-                    "target_weight": "",
-                    "start_date": "",
-                    "end_date": "",
+                    # "goal_type": "No goal set",
+                    "target_weight": "No goal set",
+                    # "start_date": "",
+                    # "end_date": "",
                 },
                 indent=4,
             )

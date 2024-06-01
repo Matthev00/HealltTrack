@@ -135,37 +135,32 @@ def get_goal_type_list():
     return jsonify(goal_type_list)
 
 
-@app.route("/user_goal/<id>/<date>", methods=["GET"])
-def get_user_goals(id, date):
-    db = connect_to_db_goal()
-    user_goal_data = {"user_id": id, "date": date}
-    user_goals = db.get_user_goal(user_goal_data)
-    return jsonify(user_goals)
-
-
 @app.route("/user_goal/get", methods=["GET"])
 def get_user_goal():
     db = connect_to_db_goal()
-    date = request.json["date"]
+    date = datetime.now().strftime("%d-%m-%Y")
     user_goal_data = {"user_id": 1, "date": date}
     user_goals = db.get_user_goal(user_goal_data)
-    return jsonify(user_goals)
+    return user_goals
 
 
 @app.route("/user_goal/add", methods=["POST"])
 def add_user_goal():
-    db = connect_to_db_goal()
-    today = datetime.now().strftime("%d-%m-%Y")
-    end_date = ((datetime.now() + timedelta(weeks=2)).strftime("%d-%m-%Y"),)
-    user_goal_data = {
-        "user_id": 1,
-        "goal_type": "lose_weight",
-        "target_weight": request,
-        "start_date": today,
-        "end_date": end_date,
-    }
-    user_goal = db.set_user_goal(user_goal_data)
-    return jsonify(user_goal)
+    if request.method == "POST":
+        db = connect_to_db_goal()
+        today = datetime.now().strftime("%d-%m-%Y")
+        end_date = (datetime.now() + timedelta(weeks=2)).strftime("%d-%m-%Y")
+        user_goal_data = {
+            "user_id": 1,
+            "goal_type": 1,
+            "target_weight": request.json["target_weight"],
+            "start_date": today,
+            "end_date": end_date,
+        }
+        db.set_user_goal(user_goal_data)
+        return jsonify({"message": "Data has been sent"}), 200
+    else:
+        return jsonify({"error": "Unfortunately something gone wrong"}), 405
 
 
 @app.route("/body_measurement/history/<id>", methods=["GET"])
