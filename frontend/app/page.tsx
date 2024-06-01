@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import MainPageContext from "@/components/store/MainPageContext";
 import { macros } from "@/types";
-import { addActualWeight, fetchActualWeight, fetchMacrosFromDay } from "@/utils";
+import { addActualWeight, fetchActualWeight, fetchMacrosFromDay, addGoalWeight, fetchGoal } from "@/utils";
 import { useContext, useEffect, useState } from "react";
 import { PieChart } from 'react-minimal-pie-chart';
 // ... other imports
@@ -10,7 +10,9 @@ import { PieChart } from 'react-minimal-pie-chart';
 export default function MainPage() {
   const mainPageCtx = useContext(MainPageContext);
   const [inputValue, setInputValue] = useState<string>("");
+  const [goalValue, setGoalValue] = useState<string>("");
   const [debouncedValue, setDebouncedValue] = useState<string>("");
+  const [debouncedGoalValue, setDebouncedGoalValue] = useState<string>("");
   const [dayMacros, setDayMacros] = useState<macros>({
     kcal: 0,
     proteins: 0,
@@ -25,7 +27,9 @@ export default function MainPage() {
         const macrosData = await fetchMacrosFromDay(1, mainPageCtx.actualDate);
         setDayMacros(macrosData);
         const weightData = await fetchActualWeight(mainPageCtx.actualDate);
-        setInputValue(weightData)
+        setInputValue(weightData);
+        const goal = await fetchGoal();
+        setGoalValue(goal); // Reset goal weight when date changes
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -34,71 +38,106 @@ export default function MainPage() {
     fetchData();
   }, [mainPageCtx.actualDate]);
 
-  // Prepare data for the chart
+  useEffect(() => {
+    const inputHandler = setTimeout(() => {
+      setDebouncedValue(inputValue);
+    }, 3000); // 3000 ms = 3 seconds
+
+    return () => {
+      clearTimeout(inputHandler);
+    };
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (debouncedValue.trim() !== '') {
+      addActualWeight(debouncedValue, mainPageCtx.actualDate);
+    }
+  }, [debouncedValue]);
+
+  useEffect(() => {
+    const goalHandler = setTimeout(() => {
+      setDebouncedGoalValue(goalValue);
+    }, 3000); // 3000 ms = 3 seconds
+
+    return () => {
+      clearTimeout(goalHandler);
+    };
+  }, [goalValue]);
+
+  useEffect(() => {
+    if (debouncedGoalValue.trim() !== '') {
+      addGoalWeight(debouncedGoalValue);
+    }
+  }, [debouncedGoalValue]);
+
   const chartData = (['proteins', 'fats', 'carbs'] as (keyof macros)[]).map((key, i) => ({
     title: key,
     value: dayMacros[key],
     color: `hsl(${i * (360 / 3)}, 70%, 50%)`,
   }));
 
-  const changeWeight = (actualWeight: string) => {
-    addActualWeight(actualWeight, mainPageCtx.actualDate);
-  };
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(inputValue);
-    }, 3000); // 3000 ms = 3 seconds
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [inputValue]);
-
-  useEffect(() => {
-    if (debouncedValue.trim() !== '') {
-      changeWeight(debouncedValue);
-    }
-  }, [debouncedValue]);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.target.value;
-    // Usuwanie znaków innych niż cyfry i kropka
-    value = value.replace(/[^0-9.]/g, '');
+    // Remove non-numeric characters and leading zeros
+    value = value.replace(/[^0-9.]/g, '').replace(/^0+(?!$)/, '');
 
-    // Usuwanie wiodącego zera, jeśli jest więcej niż jedna cyfra
-    if (value.length > 1 && value.charAt(0) === '0') {
-      value = value.substring(1);
-    }
-
-    // Usuwanie wiodącej kropki
+    // Remove leading dot
     if (value.charAt(0) === '.') {
       value = value.substring(1);
     }
 
-    // Dzielenie wartości na części przed i po kropce
     const parts = value.split('.');
 
-    // Ograniczenie liczby cyfr przed kropką do 3
+    // Limit digits before dot to 3
     if (parts[0].length > 3) {
       parts[0] = parts[0].substring(0, 3);
       value = parts.join('.');
     }
 
-    // Ograniczenie liczby kropek do jednej
+    // Limit only one dot
     if ((value.match(/\./g) || []).length > 1) {
       value = value.replace(/\./g, (match, offset) => offset ? "" : match);
     }
 
-    // Ograniczenie liczby cyfr po kropce do 2
+    // Limit digits after dot to 2
+    if (parts.length > 1 && parts[1].length > 2) {
+      parts[1] = parts[1].substring(0, 2);
+      value = parts.join('.');
+    }
+    setInputValue(value);
+  };
+
+  const handleGoalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let value = event.target.value;
+    // Remove non-numeric characters and leading zeros
+    value = value.replace(/[^0-9.]/g, '').replace(/^0+(?!$)/, '');
+
+    // Remove leading dot
+    if (value.charAt(0) === '.') {
+      value = value.substring(1);
+    }
+
+    const parts = value.split('.');
+
+    // Limit digits before dot to 3
+    if (parts[0].length > 3) {
+      parts[0] = parts[0].substring(0, 3);
+      value = parts.join('.');
+    }
+
+    // Limit only one dot
+    if ((value.match(/\./g) || []).length > 1) {
+      value = value.replace(/\./g, (match, offset) => offset ? "" : match);
+    }
+
+    // Limit digits after dot to 2
     if (parts.length > 1 && parts[1].length > 2) {
       parts[1] = parts[1].substring(0, 2);
       value = parts.join('.');
     }
 
-    setInputValue(value);
+    setGoalValue(value);
   };
-
 
   return (
     <div className="w-full h-full flex-col">
@@ -136,10 +175,17 @@ export default function MainPage() {
           </div>
           <div className="items-center pt-8">Goal weight: </div>
           <div className="flex items-center ">
+            <input
+              type="text"
+              className="pt-2 w-[20%] mr-2"
+              value={goalValue}
+              onChange={handleGoalChange}
+            />
             <div>kg</div>
           </div>
         </div>
       </div>
     </div>
   );
+
 }
