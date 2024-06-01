@@ -37,14 +37,29 @@ export async function addActualWeight(weight: string, date: string) {
     });
 }
 
-export async function addGoal(goal: string) {
-    await fetch("http://localhost:5000/body_measurement/add", {
+export async function addGoalWeight(goal: string) {
+    console.log(goal)
+    await fetch("http://localhost:5000/user_goal/add", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ }),
+        body: JSON.stringify({target_weight: goal }),
     });
+}
+
+export async function fetchGoal() {
+    try {
+        const response = await fetch("http://localhost:5000/user_goal/get");
+        if (!response.ok) {
+            return "";
+        }
+        const goalWeight = await response.json();
+        return String(goalWeight.target_weight);
+    } catch (error) {
+        // Zwracamy pusty string bez logowania błędu
+        return "";
+    }
 }
 
 export async function fetchActualWeight(date: string) {
