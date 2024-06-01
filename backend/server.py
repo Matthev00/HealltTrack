@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import sys
 import json
+import datetime
 
 sys.path.append("backend/DB")
 from MealHandler import MealHandler  # noqa 5501
@@ -11,6 +12,10 @@ from MeasurementHandler import MeasurementHandler  # noqa 5501
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+
+
+def get_current_time() -> str:
+    return datetime.datetime.now().strftime("%H-%M-%S")
 
 
 def connect_to_db_meal():
@@ -171,6 +176,8 @@ def add_body_measurement_specific_day():
     if request.method == 'POST':
         db = connect_to_db_measurement()
         date = request.json['date']
+        time = get_current_time()
+        date += "-" + time
         weight = request.json['weight']
         body_measurement_data = {'user_id': 1, 'date': date, 'weight': weight}
         db.add_body_measurement_entry(body_measurement_data)
@@ -185,8 +192,9 @@ def get_body_measurement_specific_day(date):
     body_measurement_data = {'user_id': 1, 'date': date}
     user_body_measurement = db.get_body_measurement_day(
         body_measurement_data)
-    return jsonify(user_body_measurement)
+    return user_body_measurement
 
 
 if __name__ == "__main__":
+    db = connect_to_db_measurement()
     app.run(debug=True, port=5000)
