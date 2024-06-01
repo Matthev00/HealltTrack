@@ -1,6 +1,10 @@
 import { activity_entry, activity_in, activity_out, all_foods, delete_food, food_popup_in, food_popup_out, macros } from "@/types";
 import { act } from "react";
 
+type ActualWeight = {
+    date_time: string;
+    weight: number;
+};
 
 export async function fetchFoods() {
     const response = await fetch("http://localhost:5000/popup_food");
@@ -23,6 +27,7 @@ export async function deleteFood(food: delete_food) {
 }
 
 export async function addActualWeight(weight: string, date: string) {
+    console.log(weight, date)
     await fetch("http://localhost:5000/body_measurement/add", {
         method: "POST",
         headers: {
@@ -32,15 +37,24 @@ export async function addActualWeight(weight: string, date: string) {
     });
 }
 
-export async function fetchActualWeight(date: string): Promise<string> {
+export async function addGoal(goal: string) {
+    await fetch("http://localhost:5000/body_measurement/add", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ }),
+    });
+}
+
+export async function fetchActualWeight(date: string) {
     try {
         const response = await fetch("http://localhost:5000/body_measurement/get/" + date);
         if (!response.ok) {
             return "";
         }
         const actualWeight = await response.json();
-        const actualWeightString: string = JSON.parse(actualWeight);
-        return actualWeightString;
+        return String(actualWeight.weight);
     } catch (error) {
         // Zwracamy pusty string bez logowania błędu
         return "";

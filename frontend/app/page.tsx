@@ -3,12 +3,14 @@
 import MainPageContext from "@/components/store/MainPageContext";
 import { macros } from "@/types";
 import { addActualWeight, fetchActualWeight, fetchMacrosFromDay } from "@/utils";
-import { act, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PieChart } from 'react-minimal-pie-chart';
 // ... other imports
 
 export default function MainPage() {
   const mainPageCtx = useContext(MainPageContext);
+  const [inputValue, setInputValue] = useState<string>("");
+  const [debouncedValue, setDebouncedValue] = useState<string>("");
   const [dayMacros, setDayMacros] = useState<macros>({
     kcal: 0,
     proteins: 0,
@@ -16,12 +18,20 @@ export default function MainPage() {
     carbs: 0,
     water: 0,
   });
-  const [actualWeight, setActualWeight] = useState<string>("");
 
   useEffect(() => {
-    fetchMacrosFromDay(1, mainPageCtx.actualDate).then(setDayMacros);
-    fetchActualWeight(mainPageCtx.actualDate).then(setActualWeight)
-    
+    const fetchData = async () => {
+      try {
+        const macrosData = await fetchMacrosFromDay(1, mainPageCtx.actualDate);
+        setDayMacros(macrosData);
+        const weightData = await fetchActualWeight(mainPageCtx.actualDate);
+        setInputValue(weightData)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, [mainPageCtx.actualDate]);
 
   // Prepare data for the chart
@@ -31,9 +41,64 @@ export default function MainPage() {
     color: `hsl(${i * (360 / 3)}, 70%, 50%)`,
   }));
 
-  function changeWeight(actualWeight: string) {
+  const changeWeight = (actualWeight: string) => {
     addActualWeight(actualWeight, mainPageCtx.actualDate);
-  }
+  };
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(inputValue);
+    }, 3000); // 3000 ms = 3 seconds
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (debouncedValue.trim() !== '') {
+      changeWeight(debouncedValue);
+    }
+  }, [debouncedValue]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let value = event.target.value;
+    // Usuwanie znaków innych niż cyfry i kropka
+    value = value.replace(/[^0-9.]/g, '');
+
+    // Usuwanie wiodącego zera, jeśli jest więcej niż jedna cyfra
+    if (value.length > 1 && value.charAt(0) === '0') {
+      value = value.substring(1);
+    }
+
+    // Usuwanie wiodącej kropki
+    if (value.charAt(0) === '.') {
+      value = value.substring(1);
+    }
+
+    // Dzielenie wartości na części przed i po kropce
+    const parts = value.split('.');
+
+    // Ograniczenie liczby cyfr przed kropką do 3
+    if (parts[0].length > 3) {
+      parts[0] = parts[0].substring(0, 3);
+      value = parts.join('.');
+    }
+
+    // Ograniczenie liczby kropek do jednej
+    if ((value.match(/\./g) || []).length > 1) {
+      value = value.replace(/\./g, (match, offset) => offset ? "" : match);
+    }
+
+    // Ograniczenie liczby cyfr po kropce do 2
+    if (parts.length > 1 && parts[1].length > 2) {
+      parts[1] = parts[1].substring(0, 2);
+      value = parts.join('.');
+    }
+
+    setInputValue(value);
+  };
+
 
   return (
     <div className="w-full h-full flex-col">
@@ -64,83 +129,17 @@ export default function MainPage() {
             <input
               type="text"
               className="pt-2 w-[20%] mr-2"
-              defaultValue={actualWeight}
-              onChange={(event) => {
-                let value = event.target.value;
-                value = value.replace(/[^0-9,]/g, '');
-                if (value.length > 1 && value.charAt(0) === '0') {
-                  value = value.substring(1);
-                }
-                if (value.charAt(0) === ',' || value.charAt(0) === '0') {
-                  value = value.substring(1);
-                }
-                const parts = value.split(',');
-                if (parts[0].length > 3) {
-                  parts[0] = parts[0].substring(0, 3);
-                  value = parts.join(',');
-                }
-                if ((value.match(/,/g) || []).length > 1) {
-                  value = value.replace(/,/g, (match, offset) => offset ? "" : match);
-                }
-                if (parts.length > 1 && parts[1].length > 2) {
-                  parts[1] = parts[1].substring(0, 2);
-                  value = parts.join(',');
-                }
-                event.target.value = value;
-                if (value.trim() !== '') {
-                  changeWeight(value);
-                }
-              }}
+              value={inputValue}
+              onChange={handleChange}
             />
-
             <div>kg</div>
           </div>
           <div className="items-center pt-8">Goal weight: </div>
           <div className="flex items-center ">
-            <input
-              type="text"
-              className="pt-2 w-[20%] mr-2"
-              onChange={(event) => {
-                let value = event.target.value;
-                value = value.replace(/[^0-9,]/g, '');
-                if (value.length > 1 && value.charAt(0) === '0') {
-                  value = value.substring(1);
-                }
-                if (value.charAt(0) === ',' || value.charAt(0) === '0') {
-                  value = value.substring(1);
-                }
-                const parts = value.split(',');
-                if (parts[0].length > 3) {
-                  parts[0] = parts[0].substring(0, 3);
-                  value = parts.join(',');
-                }
-                if ((value.match(/,/g) || []).length > 1) {
-                  value = value.replace(/,/g, (match, offset) => offset ? "" : match);
-                }
-                if (parts.length > 1 && parts[1].length > 2) {
-                  parts[1] = parts[1].substring(0, 2);
-                  value = parts.join(',');
-                }
-                event.target.value = value;
-                if (value.trim() !== '') {
-                  changeWeight(value);
-                }
-              }}
-            />
-
             <div>kg</div>
           </div>
-        </div> 
-
+        </div>
       </div>
     </div>
-
-
-
-
   );
 }
-
-
-
-
