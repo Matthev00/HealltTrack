@@ -20,6 +20,7 @@ export default function MainPage() {
     carbs: 0,
     water: 0,
   });
+  const [weightDifference, setWeightDifference] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +52,7 @@ export default function MainPage() {
   useEffect(() => {
     if (debouncedValue.trim() !== '') {
       addActualWeight(debouncedValue, mainPageCtx.actualDate);
+      updateWeightDifference(debouncedValue, goalValue);
     }
   }, [debouncedValue]);
 
@@ -67,8 +69,20 @@ export default function MainPage() {
   useEffect(() => {
     if (debouncedGoalValue.trim() !== '') {
       addGoalWeight(debouncedGoalValue);
+      updateWeightDifference(inputValue, debouncedGoalValue);
     }
   }, [debouncedGoalValue]);
+
+  const updateWeightDifference = (actualWeight: string, goalWeight: string) => {
+    const actual = parseFloat(actualWeight);
+    const goal = parseFloat(goalWeight);
+    if (!isNaN(actual) && !isNaN(goal)) {
+      const difference = goal - actual;
+      setWeightDifference(difference);
+    } else {
+      setWeightDifference(null);
+    }
+  };
 
   const chartData = (['proteins', 'fats', 'carbs'] as (keyof macros)[]).map((key, i) => ({
     title: key,
@@ -183,9 +197,18 @@ export default function MainPage() {
             />
             <div>kg</div>
           </div>
+          <div className="items-center pt-8">
+            You need to{" "}
+            {weightDifference !== null && (
+              <span>
+                {weightDifference > 0
+                  ? `gain ${weightDifference.toFixed(2)} kg`
+                  : `lose ${Math.abs(weightDifference).toFixed(2)} kg`}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
-
 }
