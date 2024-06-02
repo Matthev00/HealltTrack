@@ -138,7 +138,7 @@ def get_goal_type_list():
 @app.route("/user_goal/get", methods=["GET"])
 def get_user_goal():
     db = connect_to_db_goal()
-    date = datetime.now().strftime("%d-%m-%Y")
+    date = datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
     user_goal_data = {"user_id": 1, "date": date}
     user_goals = db.get_user_goal(user_goal_data)
     return user_goals
@@ -148,7 +148,7 @@ def get_user_goal():
 def add_user_goal():
     if request.method == "POST":
         db = connect_to_db_goal()
-        today = datetime.now().strftime("%d-%m-%Y")
+        today = datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
         end_date = (datetime.now() + timedelta(weeks=2)).strftime("%d-%m-%Y")
         user_goal_data = {
             "user_id": 1,
