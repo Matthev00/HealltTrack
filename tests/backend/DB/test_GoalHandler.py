@@ -74,10 +74,7 @@ def test_get_user_goal_found(handler, mock_db_connector):
     result = handler.get_user_goal(goal_dict)
     expected_result = json.dumps(
         {
-            "goal_type": "Weight Loss",
             "target_weight": 70,
-            "start_date": "01-01-2022",
-            "end_date": "31-12-2022",
         },
         indent=4,
     )
@@ -94,10 +91,7 @@ def test_get_user_goal_not_found(handler, mock_db_connector):
     result = handler.get_user_goal(goal_dict)
     expected_result = json.dumps(
         {
-            "goal_type": "No goal set",
-            "target_weight": "",
-            "start_date": "",
-            "end_date": "",
+            "target_weight": "No goal set",
         },
         indent=4,
     )
